@@ -3,7 +3,7 @@ import EyeIcon from '../../../assets/images/svg/EyeIcon.svg';
 import ArrowBack from '../../../assets/images/png/arrow-back.png';
 import CooperaLogo from '../../../assets/images/svg/CooperaLogo.svg';
 
-const RegistrationPage = () => {
+const Login = () => {
   return (
     <div className="flex h-screen overflow-y-hidden pt-0">
       <div className="w-1/2 bg-purple-700 flex items-center justify-center">
@@ -27,35 +27,12 @@ const RegistrationPage = () => {
         /> */}
       </div>
 
-      <div className="w-1/2 p-8 -mt-8 pt-20">
+      <div className="w-1/2 p-8 mt-40">
         <img src={CooperaLogo} alt="Logo" className="h-8 w-8 -mt-6" />
-        <h2 className="text-1xl font-bold foto-mono pt-2 mb-6">Get Started</h2>
+        <h2 className="text-1xl font-bold foto-mono pt-2 mb-6">Welcome back!</h2>
         <form className="">
-          <div className="mb-2">
-            <label className="text-xs font-bold">Company Name</label> <br />
-            <input
-              className="w-full h-8 px-4 rounded-md bg-gray-300 border-2 text-xs border-gray-300"
-              placeholder="Company name"
-            />
-          </div>
 
-          <div className="mb-2">
-            <label className="text-xs font-bold">Company CAC No</label> <br />
-            <input
-              className="w-full h-8 px-4 rounded-md bg-gray-300 border-2 text-xs border-gray-300"
-              placeholder="Company name"
-            />
-          </div>
-
-          <div className="mb-2">
-            <label className="text-xs font-bold">Cooperative Name</label> <br />
-            <input
-              className="w-full h-8 px-4 rounded-md bg-gray-300 border-2 text-xs border-gray-300"
-              placeholder="Company name"
-            />
-          </div>
-
-          <div className="mb-3">
+          <div className="mb-4">
             <label className="text-xs font-bold">Company email(optional)</label>
             <br />
             <input
@@ -64,7 +41,7 @@ const RegistrationPage = () => {
             ></input>
           </div>
 
-          <div className="mb-3 relative">
+          <div className="mb-9 relative">
             <label className="text-xs font-bold block mb-1">Password</label>
             <div className="relative">
               <input
@@ -82,35 +59,15 @@ const RegistrationPage = () => {
             </div>
           </div>
 
-          <div className="mb-8 relative">
-            <label className="text-xs font-bold block mb-1">
-              Confirm Password
-            </label>
-            <div className="relative">
-              <input
-                type="password"
-                className="w-full h-8 px-4 rounded-md bg-gray-300 border-2 border-gray-300 text-xs"
-                placeholder="Confirm Password"
-              />
-              <div className="absolute right-4 top-1/2 transform -translate-y-1/2">
-                <img
-                  src={EyeIcon}
-                  alt="Eye Icon"
-                  className="h-4 w-4 cursor-pointer"
-                />
-              </div>
-            </div>
-          </div>
-
           <div className="w-full h-8 px-4 rounded-md mb-2 bg-purple-700 cursor-pointer border-2 border-purple-700 text-white flex items-center justify-center font-bold">
-            <button type="submit">Register</button>
+            <button type="submit">Login</button>
           </div>
         </form>
 
         <div className="flex shrink-0 items-center justify-center">
-          <p className="text-sm">Already have an account? </p>
+          <p className="text-sm">Dont have an account? </p>
           <a className="text-sm text-purple-700 font-bold" href="#">
-            Login
+            Register
           </a>
         </div>
       </div>
@@ -118,4 +75,4 @@ const RegistrationPage = () => {
   );
 };
 
-export default RegistrationPage;
+export default Login;
