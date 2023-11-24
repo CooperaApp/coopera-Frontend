@@ -1,12 +1,12 @@
 // import React from 'react';
-import EyeIcon from "../../../assets/images/svg/EyeIcon.svg";
-import ArrowBack from "../../../assets/images/png/arrow-back.png";
-import CooperaLogo from "../../../assets/images/svg/CooperaLogo.svg";
+import EyeIcon from "../../assets/images/svg/EyeIcon.svg";
+import ArrowBack from "../../assets/images/png/arrow-back.png";
+import CooperaLogo from "../../assets/images/svg/CooperaLogo.svg";
 
 const Login = () => {
   return (
     <div className="flex h-screen overflow-y-hidden pt-0">
-      <div className="w-1/2 bg-purple-700 flex items-center justify-center">
+      <div className="w-1/2 bg-[#7C39DE] flex items-center justify-center">
         <img
           src={ArrowBack}
           alt="Arrow Back"
@@ -59,14 +59,14 @@ const Login = () => {
             </div>
           </div>
 
-          <div className="w-full h-8 px-4 rounded-md mb-2 bg-purple-700 cursor-pointer border-2 border-purple-700 text-white flex items-center justify-center font-bold">
+          <div className="w-full h-8 px-4 rounded-md mb-2 bg-[#7C39DE] cursor-pointer border-2 border-[#7C39DE] text-white flex items-center justify-center font-bold">
             <button type="submit">Login</button>
           </div>
         </form>
 
         <div className="flex shrink-0 items-center justify-center">
           <p className="text-sm">Dont have an account? </p>
-          <a className="text-sm text-purple-700 font-bold" href="#">
+          <a className="text-sm text-[#7C39DE] font-bold" href="#">
             Register
           </a>
         </div>

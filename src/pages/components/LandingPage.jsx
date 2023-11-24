@@ -1,5 +1,3 @@
-/* eslint-disable react/no-unescaped-entities */
-// eslint-disable-next-line quotes
 import CooperaLogo from "../../assets/images/svg/CooperaLogo.svg";
 import Ipad from "../../assets/images/svg/Ipad.svg";
 import Access from "../../assets/images/svg/Access.svg";
@@ -16,11 +14,12 @@ import Vector3 from "../../assets/images/svg/Vector3.svg";
 import Female from "../../assets/images/svg/Female.svg";
 import Male from "../../assets/images/svg/Male.svg";
 import Icons from "../../assets/images/svg/Icons.svg";
-
 import IpadPadDouble from "../../assets/images/svg/IpadPadDouble.svg";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+
 const LandingPage = () => {
+
   const responsive = {
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
@@ -69,7 +68,7 @@ const LandingPage = () => {
               <button className="bg-[#59D2B0] mt-2 px-5 h-10 rounded-lg">
                 Get Started
               </button>
-              <button className="text-[#C4A7EE]">Login</button>
+              <button className="text-[#C4A7EE]" >Login</button>
             </div>
           </div>
         </nav>
@@ -213,9 +212,9 @@ const LandingPage = () => {
             Endless Possibilities
           </h1>
           <p className="mb-8">
-            Explore Coopera's pricing plans – simple, transparent, and designed{" "}
+            Explore Coopera&apos;s pricing plans – simple, transparent, and designed{" "}
             <br />
-            for your cooperative's growth. Find the perfect fit for your success{" "}
+            for your cooperative&apos;s growth. Find the perfect fit for your success{" "}
             <br />
             journey.
           </p>
@@ -300,10 +299,11 @@ const LandingPage = () => {
             <span className="text-[#0EBE8D]">Happy Feedbacks</span>
           </h1>
           <p>
-            Discover Coopera's success stories — efficiency, collaboration,{" "}
+            Discover Coopera&apos;s success stories &mdash; efficiency, collaboration,
             <br />
             joy. Join us!
           </p>
+
         </div>
         {
           <Carousel
@@ -330,7 +330,7 @@ const LandingPage = () => {
                   Coopera has transformed how we operate. Seamless
                   <br /> collaboration and efficiency have become our new
                   normal.
-                  <br /> It's a game-changer!
+                  <br /> It&apos;s a game-changer!
                 </p>
                 <h1>Sarah M.</h1>
                 <p>HR, XYZ Ltd.</p>
@@ -341,7 +341,7 @@ const LandingPage = () => {
                   Coopera has transformed how we operate. Seamless
                   <br /> collaboration and efficiency have become our new
                   normal.
-                  <br /> It's a game-changer!
+                  <br /> It&apos;s a game-changer!
                 </p>
                 <h1>Sarah M.</h1>
                 <p className="">HR, XYZ Ltd.</p>
@@ -361,7 +361,7 @@ const LandingPage = () => {
         </h1>
         <p className="mb-2">
           Maximize the potential of your cooperative society with <br />
-          Coopera's innovative solutions.
+          Coopera&apos;s innovative solutions.
         </p>
         <button className="bg-[#7C39DE] mt-2 px-5 h-8 rounded-sm text-[#FFFFFF] font-light">
           Get Started
