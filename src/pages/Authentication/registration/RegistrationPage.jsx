@@ -1,7 +1,7 @@
 // import React from 'react';
-import EyeIcon from '../../../assets/images/svg/EyeIcon.svg';
-import ArrowBack from '../../../assets/images/png/arrow-back.png';
-import CooperaLogo from '../../../assets/images/svg/CooperaLogo.svg';
+import EyeIcon from "../../../assets/images/svg/EyeIcon.svg";
+import ArrowBack from "../../../assets/images/png/arrow-back.png";
+import CooperaLogo from "../../../assets/images/svg/CooperaLogo.svg";
 
 const RegistrationPage = () => {
   return (
@@ -11,12 +11,12 @@ const RegistrationPage = () => {
           src={ArrowBack}
           alt="Arrow Back"
           style={{
-            maxWidth: '2%',
-            maxHeight: '2%',
-            position: 'absolute',
-            top: '3%',
-            left: '2%',
-            filter: 'invert(1)',
+            maxWidth: "2%",
+            maxHeight: "2%",
+            position: "absolute",
+            top: "3%",
+            left: "2%",
+            filter: "invert(1)",
           }}
         />
         {/* <img

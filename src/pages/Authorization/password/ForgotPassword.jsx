@@ -1,6 +1,6 @@
 // import React from 'react';
-import ArrowBack from '../../../assets/images/png/arrow-back.png';
-import CooperaLogo from '../../../assets/images/svg/CooperaLogo.svg';
+import ArrowBack from "../../../assets/images/png/arrow-back.png";
+import CooperaLogo from "../../../assets/images/svg/CooperaLogo.svg";
 
 const ForgotPassword = () => {
   return (
@@ -10,12 +10,12 @@ const ForgotPassword = () => {
           src={ArrowBack}
           alt="Arrow Back"
           style={{
-            maxWidth: '2%',
-            maxHeight: '2%',
-            position: 'absolute',
-            top: '3%',
-            left: '2%',
-            filter: 'invert(1)',
+            maxWidth: "2%",
+            maxHeight: "2%",
+            position: "absolute",
+            top: "3%",
+            left: "2%",
+            filter: "invert(1)",
           }}
         />
         {/* <img
