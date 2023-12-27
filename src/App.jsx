@@ -1,9 +1,9 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import RegistrationPage from "./pages/components/RegistrationPage";
-import LoginPage from "./pages/components/Login";
-import ForgotPassword from "./pages/components/ForgotPassword";
-import LandingPage from "./pages/components/LandingPage";
-import ChangePassword from "./pages/components/ChangePassword";
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+// import LandingPage from "../src/component/landing-page/landing-page";
+import RegistrationPage from '../src/pages/Authentication/registration/RegistrationPage';
+// import LoginPage from "../src/component/login/Login";
+// import ForgotPassword from "./component/forgot-password/forgot-password";
+// import ChangePassword from "./component/change-password/Change-Password";
 
 function App() {
   return (
@@ -11,10 +11,9 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/registration" element={<RegistrationPage />}></Route>
-          <Route path="/login" element={<LoginPage />}></Route>
-          <Route path="/" element={<LandingPage />}></Route>
+          {/* <Route path="/login" element={<LoginPage />}></Route>
           <Route path="/forgot-password" element={<ForgotPassword />}></Route>
-          <Route path="/reset-password" element={<ChangePassword />}></Route>
+          <Route path="/change-password" element={<ChangePassword />}></Route> */}
         </Routes>
       </BrowserRouter>
     </>
