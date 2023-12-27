@@ -1,4 +1,4 @@
-# Cooper API Documentation
+# Cooper Swagger API Documentation
 
 This documentation provides information on the endpoints and how to use interface with Coopera API's.
 
