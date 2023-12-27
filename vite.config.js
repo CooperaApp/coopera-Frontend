@@ -1,8 +1,18 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
+// import { styleImport } from "vite-plugin-style-import";
 
-
-// https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react()],
+  plugins: [
+    react(),
+    // styleImport({
+    //   libs: [
+    //     {
+    //       libraryName: "react-datepicker",
+    //       esModule: true,
+    //       resolveStyle: () => "react-datepicker/dist/react-datepicker.css",
+    //     },
+    //   ],
+    // }),
+  ],
 });
