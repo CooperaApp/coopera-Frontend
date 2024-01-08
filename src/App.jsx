@@ -5,9 +5,9 @@ import ForgotPassword from "./pages/components/ForgotPassword";
 import LandingPage from "./pages/components/LandingPage";
 import ChangePassword from "./pages/components/ChangePassword";
 import Dashboard from "./pages/components/Dashboard";
-import SideBar from "./utils/reusable-components/SideBar";
-import TopNav from "./utils/reusable-components/TopNav";
-import DashboardBody from "./pages/molecule/DashboardBody";
+import Member from "./pages/components/Member";
+import Savings from "./pages/components/Savings";
+
 
 function App() {
   return (
@@ -20,9 +20,8 @@ function App() {
           <Route path="/forgot-password" element={<ForgotPassword />} />
           <Route path="/reset-password" element={<ChangePassword />} />
           <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/side-bar" element={<SideBar />} />
-          <Route path="/top-nav" element={<TopNav />} />
-          <Route path="/body" element={<DashboardBody />} />
+          <Route path="/member" element={<Member />} />
+          <Route path="/savings" element={<Savings />} />
         </Routes>
       </BrowserRouter>
     </>

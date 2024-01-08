@@ -4,6 +4,7 @@ import { DASHBOARD_SIDE_BAR_LINKS } from "../constant/Navigations";
 import {Link} from "react-router-dom";
 import PropTypes from "prop-types";
 
+
 const linkClasses = "flex items-center gap-2 text-gray-500 font-light px-3 py-2 hover:bg-purple-100 hover:no-underline active:bg-neutral-600 rounded-sm text-base";
 const SideBar = () => {
   return (
@@ -23,7 +24,6 @@ const SideBar = () => {
 };
 
 function SideBarLink({ item }) {
-  // const {pathname} = useLocation();
   return (
     <Link to={item.path} className={linkClasses + " sidebar-link"}>
       {item.icon}
