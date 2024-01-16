@@ -1,7 +1,7 @@
-import ArrowBack from "../../assets/images/png/arrow-back.png";
-import CooperaLogo from "../../assets/images/svg/CooperaLogo.svg";
-import DashboardImage from "../../assets/images/svg/DashboardImg.svg";
-import BackIcon from "../../assets/images/svg/Back-Icon.svg";
+import ArrowBack from "../../../assets/images/png/arrow-back.png";
+import CooperaLogo from "../../../assets/images/svg/CooperaLogo.svg";
+import DashboardImage from "../../../assets/images/svg/DashboardImg.svg";
+import BackIcon from  "../../../assets/images/svg/Back-Icon.svg";
 
 const ForgotPassword = () => {
   return (

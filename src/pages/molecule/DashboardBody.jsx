@@ -1,13 +1,7 @@
-// import { HiOutlineBriefcase } from "react-icons/hi2";
-import AccountBalanceIcon from "../../assets/images/svg/Card-Icon-1.svg";
-import TotalSavingsIcon from "../../assets/images/svg/Card-Icon-2.svg";
-import LoanDisbursed from "../../assets/images/svg/LoanDisbursedIcon.svg";
-import LoanRepaid from "../../assets/images/svg/LoanRepaidIcon.svg";
-import RedArrow from "../../assets/images/svg/Red-Arrow.svg";
-import GreenArrow from "../../assets/images/svg/Green-Arrow.svg";
 import ArrowOptions from "../../assets/images/svg/Arrow-Options.svg";
+import Card from "./Card";
+import PieChart from "./PieChart";
 import { LuSearch } from "react-icons/lu";
-// import CalenderPicker from "../molecule/CalenderPicker";
 import {
   Chart as ChartJS,
   ArcElement,
@@ -19,8 +13,9 @@ import {
   PointElement,
   BarElement,
 } from "chart.js";
-import { Doughnut, Line, Bar } from "react-chartjs-2";
-import { DUMMY_DATA } from "../../utils/constant/DummyData";
+
+import Table from "./Table";
+import Statistics from "./Statistics";
 
 ChartJS.register(
   ArcElement,
@@ -33,6 +28,7 @@ ChartJS.register(
   BarElement
 );
 
+<<<<<<< HEAD
 const BarData = {
   labels: [
     "Jan",
@@ -153,6 +149,8 @@ const getTextColor = (status) => {
   }
 };
 
+=======
+>>>>>>> d3940da60f5b2991132cb9f9997ec70a7b703cf3
 const DashboardBody = () => {
   return (
     <div className="h-full mt-1 ml-4 overflow-y-hidden">
@@ -161,6 +159,7 @@ const DashboardBody = () => {
         <div>{/* <CalenderPicker /> */}</div>
       </div>
 
+<<<<<<< HEAD
       <div className="border-blue-500 w-full h-80 flex flex-row flex-shrink-0">
         <div className="w-8/12 ">
           <div className="flex">
@@ -388,43 +387,14 @@ const DashboardBody = () => {
             </div>
           </div>
         </div>
+=======
+      <div className="w-full h-80 flex flex-row flex-shrink-0">
+        <Card />
+        <PieChart />
+>>>>>>> d3940da60f5b2991132cb9f9997ec70a7b703cf3
       </div>
 
-      <div className="flex flex-shrink-0 mt-7 justify-between overview-x-hidden">
-        <div className="border bg-white rounded-md w-6/12 h-64">
-          <div className="flex">
-            <p className="heading">Loan Statistics</p>
-            <div className="flex">
-              <div
-                className="w-2 h-2 rounded-full mt-2 mr-1"
-                style={{ backgroundColor: "#0079FF" }}
-              ></div>
-              <span className="pie-chart-labels">Loans</span>
-              <div
-                className="w-2 h-2 rounded-full mt-2 mr-1"
-                style={{ backgroundColor: "#0079FF" }}
-              ></div>
-              <span className="pie-chart-labels">Loans</span>
-            </div>
-            <div className="items-center justify-center h-full flex border h-4 w-30 ml-3">
-              <p className="previous-month-styling ml-2">Monthly</p>
-              <img
-                src={ArrowOptions}
-                alt="No Img"
-                className="w-4 h-4 ml-1 mt-0"
-              />
-            </div>
-          </div>
-
-          <div>
-            <Line data={LineData} options={LineOptions} />
-          </div>
-        </div>
-
-        <div className="border bg-white rounded-md w-96 h-64 mr-4">
-          <Bar data={BarData} options={LineOptions} />
-        </div>
-      </div>
+      <Statistics />
 
       <div className="border p-5 bg-white mt-7 rounded-md mr-4 w-12/12 ">
         <div className="mb-5 flex w-full justify-between h-8">
@@ -456,6 +426,7 @@ const DashboardBody = () => {
           </div>
         </div>
 
+<<<<<<< HEAD
         <table className="table-auto w-full">
           <thead className="border">
             <tr className="">
@@ -529,6 +500,9 @@ const DashboardBody = () => {
             ))}
           </tbody>
         </table>
+=======
+        <Table />
+>>>>>>> d3940da60f5b2991132cb9f9997ec70a7b703cf3
       </div>
     </div>
   );

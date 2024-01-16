@@ -1,7 +1,7 @@
-import EyeIcon from "../../assets/images/svg/EyeIcon.svg";
-import ArrowBack from "../../assets/images/png/arrow-back.png";
-import CooperaLogo from "../../assets/images/svg/CooperaLogo.svg";
-import DashboardImage from "../../assets/images/svg/DashboardImg.svg";
+import EyeIcon from "../../../assets/images/svg/EyeIcon.svg";
+import ArrowBack from "../../../assets/images/png/arrow-back.png";
+import CooperaLogo from "../../../assets/images/svg/CooperaLogo.svg";
+import DashboardImage from "../../../assets/images/svg/DashboardImg.svg";
 
 const Login = () => {
   return (
