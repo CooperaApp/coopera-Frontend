@@ -2,12 +2,11 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import RegistrationPage from "../src/pages/authentication/components/RegistrationPage";
 import LoginPage from "../src/pages/authentication/components/Login";
 import ForgotPassword from "../src/pages/authentication/components/ForgotPassword";
-import LandingPage from "../src/pages/dashboard/components/LandingPage";
+import LandingPage from "./pages/authentication/components/LandingPage";
 import ChangePassword from "../src/pages/authentication/components/ChangePassword";
-import Dashboard from "../src/pages/dashboard/components/Dashboard";
-import Member from "../src/pages/components/Member";
-import Savings from "./src/pages/components/Savings";
-
+import Dashboard from "./pages/authorization/Dashboard";
+import Member from "../src/pages/authorization/Member";
+import Savings from "../src/pages/authorization/Savings";
 
 function App() {
   return (
@@ -27,6 +26,5 @@ function App() {
     </>
   );
 }
-
 
 export default App;
