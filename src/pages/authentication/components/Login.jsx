@@ -7,7 +7,7 @@ const Login = () => {
   return (
     <div className="flex h-screen overflow-y-hidden pt-0">
       <div className="w-1/2 bg-[#7C39DE]">
-        <div className="jjjkg">
+        <div className="">
           <img
             src={ArrowBack}
             alt="Arrow Back"
