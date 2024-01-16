@@ -1,8 +1,7 @@
-// import React from 'react';
-import EyeIcon from "../../../assets/images/svg/EyeIcon.svg";
-import ArrowBack from "../../../assets/images/png/arrow-back.png";
-import CooperaLogo from "../../../assets/images/svg/CooperaLogo.svg";
-import DashboardImage from "../../../assets/images/svg/DashboardImg.svg";
+import EyeIcon from "../../assets/images/svg/EyeIcon.svg";
+import ArrowBack from "../../assets/images/png/arrow-back.png";
+import CooperaLogo from "../../assets/images/svg/CooperaLogo.svg";
+import DashboardImage from "../../assets/images/svg/DashboardImg.svg";
 
 const RegistrationPage = () => {
   return (
@@ -22,7 +21,7 @@ const RegistrationPage = () => {
             }}
           />
         </div>
-        <div className="h-32 w-96 mt-20 ml-20 ">
+        <div className="h-40 w-96 mt-20 ml-20 ">
           <p className="mb-5 authentication-big-font-style">Build your Cooperative Society using Coopera</p>
           <p className="authentication-small-font-style">With Coopera, managing your cooperative society is seamless. Elevate efficiency and foster financial growth</p>
         </div>
@@ -31,14 +30,14 @@ const RegistrationPage = () => {
             className="w-96"
             src={DashboardImage}
             alt="Your Image"
-            style={{ height: "385px", width: "" }}
+            style={{ height: "705px", width: "778px"}}
           />
         </div>
       </div>
 
-      <div className="w-1/2 p-8 -mt-8 pt-20">
-        <img src={CooperaLogo} alt="Logo" className="h-8 w-8 -mt-6" />
-        <h2 className="text-1xl font-bold foto-mono pt-2 mb-6">Get Started</h2>
+      <div className="w-1/2 p-8 -mt-19 pt-20">
+        <img src={CooperaLogo} alt="Logo" className="h-10 w-10 -mt-6" />
+        <h2 className="get-started-big-font-style">Get Started</h2>
         <form className="">
           <div className="mb-2">
             <label className="text-xs font-bold">Company Name</label> <br />
@@ -57,7 +56,7 @@ const RegistrationPage = () => {
           </div>
 
           <div className="mb-2">
-            <label className="text-xs font-bold">Cooperative Name</label> <br />
+            <label className="sub-text-font-style">Cooperative Name</label> <br />
             <input
               className="w-full h-8 px-4 rounded-md bg-gray-300 border-2 text-xs border-gray-300"
               placeholder="Company name"
@@ -65,7 +64,7 @@ const RegistrationPage = () => {
           </div>
 
           <div className="mb-3">
-            <label className="text-xs font-bold">Company email(optional)</label>
+            <label className="sub-text-font-style">Company email(optional)</label>
             <br />
             <input
               className="w-full h-8 px-4 rounded-md bg-gray-300 border-2 text-xs border-gray-300"
@@ -74,7 +73,7 @@ const RegistrationPage = () => {
           </div>
 
           <div className="mb-3 relative">
-            <label className="text-xs font-bold block mb-1">Password</label>
+            <label className="sub-text-font-style">Password</label>
             <div className="relative">
               <input
                 type="password"
@@ -92,7 +91,7 @@ const RegistrationPage = () => {
           </div>
 
           <div className="mb-8 relative">
-            <label className="text-xs font-bold block mb-1">
+            <label className="sub-text-font-style">
               Confirm Password
             </label>
             <div className="relative">
@@ -117,8 +116,8 @@ const RegistrationPage = () => {
         </form>
 
         <div className="flex shrink-0 items-center justify-center">
-          <p className="text-sm">Already have an account? </p>
-          <a className="text-sm text-[#7C39DE] font-bold" href="#">
+          <p className="account-exists-font-style">Already have an account? </p>
+          <a className="account-exists-login-style" href="#">
             Login
           </a>
         </div>
