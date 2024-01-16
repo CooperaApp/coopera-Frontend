@@ -1,13 +1,13 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import RegistrationPage from "./pages/components/RegistrationPage";
-import LoginPage from "./pages/components/Login";
-import ForgotPassword from "./pages/components/ForgotPassword";
-import LandingPage from "./pages/components/LandingPage";
-import ChangePassword from "./pages/components/ChangePassword";
-import Dashboard from "./pages/components/Dashboard";
-import SideBar from "./utils/reusable-components/SideBar";
-import TopNav from "./utils/reusable-components/TopNav";
-import DashboardBody from "./pages/molecule/DashboardBody";
+import RegistrationPage from "../src/pages/authentication/components/RegistrationPage";
+import LoginPage from "../src/pages/authentication/components/Login";
+import ForgotPassword from "../src/pages/authentication/components/ForgotPassword";
+import LandingPage from "../src/pages/dashboard/components/LandingPage";
+import ChangePassword from "../src/pages/authentication/components/ChangePassword";
+import Dashboard from "../src/pages/dashboard/components/Dashboard";
+import SideBar from "../src/utils/reusable-components/SideBar";
+import TopNav from "../src/utils/reusable-components/TopNav";
+import DashboardBody from "../src/pages/molecule/DashboardBody";
 
 function App() {
   return (

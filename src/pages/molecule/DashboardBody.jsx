@@ -30,7 +30,7 @@ ChartJS.register(
   CategoryScale,
   LinearScale,
   PointElement,
-  BarElement,
+  BarElement
 );
 
 const BarData = {
@@ -125,31 +125,31 @@ const options = {
 
 const getStatusColor = (status) => {
   switch (status.toLowerCase()) {
-  case "completed":
-    return "#E7F8F0";
-  case "approved":
-    return "#E7F8F0";
-  case "cancelled":
-    return "#FEECEB";
-  case "pending":
-    return "#FEF4E6";
-  default:
-    return "";
+    case "completed":
+      return "#E7F8F0";
+    case "approved":
+      return "#E7F8F0";
+    case "cancelled":
+      return "#FEECEB";
+    case "pending":
+      return "#FEF4E6";
+    default:
+      return "";
   }
 };
 
 const getTextColor = (status) => {
   switch (status.toLowerCase()) {
-  case "completed":
-    return "#12B76A";
-  case "approved":
-    return "#12B76A";
-  case "cancelled":
-    return "#F04438";
-  case "pending":
-    return "#F79009";
-  default:
-    return "";
+    case "completed":
+      return "#12B76A";
+    case "approved":
+      return "#12B76A";
+    case "cancelled":
+      return "#F04438";
+    case "pending":
+      return "#F79009";
+    default:
+      return "";
   }
 };
 
@@ -158,9 +158,7 @@ const DashboardBody = () => {
     <div className="h-full mt-1 ml-4 overflow-y-hidden">
       <div className="flex flex-shrink-0 justify-between w-5/6">
         <div className="dashboard-header">Dashboard Overview</div>
-        <div>
-          {/* <CalenderPicker /> */}
-        </div>
+        <div>{/* <CalenderPicker /> */}</div>
       </div>
 
       <div className="border-blue-500 w-full h-80 flex flex-row flex-shrink-0">
@@ -247,7 +245,6 @@ const DashboardBody = () => {
                 </div>
               </div>
             </div>
-
           </div>
 
           <div className="flex mt-7">
@@ -331,7 +328,6 @@ const DashboardBody = () => {
                 </div>
               </div>
             </div>
-
           </div>
         </div>
 
@@ -436,10 +432,9 @@ const DashboardBody = () => {
             <p className="heading">Recent Activities</p>
           </div>
 
-
           <div className="border flex justify-between">
             <div className="w-full max-w-md relative flex items-center text-gray-400 focus-within:text-gray-600">
-              <LuSearch className="w-5 h-5 absolute ml-3 pointer-events-none"/>
+              <LuSearch className="w-5 h-5 absolute ml-3 pointer-events-none" />
               <input
                 type="text"
                 name="search"
@@ -447,7 +442,8 @@ const DashboardBody = () => {
                 autoComplete="off"
                 aria-label="Search"
                 className="search-bar pr-3 pl-10 py-2 font-semibold h-8 w-40 placeholder-gray-100 text-blue rounded-sm border-none ring-2 ring-gray-100 focus:ring-gray-500 focus:ring-2"
-                style={{backgroundColor: "#FFFFFF"}}/>
+                style={{ backgroundColor: "#FFFFFF" }}
+              />
             </div>
             <div className="border items-center justify-center flex ml-3">
               <p className="previous-month-styling ml-2">Monthly</p>
@@ -458,8 +454,6 @@ const DashboardBody = () => {
               />
             </div>
           </div>
-
-
         </div>
 
         <table className="table-auto w-full">
@@ -484,17 +478,52 @@ const DashboardBody = () => {
           <tbody>
             {DUMMY_DATA.map((item, index) => (
               <tr key={index}>
-                <td style={{ color: "#484949" }} className="recent-activities-data  px-4 py-2">{item.activity}</td>
-                <td style={{ color: "#484949" }} className="recent-activities-data  px-4 py-2">{item.memberId}</td>
-                <td style={{ color: "#484949" }} className="recent-activities-data  px-4 py-2">{item.fullName}</td>
-                <td style={{ color: "#484949" }} className="recent-activities-data  px-4 py-2">{item.amount}</td>
-                <td style={{ color: "#484949" }} className="recent-activities-data  px-4 py-2">{item.date}</td>
-                <td className="px-4 py-2">{item.status && (
-                  <div
-                    className=" rounded-full items-align h-6 inline-block"
-                    style={{ backgroundColor: getStatusColor(item.status), color: getTextColor(item.status) }}
-                  >{item.status && <span className="recent-activities-data p-2">{item.status}</span>}</div>
-                )}
+                <td
+                  style={{ color: "#484949" }}
+                  className="recent-activities-data  px-4 py-2"
+                >
+                  {item.activity}
+                </td>
+                <td
+                  style={{ color: "#484949" }}
+                  className="recent-activities-data  px-4 py-2"
+                >
+                  {item.memberId}
+                </td>
+                <td
+                  style={{ color: "#484949" }}
+                  className="recent-activities-data  px-4 py-2"
+                >
+                  {item.fullName}
+                </td>
+                <td
+                  style={{ color: "#484949" }}
+                  className="recent-activities-data  px-4 py-2"
+                >
+                  {item.amount}
+                </td>
+                <td
+                  style={{ color: "#484949" }}
+                  className="recent-activities-data  px-4 py-2"
+                >
+                  {item.date}
+                </td>
+                <td className="px-4 py-2">
+                  {item.status && (
+                    <div
+                      className=" rounded-full items-align h-6 inline-block"
+                      style={{
+                        backgroundColor: getStatusColor(item.status),
+                        color: getTextColor(item.status),
+                      }}
+                    >
+                      {item.status && (
+                        <span className="recent-activities-data p-2">
+                          {item.status}
+                        </span>
+                      )}
+                    </div>
+                  )}
                 </td>
               </tr>
             ))}
