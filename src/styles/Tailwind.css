@@ -7,17 +7,17 @@
 @import '../styles/Authentication.css';
 @import '../styles/Card.css';
 @import '../styles/Dashboard.css';
-@import '../styles/LandingPage.css';
 @import '../styles/PieChart.css';
 @import '../styles/SideBar.css';
 @import '../styles/Table.css';
 @import '../styles/TopNav.css';
+@import '../styles/HiredPurchaseBody.css';
 
 
 
 
  .line-chart-y-and-x-axis {
-   color: "#A9A9AA";
+   color: #A9A9AA;
    font-family: 'EuclidCircularA', sans-serif;
    font-size: 6px;
    font-weight: 400;
