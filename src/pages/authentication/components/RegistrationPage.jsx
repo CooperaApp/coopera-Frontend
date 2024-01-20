@@ -30,7 +30,6 @@ const RegistrationPage = () => {
 
   return (
     <div className="flex h-screen pt-0 overflow-hidden">
-
       <div className="border border-purple-100 w-1/2 bg-[#7C39DE] overflow-hidden">
         <div className="relative">
           <img
@@ -47,16 +46,21 @@ const RegistrationPage = () => {
           />
         </div>
         <div className="h-40 w-96 mt-12 ml-28 ">
-          <p className="mb-5 authentication-big-font-style">Build your Cooperative Society using Coopera</p>
-          <p className="authentication-small-font-style">With Coopera, managing your cooperative society is seamless. Elevate efficiency and foster financial growth</p>
+          <p className="mb-5 authentication-big-font-style">
+            Build your Cooperative Society using Coopera
+          </p>
+          <p className="authentication-small-font-style">
+            With Coopera, managing your cooperative society is seamless. Elevate
+            efficiency and foster financial growth
+          </p>
         </div>
-        <div className="mt-3 mr-3">
+        <div className="mt-3 mr-3 ">
           <img
-            className="w-96 ml-28"
+            className="relative w-96 ml-28"
             src={DashboardImage}
-            alt="Your Image"
-            style={{ height: "705px", width: "489px"}}
+            style={{height: "705px", width: "489px"}}
           />
+          <div className=""></div>
         </div>
       </div>
 
@@ -70,26 +74,25 @@ const RegistrationPage = () => {
             <input
               type="text"
               className="w-full h-10 px-4 text-xs"
-              style={{backgroundColor: "#F3F3F3", borderRadius: "4px"}}
+              style={{ backgroundColor: "#F3F3F3", borderRadius: "4px" }}
               placeholder="Cooperative name"
               onChange={handleChange}
               value={data.name}
             />
           </div>
 
-
           <div className="mb-5">
-            <label className="sub-text-font-style">Company CAC No.</label> <br />
+            <label className="sub-text-font-style">Company CAC No.</label>{" "}
+            <br />
             <input
               type="text"
               className="w-full h-10 px-4 text-xs"
-              style={{backgroundColor: "#F3F3F3", borderRadius: "4px"}}
+              style={{ backgroundColor: "#F3F3F3", borderRadius: "4px" }}
               placeholder="Company CAC No."
               onChange={handleChange}
               value={data.companyName}
             />
           </div>
-
 
           <div className="mb-5">
             <label className="sub-text-font-style">Cooperative Email</label>
@@ -97,20 +100,19 @@ const RegistrationPage = () => {
             <input
               type="email"
               className="w-full h-10 px-4 text-xs"
-              style={{backgroundColor: "#F3F3F3", borderRadius: "4px"}}
+              style={{ backgroundColor: "#F3F3F3", borderRadius: "4px" }}
               placeholder="Cooperative Email"
               onChange={handleChange}
               value={data.rcNumber}
             ></input>
           </div>
 
-
           <div className="mb-5 relative">
             <label className="sub-text-font-style">Password</label>
             <div className="relative">
               <input
                 type="text"
-                style={{backgroundColor: "#F3F3F3", borderRadius: "4px"}}
+                style={{ backgroundColor: "#F3F3F3", borderRadius: "4px" }}
                 className="w-full h-10 px-4 text-xs"
                 placeholder="Choose a password"
                 onChange={handleChange}
@@ -126,12 +128,11 @@ const RegistrationPage = () => {
             </div>
           </div>
 
-
           <div className="">
             <label className="sub-text-font-style">Select Logo</label> <br />
             <input
               type="file"
-              style={{backgroundColor: "#F3F3F3", borderRadius: "4px"}}
+              style={{ backgroundColor: "#F3F3F3", borderRadius: "4px" }}
               className="w-full h-9 mt-1 px-4 text-xs"
               onChange={handleChange}
               value={data.logo}
@@ -139,7 +140,9 @@ const RegistrationPage = () => {
           </div>
 
           <div className="w-full mt-10 h-10 px-4 rounded-md mb-2 bg-[#7C39DE] cursor-pointer border-2 border-[#7C39DE] text-white flex items-center justify-center font-bold">
-            <button type="submit" onClick={() => cooperativeRegistration()}>Register</button>
+            <button type="submit" onClick={() => cooperativeRegistration()}>
+              Register
+            </button>
           </div>
         </form>
 

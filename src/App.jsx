@@ -7,6 +7,7 @@ import ChangePassword from "../src/pages/authentication/components/ChangePasswor
 import Dashboard from "./pages/authorization/Dashboard";
 import Member from "../src/pages/authorization/Member";
 import Savings from "../src/pages/authorization/Savings";
+import HiredPurchase from "./pages/authorization/HiredPurchase.jsx";
 
 function App() {
   return (
@@ -19,8 +20,9 @@ function App() {
           <Route path="/forgot-password" element={<ForgotPassword />} />
           <Route path="/reset-password" element={<ChangePassword />} />
           <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/member" element={<Member />} />
+          <Route path="/members" element={<Member />} />
           <Route path="/savings" element={<Savings />} />
+          <Route path="/hired-purchase" element={<HiredPurchase/>}/>
         </Routes>
       </BrowserRouter>
     </>

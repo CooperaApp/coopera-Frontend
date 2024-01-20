@@ -22,7 +22,7 @@ export const DASHBOARD_SIDE_BAR_LINKS = [
   {
     key: "members",
     label: "Members",
-    path: "/dashboard",
+    path: "/members",
     icon: <BsPeople />,
   },
 
@@ -43,7 +43,7 @@ export const DASHBOARD_SIDE_BAR_LINKS = [
   {
     key: "hire purchase",
     label: "Hire Purchase",
-    path: "/dashboard",
+    path: "/hired-purchase",
     icon: <PiShoppingCartSimpleThin />,
   },
 
