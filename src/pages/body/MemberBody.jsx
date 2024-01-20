@@ -1,4 +1,4 @@
-import GreenMemberIcon from "../../assets/images/svg/Red-Member-Icon.svg";
+import GreenMemberIcon from "../../assets/images/svg/Green-Member-Icon.svg";
 import YellowMemberIcon from "../../assets/images/svg/Yellow-Member-Icon.svg";
 import RedMemberIcon from "../../assets/images/svg/Red-Member-Icon.svg";
 import ArrowOptions from "../../assets/images/svg/Arrow-Options.svg";
@@ -25,7 +25,7 @@ const MemberBody = () => {
               </div>
               <div
                 className="ml-4 h-7 rounded-md items-center"
-                style={{ backgroundColor: "#EBF5FF" }}
+                style={{ backgroundColor: "#E7F8F0" }}
               >
                 <img src={GreenMemberIcon} alt="No Img" />
               </div>
@@ -64,7 +64,7 @@ const MemberBody = () => {
               </div>
               <div
                 className="ml-4 h-7 rounded-md items-center"
-                style={{ backgroundColor: "#EBF5FF" }}
+                style={{ backgroundColor: "#FEF4E6" }}
               >
                 <img src={YellowMemberIcon} alt="No Img" />
               </div>
@@ -103,7 +103,7 @@ const MemberBody = () => {
               </div>
               <div
                 className="ml-4 h-7 rounded-md items-center"
-                style={{ backgroundColor: "#EBF5FF" }}
+                style={{ backgroundColor: "#FEECEB" }}
               >
                 <img src={RedMemberIcon} alt="No Img" />
               </div>
@@ -164,7 +164,8 @@ const MemberBody = () => {
           </div>
         </div>
 
-        <TableHeading headerOne="Date" headerTwo="MemberID" headerThree="Full Name" headerFour="Phone Number" headerFive="Role" headerSix="Status" />
+        <TableHeading headerOne="Date" headerTwo="MemberID" headerThree="Full Name"
+          headerFour="Phone Number" headerFive="Role" headerSix="Status" />
         <TableBody />
       </div>
     </div>

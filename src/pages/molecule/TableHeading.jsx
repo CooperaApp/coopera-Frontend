@@ -1,6 +1,7 @@
-
+import PropTypes from "prop-types";
 
 const TableHeading = ({headerOne, headerTwo, headerThree, headerFour, headerFive, headerSix}) => {
+
   return (
     <div>
       <table className="table-auto w-full">
@@ -15,9 +16,17 @@ const TableHeading = ({headerOne, headerTwo, headerThree, headerFour, headerFive
           </tr>
         </thead>
       </table>
-
     </div>
   );
+};
+
+TableHeading.propTypes = {
+  headerOne: PropTypes.any.isRequired,
+  headerTwo: PropTypes.any.isRequired,
+  headerThree: PropTypes.any.isRequired,
+  headerFour: PropTypes.any.isRequired,
+  headerFive: PropTypes.any.isRequired,
+  headerSix: PropTypes.any.isRequired,
 };
 
 export default TableHeading;
