@@ -19,7 +19,6 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 
 const LandingPage = () => {
-
   const responsive = {
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
@@ -68,7 +67,7 @@ const LandingPage = () => {
               <button className="bg-[#59D2B0] mt-2 px-5 h-10 rounded-lg">
                 Get Started
               </button>
-              <button className="text-[#C4A7EE]" >Login</button>
+              <button className="text-[#C4A7EE]">Login</button>
             </div>
           </div>
         </nav>
@@ -212,10 +211,10 @@ const LandingPage = () => {
             Endless Possibilities
           </h1>
           <p className="mb-8">
-            Explore Coopera&apos;s pricing plans – simple, transparent, and designed{" "}
-            <br />
-            for your cooperative&apos;s growth. Find the perfect fit for your success{" "}
-            <br />
+            Explore Coopera&apos;s pricing plans – simple, transparent, and
+            designed <br />
+            for your cooperative&apos;s growth. Find the perfect fit for your
+            success <br />
             journey.
           </p>
         </div>
@@ -299,11 +298,11 @@ const LandingPage = () => {
             <span className="text-[#0EBE8D]">Happy Feedbacks</span>
           </h1>
           <p>
-            Discover Coopera&apos;s success stories &mdash; efficiency, collaboration,
+            Discover Coopera&apos;s success stories &mdash; efficiency,
+            collaboration,
             <br />
             joy. Join us!
           </p>
-
         </div>
         {
           <Carousel

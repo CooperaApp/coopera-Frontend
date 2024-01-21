@@ -36,7 +36,7 @@ export const DASHBOARD_SIDE_BAR_LINKS = [
   {
     key: "savings",
     label: "Savings",
-    path: "/dashboard",
+    path: "/savings",
     icon: <HiOutlineShoppingBag />,
   },
 
