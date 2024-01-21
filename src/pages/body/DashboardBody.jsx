@@ -25,7 +25,7 @@ ChartJS.register(
   CategoryScale,
   LinearScale,
   PointElement,
-  BarElement,
+  BarElement
 );
 const DashboardBody = () => {
   return (
