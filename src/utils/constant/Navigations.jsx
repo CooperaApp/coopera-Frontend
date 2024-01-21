@@ -50,7 +50,7 @@ export const DASHBOARD_SIDE_BAR_LINKS = [
   {
     key: "withdrawals",
     label: "Withdrawals",
-    path: "/dashboard",
+    path: "/withdrawal",
     icon: <BsHandbag />,
   },
 

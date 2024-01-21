@@ -159,7 +159,7 @@ const dat = [
 const Statistics = () => {
   return (
     <div>
-      <div className="h-96 flex flex-shrink-0 mt-7 w-screen overview-x-hidden">
+      <div className="h-96 flex flex-shrink-0 mt-7 overview-x-hidden">
         <div className="border p-4 bg-white h-full rounded-md w-1/2 mr-3">
           <div className="justify-between flex">
             <p className="heading">Loan Statistics</p>
@@ -185,7 +185,7 @@ const Statistics = () => {
             </div>
           </div>
 
-          <div className="h-full pt-4 pb-4">
+          <div className="h-full pt-4 pb-4 ">
             <ResponsiveContainer width="100%" height="100%">
               <LineChart
                 width={500}

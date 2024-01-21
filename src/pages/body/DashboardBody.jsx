@@ -15,6 +15,7 @@ import {
 } from "chart.js";
 
 import Table from "../molecule/Table";
+import CustomDatePicker from "../molecule/CustomDatePicker";
 import Statistics from "../molecule/Statistics";
 
 ChartJS.register(
@@ -27,12 +28,18 @@ ChartJS.register(
   PointElement,
   BarElement,
 );
+
+const handleSelectDate = (date) => {
+  console.log("Selected date:", date);
+};
+
 const DashboardBody = () => {
   return (
     <div className="h-full mt-1 ml-4 overflow-y-hidden">
-      <div className="flex flex-shrink-0 justify-between w-5/6">
+      <div className="w-full flex flex-shrink-0 justify-between w-5/6">
         <div className="dashboard-header">Dashboard Overview</div>
-        <div>{/* <CalenderPicker /> */}</div>
+
+        <CustomDatePicker onSelectDate={handleSelectDate} />
       </div>
 
       <div className="w-full h-80 flex flex-row flex-shrink-0">

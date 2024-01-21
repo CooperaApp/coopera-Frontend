@@ -4,8 +4,8 @@ import ArrowOptions from "../../assets/images/svg/Arrow-Options.svg";
 
 const PieChart = () => {
   return (
-    <div className="border bg-white rounded-md w-5/12 h-full mr-4">
-      <div className="p-3">
+    <div className="border bg-white rounded-md w-6/12 h-full mr-4">
+      <div className="p-3 -mt-2">
         <div className="justify-between pt-2 flex flex-row">
           <p className="cooperative-overview">Cooperative Overview</p>
           <div className="items-center justify-center h-full flex border h-4 w-30 ml-3">
@@ -18,11 +18,11 @@ const PieChart = () => {
           </div>
         </div>
 
-        <div className="ml-6 mt-1 w-64 h-48">
+        <div className="ml-6  w-68 h-56">
           <Doughnut data={data} options={options} />
         </div>
 
-        <div className="mt-6">
+        <div className="">
           <div className="flex space-x-4">
             <div className="flex ">
               <div

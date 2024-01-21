@@ -6,13 +6,18 @@ import RedArrow from "../../assets/images/svg/Red-Arrow.svg";
 import TableHeading from "../molecule/TableHeading";
 import { LuSearch } from "react-icons/lu";
 import TableBody from "../molecule/TableBody";
+import CustomDatePicker from "../molecule/CustomDatePicker";
+
+const handleSelectDate = (date) => {
+  console.log("Selected date:", date);
+};
 
 const MemberBody = () => {
   return (
     <div className="mt-1 ml-8 ">
-      <div className="flex flex-shrink-0 justify-between w-5/6">
+      <div className="flex flex-shrink-0 justify-between w-full w-5/6">
         <div className="dashboard-header">Members</div>
-        <div>{/* <CalenderPicker /> */}</div>
+        <div><CustomDatePicker onSelectDate={handleSelectDate} /></div>
       </div>
 
       <div className="flex">

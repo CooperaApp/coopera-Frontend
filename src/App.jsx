@@ -8,6 +8,7 @@ import Dashboard from "./pages/authorization/Dashboard";
 import Member from "../src/pages/authorization/Member";
 import Savings from "../src/pages/authorization/Savings";
 import HiredPurchase from "./pages/authorization/HiredPurchase.jsx";
+import Withdrawal from "./pages/authorization/Withdrawal.jsx";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           <Route path="/members" element={<Member />} />
           <Route path="/savings" element={<Savings />} />
           <Route path="/hired-purchase" element={<HiredPurchase/>}/>
+          <Route path="/withdrawal" element={<Withdrawal/>}/>
         </Routes>
       </BrowserRouter>
     </>
