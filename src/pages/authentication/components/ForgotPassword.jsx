@@ -31,7 +31,7 @@ const ForgotPassword = () => {
           <p className="mb-5 authentication-big-font-style">Build your Cooperative Society using Coopera</p>
           <p className="authentication-small-font-style">With Coopera, managing your cooperative society is seamless. Elevate efficiency and foster financial growth</p>
         </div>
-        <div className="mt-10 ">
+        <div className="mt-10 transition-all duration-300 rounded-lg blur-sm hover:blur-none">
           <img
             className="w-96"
             src={DashboardImage}

@@ -7,6 +7,7 @@
 
 .hp-header-frame{
     display: flex;
+    margin-top: 20px;
 }
 
 .hp-h1-tag{
@@ -55,5 +56,162 @@
     height: 6px;
     top: 3px;
     margin-left: 4px;
+}
 
+.hp-report-frame{
+    justify-content: space-evenly;
+    display: flex;
+    margin-top: 20px;
+}
+
+.t-active-hp-card{
+    background: #FFFFFF;
+    width: 345px;
+    height: 231px;
+    padding: 23px;
+    border-radius: 10px;
+}
+
+.t-value-hp-card{
+    background: #FFFFFF;
+    width: 345px;
+    height: 231px;
+    padding: 23px;
+    border-radius: 10px;
+}
+
+.t-remaining-balance-card{
+    background: #FFFFFF;
+    width: 345px;
+    height: 231px;
+    padding: 23px;
+    border-radius: 10px;
+}
+
+.Value-Amount-P-Tag-frame{
+    width: 120px;
+    margin-top: 10px;
+    height: 24px;
+    top: 427px;
+    left: 607px;
+    margin-left: 515px;
+}
+
+.Value-Amount-P-Tag{
+    font-family: 'EuclidCircularA', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0em;
+}
+
+.hp-activity-frame{
+    width: 1096px;
+    height: 578px;
+    top: 461px;
+    left: 29px;
+    border-radius: 10px;
+    background-color: #FFFFFF;
+    border: 1px solid #0000000F;
+    margin-top: 10px;
+    margin-left: 25px;
+}
+
+.hp-activity-header{
+    margin-top: 10px;
+    display: flex;
+    margin-left: 20px;
+}
+
+.hp-table-header{
+    font-family: 'EuclidCircularA', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 28px;
+    letter-spacing: 0em;
+    text-align: left;
+    width: 200px;
+    height: 28px;
+    color: #111212;
+    margin-right: 600px;
+}
+
+.hp-card-title, .hp-value-card-title{
+    width: 233px;
+    height: 64px;
+    font-family: 'EuclidCircularA', sans-serif;
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 32px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #2B2C2C;
+}
+
+.hp-balance-card-title{
+    width: 217px;
+    height: 69px;
+    font-family: 'EuclidCircularA', sans-serif;
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 34px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #2B2C2C;
+}
+
+.hp-number, .hp-value-card-amount{
+    width: 33px;
+    height: 50px;
+    font-family: 'EuclidCircularA', sans-serif;
+    font-size: 36px;
+    font-weight: 500;
+    line-height: 50px;
+    letter-spacing: -0.02em;
+    text-align: left;
+    color: #3C3C3C;
+}
+
+.hp-previous-month-styling{
+    width: 157px;
+    height: 24px;
+    font-family: 'EuclidCircularA', sans-serif;
+    font-size: 16px;
+    font-weight: lighter;
+    line-height: 24px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #484949;
+}
+
+.hp-search-bar{
+    width: 157px;
+    height: 22px;
+    font-family: 'EuclidCircularA', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 21px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #7E7F7F;
+    padding-right: 3px;
+    padding-left: 19px;
+
+}
+.hp-filter-icon{
+    width: 18px;
+    height: 18px;
+    margin-right: 6px;
+}
+
+.hp-filter{
+    width: 40px;
+    height: 22px;
+    font-family: 'EuclidCircularA', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 21px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #7E7F7F;
 }
