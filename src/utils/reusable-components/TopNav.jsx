@@ -5,7 +5,7 @@ import LMCLogo2 from "../../assets/images/svg/LMCLogo2.svg";
 
 const TopNav = () => {
   return (
-    <div className="flex flex-row items-center justify-between py-3 space-x-6 px-6 w-full h-12 overflow-hidden border-b" style={{backgroundColor: "#FFFFFF"}}>
+    <div className="flex flex-row items-center justify-between py-3 space-x-6 px-6 h-12 overflow-hidden border-b" style={{backgroundColor: "#FFFFFF"}}>
       <div className="">
         <form action="w-full max-w-md">
           <div className="relative flex items-center text-gray-400 focus-within:text-gray-600">

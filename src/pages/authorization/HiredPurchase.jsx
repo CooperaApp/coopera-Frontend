@@ -5,7 +5,7 @@ import HiredPurchaseBody from "../body/HiredPurchaseBody.jsx";
 const HiredPurchase = () => {
   return (
     <div
-      className="flex flex-row h-screen bg-white-100 overflow-x-auto"
+      className="flex flex-row bg-white-100 h-full overflow-x-hidden"
       style={{ backgroundColor: "#F8F8F9" }}
     >
       <div>
