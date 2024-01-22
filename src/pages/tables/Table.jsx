@@ -3,7 +3,7 @@ import { getStatusColor, getTextColor } from "../../utils/functions/Colors";
 
 const Table = () => {
   return (
-    <div className="ml-5 mr-5">
+    <div className="">
       <table className="table-auto w-full">
         <thead className="border">
           <tr className="">

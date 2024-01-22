@@ -1,4 +1,3 @@
-import React from "react";
 import SideBar from "../../utils/reusable-components/SideBar";
 import TopNav from "../../utils/reusable-components/TopNav";
 import LoanBody from "../body/LoanBody";
@@ -17,7 +16,7 @@ function Loan() {
         <TopNav />
         <LoanBody/>
       </div>
-     
+
     </div>
   );
 }

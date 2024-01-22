@@ -29,7 +29,7 @@ export const DASHBOARD_SIDE_BAR_LINKS = [
   {
     key: "loans",
     label: "Loans",
-    path: "/dashboard",
+    path: "/loan",
     icon: <HiOutlineBriefcase />,
   },
 

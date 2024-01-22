@@ -1,17 +1,16 @@
-import React from "react";
 import LoanCards from "../molecule/LoanCards";
 import ReLineChart from "../molecule/reLineChart";
 import sort from "../../assets/images/svg/sort.svg";
 import { LuSearch } from "react-icons/lu";
 import LoanTable from "../molecule/LoanTable";
-import CalendarPicker from "../molecule/CalenderPicker";
+import CustomDatePicker from "../molecule/CustomDatePicker";
 
 
 function LoanBody() {
   return (
     <div className="p-2 overview-y-scroll">
       <div className="flex flex-shrink-0 justify-between w-5/6 p-2 m-2">
-        <div className="loan-header">Loans</div>
+        <div className="dashboard-header">Loans</div>
         <div className="loanHeader-buttons">
           <button
             className="mr-4 p-2 rounded w-28 "
@@ -26,7 +25,7 @@ function LoanBody() {
             Repay Loan
           </button>
           <div >
-            <CalendarPicker/>
+            <CustomDatePicker/>
           </div>
         </div>
       </div>
