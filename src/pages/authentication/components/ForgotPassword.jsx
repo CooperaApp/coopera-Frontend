@@ -1,7 +1,7 @@
 import { useState } from "react";
 import ArrowBack from "../../../assets/images/png/arrow-back.png";
 import CooperaLogo from "../../../assets/images/svg/CooperaLogo.svg";
-import DashboardImage from "../../../assets/images/svg/DashboardImg.svg";
+import DashboardImage from "../../../assets/images/svg/DashboardImg2.svg";
 import BackIcon from  "../../../assets/images/svg/Back-Icon.svg";
 
 const ForgotPassword = () => {
@@ -42,7 +42,7 @@ const ForgotPassword = () => {
         </div>
         <div className="mt-3 mr-3">
           <img
-            className="w-96 ml-28"
+            className="w-96 ml-28 -m-32"
             src={DashboardImage}
             alt="Your Image"
             style={{ height: "705px", width: "489px"}}

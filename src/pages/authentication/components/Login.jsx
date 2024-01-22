@@ -2,7 +2,7 @@ import { useState } from "react";
 import EyeIcon from "../../../assets/images/svg/EyeIcon.svg";
 import ArrowBack from "../../../assets/images/png/arrow-back.png";
 import CooperaLogo from "../../../assets/images/svg/CooperaLogo.svg";
-import DashboardImage from "../../../assets/images/svg/DashboardImg.svg";
+import DashboardImage from "../../../assets/images/svg/DashboardImg2.svg";
 // import { LoginCooperative } from "../../../utils/api/CooperativeAPICalls";
 
 const Login = () => {
@@ -46,9 +46,9 @@ const Login = () => {
           <p className="mb-5 authentication-big-font-style">Build your Cooperative Society using Coopera</p>
           <p className="authentication-small-font-style">With Coopera, managing your cooperative society is seamless. Elevate efficiency and foster financial growth</p>
         </div>
-        <div className="mt-3 mr-3">
+        <div className="mr-3">
           <img
-            className="w-96 ml-28"
+            className="w-96 ml-28 -m-32"
             src={DashboardImage}
             alt="Your Image"
             style={{ height: "705px", width: "489px"}}

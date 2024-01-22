@@ -1,6 +1,6 @@
 import TopNav from "../../utils/reusable-components/TopNav";
 import SideBar from "../../utils/reusable-components/SideBar";
-import Table from "../molecule/Table";
+import Table from "../tables/Table";
 import GreenArrow from "../../assets/images/svg/Green-Arrow.svg";
 import CooperaDatePicker from "../../utils/reusable-components/CooperaDatePicker";
 import { Column } from "@ant-design/plots";
@@ -25,7 +25,7 @@ const Savings = () => {
     data,
     xField: "year",
     yField: "value",
-    color: ({ type }) => {
+    color: () => {
       return "#7C39DE";
     },
   };

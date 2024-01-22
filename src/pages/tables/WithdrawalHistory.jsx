@@ -7,7 +7,7 @@ const Table = () => {
       <table className="table-auto w-full">
         <thead className="border">
           <tr className="">
-            <th className="activities-heading px-4 py-2 text-left">Activity</th>
+            <th className="activities-heading px-4 py-2 text-left">Requested on</th>
             <th className="activities-heading px-4 py-2 text-left">
               Member ID
             </th>
@@ -15,9 +15,6 @@ const Table = () => {
               Full Name
             </th>
             <th className="activities-heading px-4 py-2 text-left">Amount</th>
-            <th className="activities-heading px-4 py-2 text-left">
-              Date and Time
-            </th>
             <th className="activities-heading px-4 py-2 text-left">Status</th>
           </tr>
         </thead>
@@ -28,7 +25,7 @@ const Table = () => {
                 style={{ color: "#484949" }}
                 className="recent-activities-data  px-4 py-2"
               >
-                {item.activity}
+                {item.requestedOn}
               </td>
               <td
                 style={{ color: "#484949" }}
@@ -47,12 +44,6 @@ const Table = () => {
                 className="recent-activities-data  px-4 py-2"
               >
                 {item.amount}
-              </td>
-              <td
-                style={{ color: "#484949" }}
-                className="recent-activities-data  px-4 py-2"
-              >
-                {item.date}
               </td>
               <td className="px-4 py-2">
                 {item.status && (

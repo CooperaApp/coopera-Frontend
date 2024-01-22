@@ -1,5 +1,5 @@
-// import { BarData, LineOptions } from "../../utils/constant/ChartData";
-// import { Bar } from "react-chartjs-2";
+import Month from "./Month";
+import { useState } from "react";
 import {
   LineChart,
   Line,
@@ -156,7 +156,11 @@ const dat = [
   },
 ];
 
+
 const Statistics = () => {
+
+  const [dropDown, setDropDown] = useState(false);
+
   return (
     <div>
       <div className="h-96 flex flex-shrink-0 mt-7 overview-x-hidden">
@@ -175,13 +179,21 @@ const Statistics = () => {
               ></div>
               <span className="pie-chart-labels">Loans Repaid</span>
             </div>
-            <div className="items-center mr-2 justify-center h-full flex border h-4 w-30 ">
+            <div className="border flex relative">
               <p className="previous-month-styling ml-2">Monthly</p>
               <img
                 src={ArrowOptions}
-                alt="No Img"
-                className="w-4 h-4 ml-1 mt-0"
+                alt="Dropdown Trigger"
+                className="w-4 h-4 ml-1 mt-1 cursor-pointer"
+                onClick={() => setDropDown(!dropDown)}
               />
+              {dropDown && (
+                <div className="absolute w-20 mt-6 right-0 border bg-white rounded-md max-h-48 overflow-y-auto">
+                  <ul className="list-none month-labels ml-3 p-3 cursor-pointer">
+                    <Month />
+                  </ul>
+                </div>
+              )}
             </div>
           </div>
 
@@ -200,14 +212,21 @@ const Statistics = () => {
                 }}
               >
                 {/* <CartesianGrid strokeDasharray="3 3" /> */}
-                <XAxis dataKey="name"
+                <XAxis
+                  dataKey="name"
                   tick={{
-                    fontSize: 12, fill: "#A9A9AA", fontWeight: "700" ,
-                  }} />
+                    fontSize: 12,
+                    fill: "#A9A9AA",
+                    fontWeight: "700",
+                  }}
+                />
                 <YAxis
                   tick={{
-                    fontSize: 12, fill: "#A9A9AA", fontWeight: "700" ,
-                  }} />
+                    fontSize: 12,
+                    fill: "#A9A9AA",
+                    fontWeight: "700",
+                  }}
+                />
                 <Tooltip />
                 <Line
                   type="monotone"
@@ -240,14 +259,19 @@ const Statistics = () => {
                 <XAxis
                   dataKey="name"
                   tick={{
-                    fontSize: 12, fill: "#A9A9AA", fontWeight: "700" ,
-                  }} />
+                    fontSize: 12,
+                    fill: "#A9A9AA",
+                    fontWeight: "700",
+                  }}
+                />
                 <YAxis
                   tick={{
-                    fontSize: 12, fill: "#A9A9AA", fontWeight: "700" ,
-                  }} />
+                    fontSize: 12,
+                    fill: "#A9A9AA",
+                    fontWeight: "700",
+                  }}
+                />
                 <Bar dataKey="savings" fill="#B18CE7" />
-
               </BarChart>
             </ResponsiveContainer>
           </div>

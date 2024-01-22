@@ -2,7 +2,7 @@ import { useState } from "react";
 import EyeIcon from "../../../assets/images/svg/EyeIcon.svg";
 import ArrowBack from "../../../assets/images/png/arrow-back.png";
 import CooperaLogo from "../../../assets/images/svg/CooperaLogo.svg";
-import DashboardImage from "../../../assets/images/svg/DashboardImg.svg";
+import DashboardImage from "../../../assets/images/svg/DashboardImg2.svg";
 
 const ChangePassword = () => {
 
@@ -44,7 +44,7 @@ const ChangePassword = () => {
         </div>
         <div className="mt-3 mr-3">
           <img
-            className="w-96 ml-28"
+            className="w-96 ml-28 -m-32"
             src={DashboardImage}
             alt="Your Image"
             style={{ height: "705px", width: "489px"}}

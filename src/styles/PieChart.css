@@ -14,3 +14,11 @@
     line-height: 24px;
     letter-spacing: 0em;
  }
+
+ .month-labels {
+   font-family: 'EuclidCircularA', sans-serif;
+    font-size: 13px;
+    font-weight: 100;
+    line-height: 30px;
+    letter-spacing: 0em;
+ }
