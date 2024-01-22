@@ -9,6 +9,7 @@ import Member from "../src/pages/authorization/Member";
 import Savings from "../src/pages/authorization/Savings";
 import HiredPurchase from "./pages/authorization/HiredPurchase.jsx";
 import Withdrawal from "./pages/authorization/Withdrawal.jsx";
+import Loan from "./pages/authorization/Loan";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
           <Route path="/savings" element={<Savings />} />
           <Route path="/hired-purchase" element={<HiredPurchase/>}/>
           <Route path="/withdrawal" element={<Withdrawal/>}/>
+          <Route path="/loan" element={<Loan/>} />
         </Routes>
       </BrowserRouter>
     </>
