@@ -2,6 +2,8 @@ export const getStatusColor = (status) => {
   switch (status.toLowerCase()) {
   case "completed":
     return "#E7F8F0";
+    case "ongoing":
+      return "#FEF4E6";
   case "approved":
     return "#E7F8F0";
   case "cancelled":
@@ -17,6 +19,8 @@ export const getTextColor = (status) => {
   switch (status.toLowerCase()) {
   case "completed":
     return "#12B76A";
+  case "ongoing":
+    return "#F79009";
   case "approved":
     return "#12B76A";
   case "cancelled":
