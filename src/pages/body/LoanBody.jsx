@@ -4,7 +4,8 @@ import ReLineChart from "../molecule/reLineChart";
 import sort from "../../assets/images/svg/sort.svg";
 import { LuSearch } from "react-icons/lu";
 import LoanTable from "../molecule/LoanTable";
-// import { CalendarPicker } from "../molecule/CalenderPicker";
+import CalendarPicker from "../molecule/CalenderPicker";
+
 
 function LoanBody() {
   return (
@@ -24,9 +25,9 @@ function LoanBody() {
           >
             Repay Loan
           </button>
-          {/* <div className="">
-            <CalendarPicker />
-          </div> */}
+          <div >
+            <CalendarPicker/>
+          </div>
         </div>
       </div>
 
