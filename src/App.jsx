@@ -7,6 +7,7 @@ import ChangePassword from "../src/pages/authentication/components/ChangePasswor
 import Dashboard from "./pages/authorization/Dashboard";
 import Member from "../src/pages/authorization/Member";
 import Savings from "../src/pages/authorization/Savings";
+import Loan from "./pages/authorization/Loan";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/member" element={<Member />} />
           <Route path="/savings" element={<Savings />} />
+          <Route path="/loan" element={<Loan/>} />
         </Routes>
       </BrowserRouter>
     </>
