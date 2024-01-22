@@ -13,7 +13,7 @@ import "../../styles/HiredPurchaseBody.css";
 const HiredPurchaseBody = () => {
   return (
     <div className="h-full  overflow-y-hidden">
-      <div className="flex mt-2 mb-2 ml-4 mr-8">
+      <div className="flex mt-2 mb-2  ml-4 mr-8">
         <div className="dashboard-header">Hire Purchase</div>
 
         <div className="flex flex-row justify-between">

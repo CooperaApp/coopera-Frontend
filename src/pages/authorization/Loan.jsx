@@ -5,8 +5,8 @@ import LoanBody from "../body/LoanBody";
 function Loan() {
   return (
     <div
-      className="flex flex-row bg-white-100 overview-x-hidden"
-      style={{ backgroundColor: "#F8F8F9", overflowX: "hidden"}}
+      className="flex flex-row bg-white-100 overview-x-auto"
+      style={{ backgroundColor: "#F8F8F9"}}
     >
       <div>
         <SideBar />

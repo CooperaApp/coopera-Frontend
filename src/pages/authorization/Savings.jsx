@@ -50,7 +50,7 @@ const Savings = () => {
 
       <div className="w-full h-full">
         <TopNav />
-        <div className=" flex justify-between mx-4 mt-5 mb-5">
+        <div className=" flex justify-between mx-4 mt-2 mb-2">
           <div className="dashboard-header">Savings</div>
 
           <div className="flex gap-2">
