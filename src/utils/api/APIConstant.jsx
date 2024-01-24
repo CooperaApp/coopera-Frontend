@@ -1,1 +1,0 @@
-export const BASE_URL = "ec2-184-72-140-111.compute-1.amazonaws.com:8093";
