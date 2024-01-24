@@ -57,7 +57,7 @@ export const DASHBOARD_SIDE_BAR_LINKS = [
   {
     key: "settings",
     label: "Settings",
-    path: "/dashboard",
+    path: "/setting",
     icon: <TbSettings2 />,
   },
 ];
