@@ -10,6 +10,7 @@ import Savings from "../src/pages/authorization/Savings";
 import HiredPurchase from "./pages/authorization/HiredPurchase.jsx";
 import Withdrawal from "./pages/authorization/Withdrawal.jsx";
 import Loan from "./pages/authorization/Loan";
+import Settings from "./pages/body/Settings.jsx";
 
 function App() {
   return (
@@ -24,9 +25,10 @@ function App() {
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/members" element={<Member />} />
           <Route path="/savings" element={<Savings />} />
-          <Route path="/hired-purchase" element={<HiredPurchase/>}/>
-          <Route path="/withdrawal" element={<Withdrawal/>}/>
-          <Route path="/loan" element={<Loan/>} />
+          <Route path="/settings" element={<Settings />} />
+          <Route path="/hired-purchase" element={<HiredPurchase />} />
+          <Route path="/withdrawal" element={<Withdrawal />} />
+          <Route path="/loan" element={<Loan />} />
         </Routes>
       </BrowserRouter>
     </>
