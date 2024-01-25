@@ -1,6 +1,131 @@
 export const DUMMY_DATA = [
   {
-    activity: "Loan Repayment",
+    requestedOn: "2023-01-05 | 09:45 AM",
+    memberId: "LIMC4578230",
+    fullName: "Asisat Oshoala",
+    amount: "N5000",
+    status: "Completed",
+  },
+
+  {
+    requestedOn: "2023-01-05 | 09:45 AM",
+    memberId: "LIMC6740900",
+    fullName: "Obi Chinedu",
+    amount: "N25,000",
+    status: "Pending",
+  },
+
+  {
+    requestedOn: "2023-01-05 | 09:45 AM",
+    memberId: "LIMC4570900",
+    fullName: "Reece James",
+    amount: "N45,000",
+    status: "Approved",
+  },
+
+  {
+    requestedOn: "2023-01-05 | 09:45 AM",
+    memberId: "LIMC67309128",
+    fullName: "Declan Rice",
+    amount: "N200,000",
+    status: "Pending",
+  },
+
+  {
+    requestedOn: "2023-01-05 | 09:45 AM",
+    memberId: "LIMC4578230",
+    fullName: "Walter White",
+    amount: "N50,000",
+    status: "Approved",
+  },
+
+  {
+    requestedOn: "2023-01-05 | 09:45 AM",
+    memberId: "LIMC9218000",
+    fullName: "Kunle Adebayo",
+    amount: "N20,000",
+    status: "Cancelled",
+  },
+
+  {
+    requestedOn: "2023-01-05 | 09:45 AM",
+    memberId: "LIMC4578230",
+    fullName: "Asisat Oshoala",
+    amount: "N5000",
+    status: "Completed",
+  },
+];
+
+
+export const MEMBER_DATA = [
+  {
+    date: "2023-01-05 | 09:45 AM",
+    memberId: "LIMC4578230",
+    fullName: "Asisat Oshoala",
+    amount: "N5000",
+    role: "Member",
+    status: "Completed",
+  },
+
+  {
+    date: "2023-01-05 | 09:45 AM",
+    memberId: "LIMC6740900",
+    fullName: "Obi Chinedu",
+    amount: "N25,000",
+    role: "Member",
+    status: "Pending",
+  },
+
+  {
+    date: "2023-01-05 | 09:45 AM",
+    memberId: "LIMC4570900",
+    fullName: "Reece James",
+    amount: "N45,000",
+    role: "Admin",
+    status: "Approved",
+  },
+
+  {
+    date: "2023-01-05 | 09:45 AM",
+    memberId: "LIMC67309128",
+    fullName: "Declan Rice",
+    amount: "N200,000",
+    role: "Member",
+    status: "Pending",
+  },
+
+  {
+    date: "2023-01-05 | 09:45 AM",
+    memberId: "LIMC4578230",
+    fullName: "Walter White",
+    amount: "N50,000",
+    role: "Member",
+    status: "Approved",
+  },
+
+  {
+    date: "2023-01-05 | 09:45 AM",
+    memberId: "LIMC9218000",
+    fullName: "Kunle Adebayo",
+    amount: "N20,000",
+    role: "Member",
+    status: "Cancelled",
+  },
+
+  {
+    date: "2023-01-05 | 09:45 AM",
+    memberId: "LIMC4578230",
+    fullName: "Asisat Oshoala",
+    amount: "N5000",
+    role: "Admin",
+    status: "Completed",
+  },
+];
+
+
+export const DASHBOARD_DATA = [
+  {
+    activity: "2023-01-05 | 09:45 AM",
     memberId: "LIMC4578230",
     fullName: "Asisat Oshoala",
     amount: "N5000",
@@ -9,7 +134,7 @@ export const DUMMY_DATA = [
   },
 
   {
-    activity: "Withdrawal",
+    activity: "2023-01-05 | 09:45 AM",
     memberId: "LIMC6740900",
     fullName: "Obi Chinedu",
     amount: "N25,000",
@@ -18,7 +143,7 @@ export const DUMMY_DATA = [
   },
 
   {
-    activity: "Loan Approval",
+    activity: "2023-01-05 | 09:45 AM",
     memberId: "LIMC4570900",
     fullName: "Reece James",
     amount: "N45,000",
@@ -27,7 +152,7 @@ export const DUMMY_DATA = [
   },
 
   {
-    activity: "Savings",
+    activity: "2023-01-05 | 09:45 AM",
     memberId: "LIMC67309128",
     fullName: "Declan Rice",
     amount: "N200,000",
@@ -36,16 +161,16 @@ export const DUMMY_DATA = [
   },
 
   {
-    activity: "New Member",
+    activity: "2023-01-05 | 09:45 AM",
     memberId: "LIMC4578230",
     fullName: "Walter White",
-    amount: "----------",
+    amount: "N50,000",
     date: "2023-01-05 | 09:45 AM",
-    status: "----------",
+    status: "Approved",
   },
 
   {
-    activity: "Withdrawal",
+    activity: "2023-01-05 | 09:45 AM",
     memberId: "LIMC9218000",
     fullName: "Kunle Adebayo",
     amount: "N20,000",
@@ -54,7 +179,7 @@ export const DUMMY_DATA = [
   },
 
   {
-    activity: "Loan Repayment",
+    activity: "2023-01-05 | 09:45 AM",
     memberId: "LIMC4578230",
     fullName: "Asisat Oshoala",
     amount: "N5000",

@@ -1,11 +1,11 @@
-import SideBar from "../../utils/reusable-components/SideBar";
 import TopNav from "../../utils/reusable-components/TopNav";
-import MemberBody from "../body/MemberBody";
+import SideBar from "../../utils/reusable-components/SideBar";
+import WithdrawalBody from "../body/WithdrawalBody";
 
-const Member = () => {
+const Withdrawal = () => {
   return (
     <div
-      className="flex flex-row bg-white-100 h-screen overflow-x-auto"
+      className="flex flex-row h-screen bg-white-100 overflow-x-auto"
       style={{ backgroundColor: "#F8F8F9" }}
     >
       <div>
@@ -14,10 +14,10 @@ const Member = () => {
 
       <div className="w-full h-full">
         <TopNav />
-        <MemberBody />
+        <WithdrawalBody />
       </div>
     </div>
   );
 };
 
-export default Member;
+export default Withdrawal;

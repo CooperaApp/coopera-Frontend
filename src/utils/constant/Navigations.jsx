@@ -22,42 +22,42 @@ export const DASHBOARD_SIDE_BAR_LINKS = [
   {
     key: "members",
     label: "Members",
-    path: "/dashboard",
+    path: "/members",
     icon: <BsPeople />,
   },
 
   {
     key: "loans",
     label: "Loans",
-    path: "/dashboard",
+    path: "/loan",
     icon: <HiOutlineBriefcase />,
   },
 
   {
     key: "savings",
     label: "Savings",
-    path: "/dashboard",
+    path: "/savings",
     icon: <HiOutlineShoppingBag />,
   },
 
   {
     key: "hire purchase",
     label: "Hire Purchase",
-    path: "/dashboard",
+    path: "/hired-purchase",
     icon: <PiShoppingCartSimpleThin />,
   },
 
   {
     key: "withdrawals",
     label: "Withdrawals",
-    path: "/dashboard",
+    path: "/withdrawal",
     icon: <BsHandbag />,
   },
 
   {
     key: "settings",
     label: "Settings",
-    path: "/dashboard",
+    path: "/settings",
     icon: <TbSettings2 />,
   },
 ];

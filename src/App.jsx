@@ -8,6 +8,9 @@ import Dashboard from "./pages/authorization/Dashboard";
 import Member from "../src/pages/authorization/Member";
 import Savings from "../src/pages/authorization/Savings";
 import HiredPurchase from "./pages/authorization/HiredPurchase.jsx";
+import Withdrawal from "./pages/authorization/Withdrawal.jsx";
+import Loan from "./pages/authorization/Loan";
+import Settings from "./pages/body/Settings.jsx";
 
 function App() {
   return (
@@ -20,9 +23,12 @@ function App() {
           <Route path="/forgot-password" element={<ForgotPassword />} />
           <Route path="/reset-password" element={<ChangePassword />} />
           <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/member" element={<Member />} />
+          <Route path="/members" element={<Member />} />
           <Route path="/savings" element={<Savings />} />
-          <Route path="/hired-purchase" element={<HiredPurchase/>}/>
+          <Route path="/settings" element={<Settings />} />
+          <Route path="/hired-purchase" element={<HiredPurchase />} />
+          <Route path="/withdrawal" element={<Withdrawal />} />
+          <Route path="/loan" element={<Loan />} />
         </Routes>
       </BrowserRouter>
     </>

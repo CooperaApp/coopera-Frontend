@@ -1,6 +1,6 @@
-import ArrowOptions from "../../assets/images/svg/Arrow-Options.svg";
 import Card from "../molecule/Card";
 import PieChart from "../molecule/PieChart";
+import Filter from "../../assets/images/svg/Filter.svg";
 import { LuSearch } from "react-icons/lu";
 import {
   Chart as ChartJS,
@@ -14,7 +14,8 @@ import {
   BarElement,
 } from "chart.js";
 
-import Table from "../molecule/Table";
+import Table from "../tables/Table";
+import CustomDatePicker from "../molecule/CustomDatePicker";
 import Statistics from "../molecule/Statistics";
 
 ChartJS.register(
@@ -27,12 +28,18 @@ ChartJS.register(
   PointElement,
   BarElement,
 );
+
+const handleSelectDate = (date) => {
+  console.log("Selected date:", date);
+};
+
 const DashboardBody = () => {
   return (
-    <div className="h-full mt-1 ml-4 overflow-y-hidden">
-      <div className="flex flex-shrink-0 justify-between w-5/6">
+    <div className="h-full ml-4 overflow-y-hidden">
+      <div className="w-full flex mt-2 mb-2 flex-shrink-0 justify-between w-5/6">
         <div className="dashboard-header">Dashboard Overview</div>
-        <div>{/* <CalenderPicker /> */}</div>
+
+        <CustomDatePicker onSelectDate={handleSelectDate} />
       </div>
 
       <div className="w-full h-80 flex flex-row flex-shrink-0">
@@ -48,26 +55,27 @@ const DashboardBody = () => {
             <p className="heading">Recent Activities</p>
           </div>
 
-          <div className="border flex justify-between">
-            <div className="w-full max-w-md relative flex items-center text-gray-400 focus-within:text-gray-600">
+          <div className="flex  justify-between">
+            <div className=" relative flex items-center text-gray-200 focus-within:text-gray-400">
               <LuSearch className="w-5 h-5 absolute ml-3 pointer-events-none" />
               <input
                 type="text"
                 name="search"
-                placeholder="Search members..."
+                placeholder="       Search members..."
                 autoComplete="off"
                 aria-label="Search"
-                className="search-bar pr-3 pl-10 py-2 font-semibold h-8 w-40 placeholder-gray-100 text-blue rounded-sm border-none ring-2 ring-gray-100 focus:ring-gray-500 focus:ring-2"
+                className="search-bar  pr-3 pl-10 py-2 font-normal text-sm h-8 w-44 placeholder-gray-600  rounded-sm border-none ring-2 ring-gray-100 focus:ring-gray-500 focus:ring-2"
                 style={{ backgroundColor: "#FFFFFF" }}
               />
             </div>
-            <div className="border items-center justify-center flex ml-3">
-              <p className="previous-month-styling ml-2">Monthly</p>
+            <div className="border items-center justify-center flex ml-3 h-7 w-20 mt-0.5 rounded-sm">
+              <p className="font-normal text-sm ">Filter</p>
               <img
-                src={ArrowOptions}
+                src={Filter}
                 alt="No Img"
-                className="w-4 h-4 ml-1 mt-0"
+                className="w-4 h-4 ml-2 mt-0"
               />
+
             </div>
           </div>
         </div>
@@ -79,3 +87,4 @@ const DashboardBody = () => {
 };
 
 export default DashboardBody;
+
