@@ -5,29 +5,60 @@ import CooperaLogo from "../../../assets/images/svg/CooperaLogo.svg";
 import DashboardImage from "../../../assets/images/svg/DashboardImg.svg";
 // import { RegisterCooperative } from "../../../utils/api/CooperativeAPICalls";
 // import BlurImage from "../../../utils/reusable-components/BlurredImage";
-
+import {BASE_URL} from "../../../utils/api/API_BASE_URL.jsx";
 
 const RegistrationPage = () => {
-  let initialState = {
-    name: "",
-    logo: "",
-    companyName: "",
+  const [formData, setFormData] = useState({
+    cooperativeName: "",
     rcNumber: "",
-    address: "",
+    cooperativeAddress: "",
+    password: "",
+    logo: "",
+  });
+
+  const handleInputChange = (e) => {
+    const { name, value, files } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: files ? files[0] : value,
+    }));
   };
 
-  const [data, setData] = useState(initialState);
+  const handleCooperativeRegistration = async () => {
+    const formPayload = new FormData();
+    formPayload.append("cooperativeName", formData.cooperativeName);
+    formPayload.append("rcNumber", formData.rcNumber);
+    formPayload.append("cooperativeEmail", formData.cooperativeAddress);
+    formPayload.append("password", formData.password);
+    formPayload.append("logo", formData.logo);
 
-  function handleChange(event) {
-    setData({
-      ...data,
-      [event.target.name]: event.target.value,
-    });
-  }
+    try {
+      const response = await fetch(`${BASE_URL}/cooperative/register`, {
+        method: "POST",
+        body: formPayload,
+      });
 
-  function cooperativeRegistration() {
-    // const res = new RegisterCooperative(payload);
-  }
+      if (response.ok) {
+        console.log("Registration successful!");
+      } else {
+        console.error("Registration failed.");
+      }
+    } catch (error) {
+      console.error("An error occurred during registration:", error);
+    }
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    handleCooperativeRegistration()
+      .then((responseData) => {
+        console.log("Registration successful!");
+        console.log("Response data:", responseData);
+      })
+      .catch((error) => {
+        console.error("Error during registration:", error);
+      });
+  };
 
   return (
     <div className="flex h-screen pt-0 overflow-hidden">
@@ -69,7 +100,7 @@ const RegistrationPage = () => {
         <img src={CooperaLogo} alt="Logo" className="h-9 w-9 mb-2 -mt-5" />
         <h2 className="mb-8 get-started-big-font-style">Get Started</h2>
 
-        <form className="">
+        <form onSubmit={handleSubmit} className="">
           <div className="mb-5">
             <label className="sub-text-font-style">Cooperative Name</label>
             <input
@@ -77,8 +108,9 @@ const RegistrationPage = () => {
               className="w-full h-10 px-4 text-xs"
               style={{ backgroundColor: "#F3F3F3", borderRadius: "4px" }}
               placeholder="Cooperative name"
-              onChange={handleChange}
-              value={data.name}
+              onChange={handleInputChange}
+              value={formData.cooperativeName}
+              name="cooperativeName"
             />
           </div>
 
@@ -90,21 +122,23 @@ const RegistrationPage = () => {
               className="w-full h-10 px-4 text-xs"
               style={{ backgroundColor: "#F3F3F3", borderRadius: "4px" }}
               placeholder="Company CAC No."
-              onChange={handleChange}
-              value={data.companyName}
+              onChange={handleInputChange}
+              value={formData.rcNumber}
+              name="rcNumber"
             />
           </div>
 
           <div className="mb-5">
-            <label className="sub-text-font-style">Cooperative Email</label>
+            <label className="sub-text-font-style">Cooperative Address</label>
             <br />
             <input
-              type="email"
+              type="text"
               className="w-full h-10 px-4 text-xs"
               style={{ backgroundColor: "#F3F3F3", borderRadius: "4px" }}
-              placeholder="Cooperative Email"
-              onChange={handleChange}
-              value={data.rcNumber}
+              placeholder="Cooperative Address"
+              onChange={handleInputChange}
+              value={formData.cooperativeAddress}
+              name="cooperativeAddress"
             ></input>
           </div>
 
@@ -116,8 +150,9 @@ const RegistrationPage = () => {
                 style={{ backgroundColor: "#F3F3F3", borderRadius: "4px" }}
                 className="w-full h-10 px-4 text-xs"
                 placeholder="Choose a password"
-                onChange={handleChange}
-                value={data.address}
+                onChange={handleInputChange}
+                value={formData.password}
+                name="password"
               />
               <div className="absolute right-4 top-1/2 transform -translate-y-1/2">
                 <img
@@ -132,16 +167,18 @@ const RegistrationPage = () => {
           <div className="">
             <label className="sub-text-font-style">Select Logo</label> <br />
             <input
-              type="file"
+              type="text"
               style={{ backgroundColor: "#F3F3F3", borderRadius: "4px" }}
               className="w-full h-9 mt-1 px-4 text-xs"
-              onChange={handleChange}
-              value={data.logo}
+              onChange={handleInputChange}
+              accept="image/*"
+              value={formData.logo}
+              name="logo"
             />
           </div>
 
           <div className="w-full mt-10 h-10 px-4 rounded-md mb-2 bg-[#7C39DE] cursor-pointer border-2 border-[#7C39DE] text-white flex items-center justify-center font-bold">
-            <button type="submit" onClick={() => cooperativeRegistration()}>
+            <button type="submit">
               Register
             </button>
           </div>
