@@ -25,17 +25,23 @@ const RegistrationPage = () => {
   };
 
   const handleCooperativeRegistration = async () => {
-    const formPayload = new FormData();
-    formPayload.append("cooperativeName", formData.cooperativeName);
-    formPayload.append("rcNumber", formData.rcNumber);
-    formPayload.append("cooperativeEmail", formData.cooperativeAddress);
-    formPayload.append("password", formData.password);
-    formPayload.append("logo", formData.logo);
+    const jsonPayload = {
+      cooperativeName: formData.cooperativeName,
+      rcNumber: formData.rcNumber,
+      cooperativeEmail: formData.cooperativeEmail,
+      password: formData.password,
+      // Assuming formData.logo is the file itself, you might need additional logic for handling files
+      // (e.g., uploading them separately, sending them in a different format)
+      logo: formData.logo,
+    };
 
     try {
       const response = await fetch(`${BASE_URL}/cooperative/register`, {
         method: "POST",
-        body: formPayload,
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(jsonPayload),
       });
 
       if (response.ok) {
@@ -52,7 +58,7 @@ const RegistrationPage = () => {
     e.preventDefault();
     handleCooperativeRegistration()
       .then((responseData) => {
-        console.log("Registration successful!");
+        console.log("Registration successful responseDATA!");
         console.log("Response data:", responseData);
       })
       .catch((error) => {

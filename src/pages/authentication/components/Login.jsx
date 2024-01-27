@@ -3,28 +3,46 @@ import EyeIcon from "../../../assets/images/svg/EyeIcon.svg";
 import ArrowBack from "../../../assets/images/png/arrow-back.png";
 import CooperaLogo from "../../../assets/images/svg/CooperaLogo.svg";
 import DashboardImage from "../../../assets/images/svg/DashboardImg2.svg";
+import { useNavigate } from "react-router-dom";
+import {BASE_URL} from "../../../utils/api/API_BASE_URL.jsx";
 // import { LoginCooperative } from "../../../utils/api/CooperativeAPICalls";
 
 const Login = () => {
-
-  let initialState = {
-    email: "",
+  const navigate = useNavigate();
+  const [formData, setFormData] = useState({
+    cooperativeName: "",
     password: "",
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
   };
 
-  const [data, setData] = useState(initialState);
+  const handleLogin = async (e) => {
+    e.preventDefault();
 
-  function handleChange (event) {
-    setData({
-      ...data,
-      [event.target.name]: event.target.value,
-    });
-  }
+    try {
+      const response = await fetch(`${BASE_URL}/cooperative/login`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
 
-  // function loginCooperative (payload) {
-  //   const res = new LoginCooperative(payload);
-  // }
-
+      if (response.ok) {
+        navigate("/dashboard");
+      } else {
+        console.error("Authentication failed");
+      }
+    } catch (error) {
+      console.error("Error during login:", error);
+    }
+  };
   return (
     <div className="flex h-screen pt-0 overflow-hidden">
       <div className="border border-purple-100 w-1/2 bg-[#7C39DE] overflow-hidden">
@@ -59,18 +77,19 @@ const Login = () => {
       <div className="w-1/2 p-10 pt-1 mt-32">
         <img src={CooperaLogo} alt="Logo" className="h-9 w-9 mb-2 -mt-5" />
         <h2 className="welcome-back-big-font-style mb-7">Welcome back!</h2>
-        <form className="">
+        <form onSubmit={handleLogin}>
 
           <div className="mb-5">
-            <label className="sub-text-font-style">Cooperative Email</label>
+            <label className="sub-text-font-style">Cooperative Name</label>
             <br />
             <input
-              type="email"
+              type="text"
               className="w-full h-10 px-4 text-xs"
               style={{backgroundColor: "#F3F3F3", borderRadius: "4px"}}
-              placeholder="Cooperative Email"
+              placeholder="Cooperative Name"
               onChange={handleChange}
-              value={data.rcNumber}
+              value={formData.cooperativeName}
+              name="cooperativeName"
             ></input>
           </div>
 
@@ -79,12 +98,13 @@ const Login = () => {
             <label className="sub-text-font-style">Password</label>
             <div className="relative">
               <input
-                type="text"
+                type="password"
                 style={{backgroundColor: "#F3F3F3", borderRadius: "4px"}}
                 className="w-full h-10 px-4 text-xs"
                 placeholder="Choose a password"
                 onChange={handleChange}
-                value={data.password}
+                value={formData.password}
+                name="password"
               />
               <div className="absolute right-4 top-1/2 transform -translate-y-1/2">
                 <img
