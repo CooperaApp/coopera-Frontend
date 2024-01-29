@@ -3,67 +3,38 @@ import EyeIcon from "../../../assets/images/svg/EyeIcon.svg";
 import ArrowBack from "../../../assets/images/png/arrow-back.png";
 import CooperaLogo from "../../../assets/images/svg/CooperaLogo.svg";
 import DashboardImage from "../../../assets/images/svg/DashboardImg.svg";
+import axios from "axios";
 // import { RegisterCooperative } from "../../../utils/api/CooperativeAPICalls";
 // import BlurImage from "../../../utils/reusable-components/BlurredImage";
 import {BASE_URL} from "../../../utils/api/API_BASE_URL.jsx";
 
 const RegistrationPage = () => {
   const [formData, setFormData] = useState({
-    cooperativeName: "",
-    rcNumber: "",
-    cooperativeAddress: "",
-    password: "",
+    name: "",
     logo: "",
+    email:"",
+    companyName: "",
+    rcNumber: "",
+    address: "",
+    password: "",
   });
 
   const handleInputChange = (e) => {
-    const { name, value, files } = e.target;
-    setFormData((prevData) => ({
-      ...prevData,
-      [name]: files ? files[0] : value,
-    }));
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
   };
 
-  const handleCooperativeRegistration = async () => {
-    const jsonPayload = {
-      cooperativeName: formData.cooperativeName,
-      rcNumber: formData.rcNumber,
-      cooperativeEmail: formData.cooperativeEmail,
-      password: formData.password,
-      // Assuming formData.logo is the file itself, you might need additional logic for handling files
-      // (e.g., uploading them separately, sending them in a different format)
-      logo: formData.logo,
-    };
+  const handleFormSubmit = async (e) => {
+    e.preventDefault();
 
     try {
-      const response = await fetch(`${BASE_URL}/cooperative/register`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(jsonPayload),
-      });
-
-      if (response.ok) {
-        console.log("Registration successful!");
-      } else {
-        console.error("Registration failed.");
-      }
+      const response = await axios.post(  `${BASE_URL}/cooperative/register`, formData);
+      console.log("Registration successful", response.data);
     } catch (error) {
-      console.error("An error occurred during registration:", error);
+      console.error("Registration failed", error.response.data);
     }
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    handleCooperativeRegistration()
-      .then((responseData) => {
-        console.log("Registration successful responseDATA!");
-        console.log("Response data:", responseData);
-      })
-      .catch((error) => {
-        console.error("Error during registration:", error);
-      });
   };
 
   return (
@@ -106,7 +77,7 @@ const RegistrationPage = () => {
         <img src={CooperaLogo} alt="Logo" className="h-9 w-9 mb-2 -mt-5" />
         <h2 className="mb-8 get-started-big-font-style">Get Started</h2>
 
-        <form onSubmit={handleSubmit} className="">
+        <form onSubmit={handleFormSubmit} className="">
           <div className="mb-5">
             <label className="sub-text-font-style">Cooperative Name</label>
             <input
@@ -115,8 +86,34 @@ const RegistrationPage = () => {
               style={{ backgroundColor: "#F3F3F3", borderRadius: "4px" }}
               placeholder="Cooperative name"
               onChange={handleInputChange}
-              value={formData.cooperativeName}
-              name="cooperativeName"
+              value={formData.name}
+              name="name"
+            />
+          </div>
+
+          <div className="mb-5">
+            <label className="sub-text-font-style">Company Name</label>
+            <input
+              type="text"
+              className="w-full h-10 px-4 text-xs"
+              style={{ backgroundColor: "#F3F3F3", borderRadius: "4px" }}
+              placeholder="Company name"
+              onChange={handleInputChange}
+              value={formData.companyName}
+              name="companyName"
+            />
+          </div>
+
+          <div className="mb-5">
+            <label className="sub-text-font-style">Email Address</label>
+            <input
+              type="text"
+              className="w-full h-10 px-4 text-xs"
+              style={{ backgroundColor: "#F3F3F3", borderRadius: "4px" }}
+              placeholder="Email Address"
+              onChange={handleInputChange}
+              value={formData.email}
+              name="email"
             />
           </div>
 
@@ -143,8 +140,8 @@ const RegistrationPage = () => {
               style={{ backgroundColor: "#F3F3F3", borderRadius: "4px" }}
               placeholder="Cooperative Address"
               onChange={handleInputChange}
-              value={formData.cooperativeAddress}
-              name="cooperativeAddress"
+              value={formData.address}
+              name="address"
             ></input>
           </div>
 
