@@ -107,7 +107,7 @@ const RegistrationPage = () => {
           <div className="mb-5">
             <label className="sub-text-font-style">Email Address</label>
             <input
-              type="text"
+              type="email"
               className="w-full h-10 px-4 text-xs"
               style={{ backgroundColor: "#F3F3F3", borderRadius: "4px" }}
               placeholder="Email Address"
