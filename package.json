@@ -25,6 +25,7 @@
     "react-modal": "^3.16.1",
     "react-multi-carousel": "^2.8.4",
     "react-router-dom": "^6.20.0",
+    "react-toastify": "^10.0.4",
     "recharts": "^2.10.3"
   },
   "devDependencies": {

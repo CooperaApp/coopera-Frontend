@@ -125,7 +125,7 @@ export const MEMBER_DATA = [
 
 export const DASHBOARD_DATA = [
   {
-    activity: "2023-01-05 | 09:45 AM",
+    activity: "Loan Repayment",
     memberId: "LIMC4578230",
     fullName: "Asisat Oshoala",
     amount: "N5000",
@@ -134,7 +134,7 @@ export const DASHBOARD_DATA = [
   },
 
   {
-    activity: "2023-01-05 | 09:45 AM",
+    activity: "Withdrawal",
     memberId: "LIMC6740900",
     fullName: "Obi Chinedu",
     amount: "N25,000",
@@ -143,16 +143,16 @@ export const DASHBOARD_DATA = [
   },
 
   {
-    activity: "2023-01-05 | 09:45 AM",
+    activity: "New Member",
     memberId: "LIMC4570900",
     fullName: "Reece James",
-    amount: "N45,000",
+    amount: "..................",
     date: "2023-01-05 | 09:45 AM",
     status: "Approved",
   },
 
   {
-    activity: "2023-01-05 | 09:45 AM",
+    activity: "Savings",
     memberId: "LIMC67309128",
     fullName: "Declan Rice",
     amount: "N200,000",
@@ -161,16 +161,16 @@ export const DASHBOARD_DATA = [
   },
 
   {
-    activity: "2023-01-05 | 09:45 AM",
+    activity: "New Member",
     memberId: "LIMC4578230",
     fullName: "Walter White",
-    amount: "N50,000",
+    amount: "..................",
     date: "2023-01-05 | 09:45 AM",
     status: "Approved",
   },
 
   {
-    activity: "2023-01-05 | 09:45 AM",
+    activity: "Loan Repayment",
     memberId: "LIMC9218000",
     fullName: "Kunle Adebayo",
     amount: "N20,000",
@@ -179,7 +179,7 @@ export const DASHBOARD_DATA = [
   },
 
   {
-    activity: "2023-01-05 | 09:45 AM",
+    activity: "Loan Approval",
     memberId: "LIMC4578230",
     fullName: "Asisat Oshoala",
     amount: "N5000",

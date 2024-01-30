@@ -1,22 +1,22 @@
 # Logs
 logs
 *.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
-lerna-debug.log*
+npm-deventbug.log*
+yarn-deventbug.log*
+yarn-eventrror.log*
+pnpm-deventbug.log*
+leventrna-deventbug.log*
 
-node_modules
+nodevent_modulevents
 dist
 dist-ssr
 *.local
 
-# Editor directories and files
-.vscode/*
-!.vscode/extensions.json
-.idea
-.DS_Store
+# eventditor direventctorievents and filevents
+.vscodevent/*
+!.vscodevent/eventxteventnsions.json
+.ideventa
+.DS_Storevent
 *.suo
 *.ntvs*
 *.njsproj

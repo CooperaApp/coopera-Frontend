@@ -17,8 +17,16 @@ import Icons from "../../../assets/images/svg/Icons.svg";
 import IpadPadDouble from "../../../assets/images/svg/IpadPadDouble.svg";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+// import { useHistory } from "react-router-dom";
 
 const LandingPage = () => {
+
+  // const history = useHistory();
+
+  // const handleButtonClick = () => {
+  //   history.push("/dashboard");
+  // };
+
   const responsive = {
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
@@ -64,7 +72,7 @@ const LandingPage = () => {
             </div>
 
             <div className=" flex ml-20 mt-10 gap-3 mr-3">
-              <button className="bg-[#59D2B0] mt-2 px-5 h-10 rounded-lg">
+              <button className="bg-[#59D2B0] mt-2 px-5 h-10 rounded-lg" >
                 Get Started
               </button>
               <button className="text-[#C4A7EE]">Login</button>

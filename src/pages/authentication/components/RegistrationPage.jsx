@@ -3,30 +3,43 @@ import EyeIcon from "../../../assets/images/svg/EyeIcon.svg";
 import ArrowBack from "../../../assets/images/png/arrow-back.png";
 import CooperaLogo from "../../../assets/images/svg/CooperaLogo.svg";
 import DashboardImage from "../../../assets/images/svg/DashboardImg.svg";
-// import { RegisterCooperative } from "../../../utils/api/CooperativeAPICalls";
-// import BlurImage from "../../../utils/reusable-components/BlurredImage";
+import {  toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import axios from "axios";
+import {BASE_URL} from "../../../utils/api/API_BASE_URL.jsx";
 
 const RegistrationPage = () => {
-  let initialState = {
+  const [formData, setFormData] = useState({
     name: "",
     logo: "",
+    email:"",
     companyName: "",
     rcNumber: "",
     address: "",
+    password: "",
+  });
+
+  const handleInputChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
   };
 
-  const [data, setData] = useState(initialState);
+  const handleFormSubmit = async (e) => {
+    e.preventDefault();
 
-  function handleChange(event) {
-    setData({
-      ...data,
-      [event.target.name]: event.target.value,
-    });
-  }
-
-  function cooperativeRegistration() {
-    // const res = new RegisterCooperative(payload);
-  }
+    var response;
+    try {
+      response = await axios.post(  `${BASE_URL}/cooperative/register`, formData);
+      // console.log("Message >>> ", response.data.message);
+      toast.success("Registration Successful, Please login!");
+    } catch (error) {
+      // console.error("Error.response.message >>> ", error.response.data.message);
+      // console.error("Response >>> ", error.response);
+      toast.error("Invalid");
+    }
+  };
 
   return (
     <div className="flex h-screen pt-0 overflow-hidden">
@@ -68,7 +81,7 @@ const RegistrationPage = () => {
         <img src={CooperaLogo} alt="Logo" className="h-9 w-9 mb-2 -mt-5" />
         <h2 className="mb-8 get-started-big-font-style">Get Started</h2>
 
-        <form className="">
+        <form onSubmit={handleFormSubmit} className="">
           <div className="mb-5">
             <label className="sub-text-font-style">Cooperative Name</label>
             <input
@@ -76,8 +89,35 @@ const RegistrationPage = () => {
               className="w-full h-10 px-4 text-xs"
               style={{ backgroundColor: "#F3F3F3", borderRadius: "4px" }}
               placeholder="Cooperative name"
-              onChange={handleChange}
-              value={data.name}
+              onChange={handleInputChange}
+              value={formData.name}
+              name="name"
+            />
+          </div>
+
+          <div className="mb-5">
+            <label className="sub-text-font-style">Company Name</label>
+            <input
+              type="text"
+              className="w-full h-10 px-4 text-xs"
+              style={{ backgroundColor: "#F3F3F3", borderRadius: "4px" }}
+              placeholder="Company name"
+              onChange={handleInputChange}
+              value={formData.companyName}
+              name="companyName"
+            />
+          </div>
+
+          <div className="mb-5">
+            <label className="sub-text-font-style">Email Address</label>
+            <input
+              type="email"
+              className="w-full h-10 px-4 text-xs"
+              style={{ backgroundColor: "#F3F3F3", borderRadius: "4px" }}
+              placeholder="Email Address"
+              onChange={handleInputChange}
+              value={formData.email}
+              name="email"
             />
           </div>
 
@@ -89,21 +129,23 @@ const RegistrationPage = () => {
               className="w-full h-10 px-4 text-xs"
               style={{ backgroundColor: "#F3F3F3", borderRadius: "4px" }}
               placeholder="Company CAC No."
-              onChange={handleChange}
-              value={data.companyName}
+              onChange={handleInputChange}
+              value={formData.rcNumber}
+              name="rcNumber"
             />
           </div>
 
           <div className="mb-5">
-            <label className="sub-text-font-style">Cooperative Email</label>
+            <label className="sub-text-font-style">Cooperative Address</label>
             <br />
             <input
-              type="email"
+              type="text"
               className="w-full h-10 px-4 text-xs"
               style={{ backgroundColor: "#F3F3F3", borderRadius: "4px" }}
-              placeholder="Cooperative Email"
-              onChange={handleChange}
-              value={data.rcNumber}
+              placeholder="Cooperative Address"
+              onChange={handleInputChange}
+              value={formData.address}
+              name="address"
             ></input>
           </div>
 
@@ -115,8 +157,9 @@ const RegistrationPage = () => {
                 style={{ backgroundColor: "#F3F3F3", borderRadius: "4px" }}
                 className="w-full h-10 px-4 text-xs"
                 placeholder="Choose a password"
-                onChange={handleChange}
-                value={data.address}
+                onChange={handleInputChange}
+                value={formData.password}
+                name="password"
               />
               <div className="absolute right-4 top-1/2 transform -translate-y-1/2">
                 <img
@@ -131,16 +174,18 @@ const RegistrationPage = () => {
           <div className="">
             <label className="sub-text-font-style">Select Logo</label> <br />
             <input
-              type="file"
+              type="text"
               style={{ backgroundColor: "#F3F3F3", borderRadius: "4px" }}
               className="w-full h-9 mt-1 px-4 text-xs"
-              onChange={handleChange}
-              value={data.logo}
+              onChange={handleInputChange}
+              accept="image/*"
+              value={formData.logo}
+              name="logo"
             />
           </div>
 
-          <div className="w-full mt-10 h-10 px-4 rounded-md mb-2 bg-[#7C39DE] cursor-pointer border-2 border-[#7C39DE] text-white flex items-center justify-center font-bold">
-            <button type="submit" onClick={() => cooperativeRegistration()}>
+          <div className="w-full mt-10 h-10 px-4 rounded-md hover:bg-purple-500 hover:border-purple-500 mb-2 bg-[#7C39DE] cursor-pointer border-2 border-[#7C39DE] text-white flex items-center justify-center font-bold">
+            <button type="submit" className="hover:bg-purple-500 cursor-pointer">
               Register
             </button>
           </div>

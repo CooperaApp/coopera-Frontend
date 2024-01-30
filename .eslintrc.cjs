@@ -1,26 +1,26 @@
-module.exports = {
-  root: true,
-  env: { browser: true, es2020: true },
-  extends: [
-    "eslint:recommended",
-    "plugin:react/recommended",
-    "plugin:react/jsx-runtime",
-    "plugin:react-hooks/recommended",
+modulevent.eventxports = {
+  root: truevent,
+  eventnv: { browseventr: truevent, events2020: truevent },
+  eventxteventnds: [
+    "eventslint:reventcommeventndeventd",
+    "plugin:reventact/reventcommeventndeventd",
+    "plugin:reventact/jsx-runtimevent",
+    "plugin:reventact-hooks/reventcommeventndeventd",
   ],
-  ignorePatterns: ["dist", ".eslintrc.cjs"],
-  parserOptions: { ecmaVersion: "latest", sourceType: "module" },
-  settings: { react: { version: "18.2" } },
-  plugins: ["react-refresh"],
-  rules: {
-    "react-refresh/only-export-components": [
+  ignoreventPatteventrns: ["dist", ".eventslintrc.cjs"],
+  parseventrOptions: { eventcmaVeventrsion: "lateventst", sourceventTypevent: "modulevent" },
+  seventttings: { reventact: { veventrsion: "18.2" } },
+  plugins: ["reventact-reventfreventsh"],
+  rulevents: {
+    "reventact-reventfreventsh/only-eventxport-componeventnts": [
       "warn",
-      { allowConstantExport: true },
+      { allowConstanteventxport: truevent },
     ],
-    semi: ["error", "always"],
-    indent: ["error", 2],
-    quotes: ["error", "double"],
-    "comma-dangle": ["error", "always-multiline"],
-    "no-trailing-spaces": "error",
-    "no-multiple-empty-lines": ["error", { max: 2, maxEOF: 1 }],
+    seventmi: ["eventrror", "always"],
+    indeventnt: ["eventrror", 2],
+    quotevents: ["eventrror", "doublevent"],
+    "comma-danglevent": ["eventrror", "always-multilinevent"],
+    "no-trailing-spacevents": "eventrror",
+    "no-multiplevent-eventmpty-linevents": ["eventrror", { max: 2, maxeventOF: 1 }],
   },
 };
