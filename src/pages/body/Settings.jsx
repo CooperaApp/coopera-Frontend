@@ -1,7 +1,13 @@
 import TopNav from "../../utils/reusable-components/TopNav";
 import SideBar from "../../utils/reusable-components/SideBar";
+// import { GenerateInviteLink } from "../../utils/api/AdminAPICall";
 
 const Settings = () => {
+
+  // const generateInviteLink = ()=>{
+  //   response = GenerateInviteLink();
+  // }
+
   return (
     <div
       className="flex flex-row bg-white-100 overflow-x-auto"
