@@ -5,6 +5,7 @@ import CooperaLogo from "../../../assets/images/svg/CooperaLogo.svg";
 import DashboardImage from "../../../assets/images/svg/DashboardImg2.svg";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import {  toast } from "react-toastify";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -27,6 +28,7 @@ const Login = () => {
       const response = await axios.post("http://localhost:8080/login", formData);
       const access_token = response.data.token;
       localStorage.setItem("token", access_token);
+      toast.success("Login Successful")
       navigate("/dashboard");
     } catch (error) {
       console.error("Login failed", error.response.data);

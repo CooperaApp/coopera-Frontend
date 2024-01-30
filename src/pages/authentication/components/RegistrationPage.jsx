@@ -3,9 +3,9 @@ import EyeIcon from "../../../assets/images/svg/EyeIcon.svg";
 import ArrowBack from "../../../assets/images/png/arrow-back.png";
 import CooperaLogo from "../../../assets/images/svg/CooperaLogo.svg";
 import DashboardImage from "../../../assets/images/svg/DashboardImg.svg";
+import {  toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
-// import { RegisterCooperative } from "../../../utils/api/CooperativeAPICalls";
-// import BlurImage from "../../../utils/reusable-components/BlurredImage";
 import {BASE_URL} from "../../../utils/api/API_BASE_URL.jsx";
 
 const RegistrationPage = () => {
@@ -29,11 +29,15 @@ const RegistrationPage = () => {
   const handleFormSubmit = async (e) => {
     e.preventDefault();
 
+    var response;
     try {
-      const response = await axios.post(  `${BASE_URL}/cooperative/register`, formData);
-      console.log("Registration successful", response.data);
+      response = await axios.post(  `${BASE_URL}/cooperative/register`, formData);
+      // console.log("Message >>> ", response.data.message);
+      toast.success("Registration Successful, Please login!");
     } catch (error) {
-      console.error("Registration failed", error.response.data);
+      // console.error("Error.response.message >>> ", error.response.data.message);
+      // console.error("Response >>> ", error.response);
+      toast.error("Invalid");
     }
   };
 
@@ -180,8 +184,8 @@ const RegistrationPage = () => {
             />
           </div>
 
-          <div className="w-full mt-10 h-10 px-4 rounded-md mb-2 bg-[#7C39DE] cursor-pointer border-2 border-[#7C39DE] text-white flex items-center justify-center font-bold">
-            <button type="submit">
+          <div className="w-full mt-10 h-10 px-4 rounded-md hover:bg-purple-500 hover:border-purple-500 mb-2 bg-[#7C39DE] cursor-pointer border-2 border-[#7C39DE] text-white flex items-center justify-center font-bold">
+            <button type="submit" className="hover:bg-purple-500 cursor-pointer">
               Register
             </button>
           </div>
