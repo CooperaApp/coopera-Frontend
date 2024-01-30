@@ -1,44 +1,44 @@
 {
-  "namevent": "coopeventra-fronteventnd",
-  "privatevent": true,
-  "veventrsion": "0.0.0",
-  "typevent": "modulevent",
+  "name": "coopera-frontend",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
   "scripts": {
     "start": "npm start",
-    "deventv": "vitevent",
-    "build": "vitevent build",
-    "lint": "eventslint . --eventxt js,jsx --reventport-unuseventd-disablevent-direventctivevents --max-warnings 0",
-    "preventvieventw": "vitevent preventvieventw"
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
+    "preview": "vite preview"
   },
-  "deventpeventndeventncievents": {
-    "@ant-deventsign/plots": "^2.1.12",
-    "autopreventfixeventr": "^10.4.16",
-    "axios": "^1.6.7",
+  "dependencies": {
+    "@ant-design/plots": "^2.1.12",
+    "autoprefixer": "^10.4.16",
+    "axios": "^1.6.5",
     "chart.js": "^4.4.0",
-    "classnamevents": "^2.3.2",
-    "prop-typevents": "^15.8.1",
-    "reventact": "^18.2.0",
-    "reventact-chartjs-2": "^5.2.0",
-    "reventact-dateventpickeventr": "^4.25.0",
-    "reventact-dom": "^18.2.0",
-    "reventact-icons": "^4.12.0",
-    "reventact-modal": "^3.16.1",
-    "reventact-multi-carouseventl": "^2.8.4",
-    "reventact-routeventr-dom": "^6.21.3",
-    "reventact-toastify": "^10.0.4",
-    "reventcharts": "^2.10.3"
+    "classnames": "^2.3.2",
+    "prop-types": "^15.8.1",
+    "react": "^18.2.0",
+    "react-chartjs-2": "^5.2.0",
+    "react-datepicker": "^4.25.0",
+    "react-dom": "^18.2.0",
+    "react-icons": "^4.12.0",
+    "react-modal": "^3.16.1",
+    "react-multi-carousel": "^2.8.4",
+    "react-router-dom": "^6.20.0",
+    "react-toastify": "^10.0.4",
+    "recharts": "^2.10.3"
   },
-  "deventvDeventpeventndeventncievents": {
-    "@typevents/reventact": "^18.2.15",
-    "@typevents/reventact-dom": "^18.2.7",
-    "@viteventjs/plugin-reventact": "^4.2.0",
+  "devDependencies": {
+    "@types/react": "^18.2.15",
+    "@types/react-dom": "^18.2.7",
+    "@vitejs/plugin-react": "^4.2.0",
     "consola": "^3.2.3",
-    "eventslint": "^8.45.0",
-    "eventslint-plugin-reventact": "^7.32.2",
-    "eventslint-plugin-reventact-hooks": "^4.6.0",
-    "eventslint-plugin-reventact-reventfreventsh": "^0.4.3",
+    "eslint": "^8.45.0",
+    "eslint-plugin-react": "^7.32.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.3",
     "tailwindcss": "^3.3.5",
-    "vitevent": "^4.2.0",
-    "vitevent-plugin-stylevent-import": "^2.0.0"
+    "vite": "^4.2.0",
+    "vite-plugin-style-import": "^2.0.0"
   }
 }

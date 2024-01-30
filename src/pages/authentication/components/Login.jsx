@@ -109,7 +109,7 @@ const Login = () => {
             </div>
           </div>
 
-          <div className="w-full h-10 px-4 rounded-md mb-2 bg-[#7C39DE] cursor-pointer border-2 border-[#7C39DE] text-white flex items-center justify-center font-bold">
+          <div className="w-full h-10 px-4 rounded-md mb-2 bg-[#7C39DE] hover:bg-purple-500 hover:border-purple-500 cursor-pointer border-2 border-[#7C39DE] text-white flex items-center justify-center font-bold">
             <button type="submit">Login</button>
           </div>
         </form>
