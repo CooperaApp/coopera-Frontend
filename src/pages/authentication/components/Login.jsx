@@ -5,7 +5,7 @@ import CooperaLogo from "../../../assets/images/svg/CooperaLogo.svg";
 import DashboardImage from "../../../assets/images/svg/DashboardImg2.svg";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import {  toast } from "react-toastify";
+import { toast } from "react-toastify";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -25,16 +25,19 @@ const Login = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post("http://localhost:8080/login", formData);
-      const access_token = response.data.token;
-      localStorage.setItem("token", access_token);
-      toast.success("Login Successful")
+      const response = await axios.post(
+        "http://localhost:8080/login",
+        formData
+      );
+      console.log(response);
+      const access_token = response.data.access_token;
+      sessionStorage.setItem("token", access_token);
+      toast.success("Login Successful");
       navigate("/dashboard");
     } catch (error) {
       console.error("Login failed", error.response.data);
     }
   };
-
 
   return (
     <div className="flex h-screen pt-0 overflow-hidden">
@@ -54,15 +57,20 @@ const Login = () => {
           />
         </div>
         <div className="h-40 w-96 mt-12 ml-28 ">
-          <p className="mb-5 authentication-big-font-style">Build your Cooperative Society using Coopera</p>
-          <p className="authentication-small-font-style">With Coopera, managing your cooperative society is seamless. Elevate efficiency and foster financial growth</p>
+          <p className="mb-5 authentication-big-font-style">
+            Build your Cooperative Society using Coopera
+          </p>
+          <p className="authentication-small-font-style">
+            With Coopera, managing your cooperative society is seamless. Elevate
+            efficiency and foster financial growth
+          </p>
         </div>
         <div className="mr-3">
           <img
             className="w-96 ml-28 -m-32"
             src={DashboardImage}
             alt="Your Image"
-            style={{ height: "705px", width: "489px"}}
+            style={{ height: "705px", width: "489px" }}
           />
         </div>
       </div>
@@ -71,14 +79,13 @@ const Login = () => {
         <img src={CooperaLogo} alt="Logo" className="h-9 w-9 mb-2 -mt-5" />
         <h2 className="welcome-back-big-font-style mb-7">Welcome back!</h2>
         <form onSubmit={handleFormSubmit}>
-
           <div className="mb-5">
             <label className="sub-text-font-style">Generated ID</label>
             <br />
             <input
               type="text"
               className="w-full h-10 px-4 text-xs"
-              style={{backgroundColor: "#F3F3F3", borderRadius: "4px"}}
+              style={{ backgroundColor: "#F3F3F3", borderRadius: "4px" }}
               placeholder="Generated ID"
               onChange={handleInputChange}
               value={formData.email}
@@ -86,13 +93,12 @@ const Login = () => {
             ></input>
           </div>
 
-
           <div className="mb-12 relative">
             <label className="sub-text-font-style">Password</label>
             <div className="relative">
               <input
                 type="password"
-                style={{backgroundColor: "#F3F3F3", borderRadius: "4px"}}
+                style={{ backgroundColor: "#F3F3F3", borderRadius: "4px" }}
                 className="w-full h-10 px-4 text-xs"
                 placeholder="Choose a password"
                 onChange={handleInputChange}
@@ -115,8 +121,13 @@ const Login = () => {
         </form>
 
         <div className="flex shrink-0 items-center justify-center mb-2">
-          <p className="account-does-not-exist-font-style">Dont have an account? </p>
-          <a className="account-does-not-exist-register-style" href="/registration">
+          <p className="account-does-not-exist-font-style">
+            Dont have an account?{" "}
+          </p>
+          <a
+            className="account-does-not-exist-register-style"
+            href="/registration"
+          >
             Register
           </a>
         </div>
