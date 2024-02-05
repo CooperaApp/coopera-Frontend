@@ -5,11 +5,7 @@ import { PiShoppingCartSimpleThin } from "react-icons/pi";
 import { TbSettings2 } from "react-icons/tb";
 import { HiOutlineShoppingBag } from "react-icons/hi2";
 import { BsHandbag } from "react-icons/bs";
-// import SavingsIcon from "../../assets/images/svg/SavingsIcon.svg";
-// import LoanIcon from "../../assets/images/svg/LoanIcon.svg";
-// import HirePurchaseIcon from "../../assets/images/svg/HirePurchaseIcon.svg";
-// import WithdrawalIcon from "../../assets/images/svg/WithdrawalIcon.svg";
-// import SettingsIcon from "../../assets/images/svg/SettingsIcon.svg";
+
 
 export const DASHBOARD_SIDE_BAR_LINKS = [
   {
