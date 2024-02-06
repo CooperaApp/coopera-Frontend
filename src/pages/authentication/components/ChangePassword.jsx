@@ -3,6 +3,7 @@ import EyeIcon from "../../../assets/images/svg/EyeIcon.svg";
 import ArrowBack from "../../../assets/images/png/arrow-back.png";
 import CooperaLogo from "../../../assets/images/svg/CooperaLogo.svg";
 import DashboardImage from "../../../assets/images/svg/DashboardImg2.svg";
+import { ResetPassword }  from "../../../utils/api/CooperativeAPICalls";
 
 const ChangePassword = () => {
 
@@ -18,6 +19,16 @@ const ChangePassword = () => {
       ...data,
       [event.target.name]: event.target.value,
     });
+  }
+
+  const resetPassword = async () => {
+    try {
+      const res = ResetPassword(data);
+    toast.success("Password reset was successful, please login");
+    navigate("/login")
+    } catch (error) {
+    toast.error("reset.password.failed");
+    }
   }
 
   return (
@@ -55,7 +66,7 @@ const ChangePassword = () => {
       <div className="w-1/2 p-8 mt-40">
         <img src={CooperaLogo} alt="Logo" className="h-8 w-8 -mt-6" />
         <h2 className="text-1xl font-bold foto-mono pt-2 mb-6">Now reset your password!</h2>
-        <form className="">
+        <form className="" onSubmit={resetPassword}>
 
           <div className="mb-12 relative">
             <label className="sub-text-font-style">New Password</label>
@@ -67,6 +78,7 @@ const ChangePassword = () => {
                 placeholder="Enter new password"
                 onChange={handleChange}
                 value={data.newPassword}
+                name="newPassword"
               />
               <div className="absolute right-4 top-1/2 transform -translate-y-1/2">
                 <img
@@ -88,6 +100,7 @@ const ChangePassword = () => {
                 placeholder="Re-enter new Password"
                 onChange={handleChange}
                 value={data.confirmPassword}
+                name="confirmPassword"
               />
               <div className="absolute right-4 top-1/2 transform -translate-y-1/2">
                 <img

@@ -83,6 +83,7 @@ const ForgotPassword = () => {
               placeholder="Cooperative Email"
               onChange={handleChange}
               value={data.email}
+              name="email"
             ></input>
           </div>
 
