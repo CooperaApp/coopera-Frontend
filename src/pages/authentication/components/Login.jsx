@@ -33,7 +33,7 @@ const Login = () => {
       await validationSchema.validate(formData, { abortEarly: false });
 
       const response = await axios.post(
-        "http://34.235.167.70:8081/login",
+        "http://3.83.247.136:8081/login",
         formData,
       );
       // const access_token = response.data.token;
@@ -42,7 +42,10 @@ const Login = () => {
       // localStorage.setItem("token", access_token);
 
       toast.success("Login Successful");
-      navigate("/dashboard");
+      setTimeout(() => {
+        navigate("/dashboard");
+      }, 5000);
+
     } catch (error) {
       console.error("Login failed", error.response);
       toast.error("Invalid email or password");

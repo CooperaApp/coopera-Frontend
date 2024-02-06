@@ -5,10 +5,8 @@ import DashboardImage from "../../../assets/images/svg/DashboardImg2.svg";
 import BackIcon from "../../../assets/images/svg/Back-Icon.svg";
 import { ForgetPassword } from "../../../utils/api/CooperativeAPICalls";
 import { toast } from "react-toastify";
-import { useNavigate } from "react-router-dom";
 
 const ForgotPassword = () => {
-  const navigate = useNavigate();
 
   let initialState = {
     email: "",
@@ -27,13 +25,14 @@ const ForgotPassword = () => {
   const forgotPassword = async (event) => {
     event.preventDefault();
 
-    console.log("data.email >> ", data.email);
     try {
       const response = await ForgetPassword(data.email);
-
+      console.log("response => ", response);
       if (response.data.success || response.status === 201) {
         toast.success("Verification mail sent, please check your mail box");
-        navigate("/reset-password");
+        setTimeout(() => {
+          location.reload();
+        }, 5000);
       } else {
         toast.error(response.data.message || "Unknown error occurred");
       }
