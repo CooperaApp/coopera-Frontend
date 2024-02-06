@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import * as Yup from "yup";
 
+
 const Login = () => {
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
@@ -31,8 +32,11 @@ const Login = () => {
       await validationSchema.validate(formData, { abortEarly: false });
 
       const response = await axios.post("http://34.235.167.70:8081/login", formData);
-      const access_token = response.data.token;
-      localStorage.setItem("token", access_token);
+      // const access_token = response.data.token;
+      const access_token = response.data.access_token;
+      sessionStorage.setItem("token", access_token);
+      // localStorage.setItem("token", access_token);
+
       toast.success("Login Successful");
       navigate("/dashboard");
     } catch (error) {
@@ -49,6 +53,7 @@ const Login = () => {
     email: Yup.string().email("Invalid email address").required("Required"),
     password: Yup.string().required("Required"),
   });
+
 
   return (
     <div className="flex h-screen pt-0 overflow-hidden">
@@ -69,15 +74,20 @@ const Login = () => {
           />
         </div>
         <div className="h-40 w-96 mt-12 ml-28 ">
-          <p className="mb-5 authentication-big-font-style">Build your Cooperative Society using Coopera</p>
-          <p className="authentication-small-font-style">With Coopera, managing your cooperative society is seamless. Elevate efficiency and foster financial growth</p>
+          <p className="mb-5 authentication-big-font-style">
+            Build your Cooperative Society using Coopera
+          </p>
+          <p className="authentication-small-font-style">
+            With Coopera, managing your cooperative society is seamless. Elevate
+            efficiency and foster financial growth
+          </p>
         </div>
         <div className="mr-3">
           <img
             className="w-96 ml-28 -m-32"
             src={DashboardImage}
             alt="Your Image"
-            style={{ height: "705px", width: "489px"}}
+            style={{ height: "705px", width: "489px" }}
           />
         </div>
       </div>
@@ -87,7 +97,6 @@ const Login = () => {
         <img src={CooperaLogo} alt="Logo" className="h-9 w-9 mb-2 -mt-5" />
         <h2 className="welcome-back-big-font-style mb-7">Welcome back!</h2>
         <form onSubmit={handleFormSubmit}>
-
           <div className="mb-5">
             <label className="sub-text-font-style">Email Address</label>
             <br />
@@ -137,8 +146,13 @@ const Login = () => {
         </form>
 
         <div className="flex shrink-0 items-center justify-center mb-2">
-          <p className="account-does-not-exist-font-style">Dont have an account? </p>
-          <a className="account-does-not-exist-register-style" href="/registration">
+          <p className="account-does-not-exist-font-style">
+            Dont have an account?{" "}
+          </p>
+          <a
+            className="account-does-not-exist-register-style"
+            href="/registration"
+          >
             Register
           </a>
         </div>

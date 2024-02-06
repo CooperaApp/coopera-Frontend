@@ -5,8 +5,38 @@ import LoanRepaid from "../../assets/images/svg/LoanRepaidIcon.svg";
 import RedArrow from "../../assets/images/svg/Red-Arrow.svg";
 import GreenArrow from "../../assets/images/svg/Green-Arrow.svg";
 import ArrowOptions from "../../assets/images/svg/Arrow-Options.svg";
+import axios from "axios";
+import { BASE_URL } from "../../utils/api/API_BASE_URL";
+import { useState, useEffect } from "react";
+import { data } from "autoprefixer";
 
 const Card = () => {
+  const [totalSavings, setTotalSavings] = useState(0);
+  const [loanRepaid, setLoanRepaid] = useState(0);
+  const [accountBalance, setAccountBalance] = useState(0);
+  const [loanDisbursed, setLoanDisbursed] = useState(0);
+
+  useEffect(() => {
+    const getDashboardStatistics = async () => {
+      const url = `${BASE_URL}/cooperative/getDashboardStatistics`;
+      try {
+        const response = await axios.get(url, {
+          headers: {
+            Authorization: "Bearer " + sessionStorage.getItem("token"),
+          },
+        });
+        console.log(response);
+        setTotalSavings(response.data.data.totalSavings);
+        setAccountBalance(response.data.data.accountBalance);
+        setLoanDisbursed(response.data.data.loanDisbursed);
+        setLoanRepaid(response.data.data.loanRepaid);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getDashboardStatistics();
+  }, []);
+
   return (
     <div className="mr-3 h-80 flex flex-row flex-shrink-0">
       <div className="">
@@ -16,7 +46,7 @@ const Card = () => {
               <div className="p-0 flex justify-between mb-2">
                 <div>
                   <p className="card-title">Account Balance</p>
-                  <p className="mt-3 w-full card-amount">#1,545,607.00</p>
+                  <p className="mt-3 w-full card-amount">#{accountBalance}</p>
                 </div>
                 <div
                   className="ml-4 h-7 rounded-md items-center"
@@ -57,7 +87,7 @@ const Card = () => {
               <div className="p-0 flex justify-between mb-2">
                 <div>
                   <p className="card-title">Total Savings</p>
-                  <p className="mt-3 w-full card-amount">#1,545,607.00</p>
+                  <p className="mt-3 w-full card-amount">#{totalSavings}</p>
                 </div>
                 <div
                   className="ml-4 h-7 rounded-md items-center"
@@ -100,7 +130,7 @@ const Card = () => {
               <div className="p-0 flex justify-between mb-2">
                 <div>
                   <p className="card-title">Loan Disbursed</p>
-                  <p className="mt-3 w-full card-amount">#1,545,607.00</p>
+                  <p className="mt-3 w-full card-amount">#{loanDisbursed}</p>
                 </div>
                 <div
                   className="ml-4 h-7 rounded-md items-center"
@@ -140,7 +170,7 @@ const Card = () => {
               <div className="p-0 flex justify-between mb-2">
                 <div>
                   <p className="card-title">Loan Repaid</p>
-                  <p className="mt-3 w-full card-amount">#1,545,607.00</p>
+                  <p className="mt-3 w-full card-amount">#{loanRepaid}</p>
                 </div>
                 <div
                   className="ml-4 h-7 rounded-md items-center"
