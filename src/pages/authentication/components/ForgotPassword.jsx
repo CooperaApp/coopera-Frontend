@@ -92,7 +92,7 @@ const ForgotPassword = () => {
         </form>
 
         <div className="flex shrink-0 items-center justify-center">
-          <a className="text-sm text-[#7C39DE] flex font-sans whitespace-break-spaces font-bold" href="#">
+          <a className="text-sm text-[#7C39DE] flex font-sans whitespace-break-spaces font-bold" href="/login">
             <img src={BackIcon}/> Back to Login
           </a>
         </div>
