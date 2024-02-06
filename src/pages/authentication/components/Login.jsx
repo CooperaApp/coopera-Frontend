@@ -5,7 +5,6 @@ import CooperaLogo from "../../../assets/images/svg/CooperaLogo.svg";
 import DashboardImage from "../../../assets/images/svg/DashboardImg2.svg";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { BASE_URL } from "../../../utils/api/API_BASE_URL";
 import { toast } from "react-toastify";
 import * as Yup from "yup";
 

@@ -27,11 +27,23 @@ const RegistrationPage = () => {
 
   const inputConfig = [
     { label: "Company Name", placeholder: "Company name", name: "companyName" },
-    { label: "Company CAC No.", placeholder: "Company CAC No.", name: "rcNumber",},
-    { label: "Cooperative Name", placeholder: "Cooperative name", name: "name",},
+    {
+      label: "Company CAC No.",
+      placeholder: "Company CAC No.",
+      name: "rcNumber",
+    },
+    {
+      label: "Cooperative Name",
+      placeholder: "Cooperative name",
+      name: "name",
+    },
     { label: "Email Address", placeholder: "Email Address", name: "email" },
     { label: "Password", placeholder: "Choose a password", name: "password" },
-    { label: "Confirm Password", placeholder: "Enter password again", name: "confirmPassword",},
+    {
+      label: "Confirm Password",
+      placeholder: "Enter password again",
+      name: "confirmPassword",
+    },
   ];
 
   const handleInputChange = (e) => {
@@ -48,15 +60,12 @@ const RegistrationPage = () => {
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
-    const response = null;
+    let response = null;
 
     try {
       await validationSchema.validate(formData, { abortEarly: false });
 
-      response = await axios.post(
-        `${BASE_URL}/cooperative/register`,
-        formData
-      );
+      response = await axios.post(`${BASE_URL}/cooperative/register`, formData);
       toast.success("Registration Successful, Please login!");
       navigate("/login");
     } catch (error) {
@@ -67,7 +76,7 @@ const RegistrationPage = () => {
         });
         setErrors(newErrors);
       } else {
-        console.log(response)
+        console.log(response);
         toast.error("Invalid");
       }
     }
@@ -81,21 +90,27 @@ const RegistrationPage = () => {
     setShowConfirmPassword(!showConfirmPassword);
   };
 
-  const toggleVisibility = (inputName) => {
-    if (inputName === "password") {
-      setShowPassword(!showPassword);
-    } else if (inputName === "confirmPassword") {
-      setShowConfirmPassword(!showConfirmPassword);
-    }
-  };
+  // const toggleVisibility = (inputName) => {
+  //   if (inputName === "password") {
+  //     setShowPassword(!showPassword);
+  //   } else if (inputName === "confirmPassword") {
+  //     setShowConfirmPassword(!showConfirmPassword);
+  //   }
+  // };
 
-  const validationSchema = Yup.object().shape(
-    {companyName: Yup.string().required("Required"),
+  const validationSchema = Yup.object().shape({
+    companyName: Yup.string().required("Required"),
     rcNumber: Yup.string().required("Required"),
-    name: Yup.string().min(3, "Name must be at least 3 characters").required("Required"),
+    name: Yup.string()
+      .min(3, "Name must be at least 3 characters")
+      .required("Required"),
     email: Yup.string().email("Invalid email address").required("Required"),
-    password: Yup.string().min(8, "Password must be at least 8 characters").required("Required"),
-    confirmPassword: Yup.string().oneOf([Yup.ref("password"), null], "Passwords must match").required("Required"),
+    password: Yup.string()
+      .min(8, "Password must be at least 8 characters")
+      .required("Required"),
+    confirmPassword: Yup.string()
+      .oneOf([Yup.ref("password"), null], "Passwords must match")
+      .required("Required"),
   });
 
   return (
@@ -151,8 +166,8 @@ const RegistrationPage = () => {
                           ? "text"
                           : "password"
                         : showConfirmPassword
-                        ? "text"
-                        : "password"
+                          ? "text"
+                          : "password"
                       : "text"
                   }
                   className="w-full h-10 px-4 text-xs cursor-pointer"
@@ -180,7 +195,6 @@ const RegistrationPage = () => {
                     <img src={EyeIcon} alt="Eye Icon" className="h-4 w-4" />
                   </div>
                 )}
-
               </div>
               {errors[input.name] && (
                 <div className="text-red-500 text-xs mt-1">
@@ -212,7 +226,3 @@ const RegistrationPage = () => {
 };
 
 export default RegistrationPage;
-
-
-
-
