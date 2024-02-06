@@ -3,8 +3,14 @@ import ArrowBack from "../../../assets/images/png/arrow-back.png";
 import CooperaLogo from "../../../assets/images/svg/CooperaLogo.svg";
 import DashboardImage from "../../../assets/images/svg/DashboardImg2.svg";
 import BackIcon from  "../../../assets/images/svg/Back-Icon.svg";
+import { ForgetPassword } from "../../../utils/api/CooperativeAPICalls";
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
+
 
 const ForgotPassword = () => {
+  
+  const navigate = useNavigate();
 
   let initialState = {
     email: "",
@@ -17,6 +23,16 @@ const ForgotPassword = () => {
       ...data,
       [event.target.name]: event.target.value,
     });
+  }
+
+  const forgotPassword = async () => {
+    try {
+      const res = ForgetPassword(initialState.email);
+    toast.success("Email sent, please check you mail");
+    navigate("/reset-password")
+    } catch (error) {
+    toast.error("reset.password.failed");
+    }
   }
 
   return (
@@ -55,7 +71,7 @@ const ForgotPassword = () => {
         <img src={CooperaLogo} alt="Logo" className="h-10 w-10 -mt-6" />
         <h2 className="forgotten-password-big-font">Forgotten Password?</h2>
         <p className='forgotten-password-small-font'>No worries! We will send reset instructions to you</p>
-        <form className="">
+        <form className="" onSubmit={forgotPassword}>
 
           <div className="mb-5">
             <label className="sub-text-font-style">Cooperative Email</label>

@@ -170,7 +170,7 @@ const RegistrationPage = () => {
                           : "password"
                       : "text"
                   }
-                  className="w-full h-10 px-4 text-xs cursor-pointer"
+                  className="w-full h-10 px-4 text-xs"
                   style={{ backgroundColor: "#F3F3F3", borderRadius: "4px" }}
                   placeholder={input.placeholder}
                   onChange={handleInputChange}
