@@ -23,7 +23,7 @@ const ChangePassword = () => {
 
   const resetPassword = async () => {
     try {
-      const res = ResetPassword(data);
+      const res = ResetPassword(data); 
     toast.success("Password reset was successful, please login");
     navigate("/login")
     } catch (error) {
