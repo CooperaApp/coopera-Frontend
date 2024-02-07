@@ -33,7 +33,7 @@ const Login = () => {
       await validationSchema.validate(formData, { abortEarly: false });
 
       const response = await axios.post(
-        "http://3.83.247.136:8081/login",
+        "http://44.202.51.110:8081/login",
         formData,
       );
       // const access_token = response.data.token;
