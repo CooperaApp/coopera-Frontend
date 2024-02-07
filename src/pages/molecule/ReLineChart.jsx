@@ -159,7 +159,8 @@ const ReLineChart = () => {
   return (
     <div
       className="  overview-x-hidden ml-3   mt-4 rounded-xl"
-      style={{ height: "22rem", width: "59.5rem" }}
+              style={{ backgroundColor: "#7838D6",height: "22rem", width: "70rem"  }}
+              
     >
       <div className="border p-4 bg-white h-full rounded-md w-1/2.2 overview-x-hidden ">
         <div className="justify-between flex">
