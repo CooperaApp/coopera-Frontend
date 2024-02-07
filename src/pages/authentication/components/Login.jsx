@@ -8,7 +8,6 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import * as Yup from "yup";
 
-
 const Login = () => {
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
@@ -16,7 +15,9 @@ const Login = () => {
     email: "",
     password: "",
   });
-  const [errors, setErrors] = useState({}); 
+
+  // eslint-disable-next-line no-unused-vars
+  const [errors, setErrors] = useState({});
 
   const handleInputChange = (e) => {
     setFormData({
@@ -31,14 +32,20 @@ const Login = () => {
     try {
       await validationSchema.validate(formData, { abortEarly: false });
 
-      const response = await axios.post("http://34.235.167.70:8081/login", formData);
+      const response = await axios.post(
+        "http://3.83.247.136:8081/login",
+        formData,
+      );
       // const access_token = response.data.token;
       const access_token = response.data.access_token;
       sessionStorage.setItem("token", access_token);
       // localStorage.setItem("token", access_token);
 
       toast.success("Login Successful");
-      navigate("/dashboard");
+      setTimeout(() => {
+        navigate("/dashboard");
+      }, 5000);
+
     } catch (error) {
       console.error("Login failed", error.response);
       toast.error("Invalid email or password");
@@ -54,11 +61,9 @@ const Login = () => {
     password: Yup.string().required("Required"),
   });
 
-
   return (
     <div className="flex h-screen pt-0 overflow-hidden">
-
-<div className="border border-purple-100 w-1/2 bg-[#7C39DE] overflow-hidden">
+      <div className="border border-purple-100 w-1/2 bg-[#7C39DE] overflow-hidden">
         <div className="relative">
           <img
             src={ArrowBack}
@@ -91,7 +96,6 @@ const Login = () => {
           />
         </div>
       </div>
-      
 
       <div className="w-1/2 p-10 pt-1 mt-32">
         <img src={CooperaLogo} alt="Logo" className="h-9 w-9 mb-2 -mt-5" />
@@ -102,8 +106,10 @@ const Login = () => {
             <br />
             <input
               type="text"
-              className={`w-full h-10 px-4 text-xs ${errors.email ? 'border-red-500' : ''}`}
-              style={{backgroundColor: "#F3F3F3", borderRadius: "4px"}}
+              className={`w-full h-10 px-4 text-xs ${
+                errors.email ? "border-red-500" : ""
+              }`}
+              style={{ backgroundColor: "#F3F3F3", borderRadius: "4px" }}
               placeholder="Enter email address"
               onChange={handleInputChange}
               value={formData.email}
@@ -119,8 +125,10 @@ const Login = () => {
             <div className="relative">
               <input
                 type={showPassword ? "text" : "password"}
-                style={{backgroundColor: "#F3F3F3", borderRadius: "4px"}}
-                className={`w-full h-10 px-4 text-xs ${errors.password ? 'border-red-500' : ''}`}
+                style={{ backgroundColor: "#F3F3F3", borderRadius: "4px" }}
+                className={`w-full h-10 px-4 text-xs ${
+                  errors.password ? "border-red-500" : ""
+                }`}
                 placeholder="Enter password"
                 onChange={handleInputChange}
                 value={formData.password}

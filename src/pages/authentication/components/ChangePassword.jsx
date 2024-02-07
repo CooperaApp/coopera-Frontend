@@ -3,9 +3,13 @@ import EyeIcon from "../../../assets/images/svg/EyeIcon.svg";
 import ArrowBack from "../../../assets/images/png/arrow-back.png";
 import CooperaLogo from "../../../assets/images/svg/CooperaLogo.svg";
 import DashboardImage from "../../../assets/images/svg/DashboardImg2.svg";
-import { ResetPassword }  from "../../../utils/api/CooperativeAPICalls";
+import { ResetPassword } from "../../../utils/api/CooperativeAPICalls";
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 const ChangePassword = () => {
+
+  const navigate = useNavigate();
 
   let initialState = {
     newPassword: "",
@@ -14,26 +18,38 @@ const ChangePassword = () => {
 
   const [data, setData] = useState(initialState);
 
-  function handleChange (event) {
+  function handleChange(event) {
     setData({
       ...data,
       [event.target.name]: event.target.value,
     });
   }
 
-  const resetPassword = async () => {
+
+  const resetPassword = async (event) => {
+    event.preventDefault();
     try {
-      const res = ResetPassword(data);
-    toast.success("Password reset was successful, please login");
-    navigate("/login")
+      const urlParams = new URLSearchParams(window.location.search);
+      const token = urlParams.get("token");
+
+      console.log("token => ", token);
+      console.log("data => ", data);
+      const res = await ResetPassword({ ...data, token });
+
+      if (res.status >= 200 && res.status < 300) {
+        toast.success("Password reset was successful, please login");
+        navigate("/login");
+      } else {
+        toast.error("Reset password failed. Please check your credentials.");
+      }
     } catch (error) {
-    toast.error("reset.password.failed");
+      toast.error("Reset password failed");
     }
-  }
+  };
+
 
   return (
     <div className="flex h-screen overflow-y-hidden pt-0">
-
       <div className="border border-purple-100 w-1/2 bg-[#7C39DE] overflow-hidden">
         <div className="relative">
           <img
@@ -50,30 +66,36 @@ const ChangePassword = () => {
           />
         </div>
         <div className="h-40 w-96 mt-12 ml-28 ">
-          <p className="mb-5 authentication-big-font-style">Build your Cooperative Society using Coopera</p>
-          <p className="authentication-small-font-style">With Coopera, managing your cooperative society is seamless. Elevate efficiency and foster financial growth</p>
+          <p className="mb-5 authentication-big-font-style">
+            Build your Cooperative Society using Coopera
+          </p>
+          <p className="authentication-small-font-style">
+            With Coopera, managing your cooperative society is seamless. Elevate
+            efficiency and foster financial growth
+          </p>
         </div>
         <div className="mt-3 mr-3">
           <img
             className="w-96 ml-28 -m-32"
             src={DashboardImage}
             alt="Your Image"
-            style={{ height: "705px", width: "489px"}}
+            style={{ height: "705px", width: "489px" }}
           />
         </div>
       </div>
 
       <div className="w-1/2 p-8 mt-40">
         <img src={CooperaLogo} alt="Logo" className="h-8 w-8 -mt-6" />
-        <h2 className="text-1xl font-bold foto-mono pt-2 mb-6">Now reset your password!</h2>
+        <h2 className="text-1xl font-bold foto-mono pt-2 mb-6">
+          Now reset your password!
+        </h2>
         <form className="" onSubmit={resetPassword}>
-
           <div className="mb-12 relative">
             <label className="sub-text-font-style">New Password</label>
             <div className="relative">
               <input
                 type="text"
-                style={{backgroundColor: "#F3F3F3", borderRadius: "4px"}}
+                style={{ backgroundColor: "#F3F3F3", borderRadius: "4px" }}
                 className="w-full h-10 px-4 text-xs"
                 placeholder="Enter new password"
                 onChange={handleChange}
@@ -95,7 +117,7 @@ const ChangePassword = () => {
             <div className="relative">
               <input
                 type="text"
-                style={{backgroundColor: "#F3F3F3", borderRadius: "4px"}}
+                style={{ backgroundColor: "#F3F3F3", borderRadius: "4px" }}
                 className="w-full h-10 px-4 text-xs"
                 placeholder="Re-enter new Password"
                 onChange={handleChange}
@@ -111,7 +133,6 @@ const ChangePassword = () => {
               </div>
             </div>
           </div>
-
 
           <div className="w-full h-10 px-4 rounded-md mb-2 bg-[#7C39DE] cursor-pointer border-2 border-[#7C39DE] text-white flex items-center justify-center font-bold">
             <button type="submit">Reset Password</button>

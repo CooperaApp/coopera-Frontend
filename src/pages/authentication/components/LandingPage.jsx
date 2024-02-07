@@ -17,9 +17,11 @@ import Icons from "../../../assets/images/svg/Icons.svg";
 import IpadPadDouble from "../../../assets/images/svg/IpadPadDouble.svg";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-// import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const LandingPage = () => {
+
+  const navigate = useNavigate();
 
   // const history = useHistory();
 
@@ -72,10 +74,10 @@ const LandingPage = () => {
             </div>
 
             <div className=" flex ml-20 mt-10 gap-3 mr-3">
-              <button className="bg-[#59D2B0] mt-2 px-5 h-10 rounded-lg" >
+              <button className="bg-[#59D2B0] mt-2 px-5 h-10 rounded-lg" onClick={() => navigate("/registration")}>
                 Get Started
               </button>
-              <button className="text-[#C4A7EE]">Login</button>
+              <button className="text-[#C4A7EE]" onClick={() => navigate("/login")}>Login</button>
             </div>
           </div>
         </nav>
