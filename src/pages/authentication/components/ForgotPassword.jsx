@@ -5,9 +5,7 @@ import DashboardImage from "../../../assets/images/svg/DashboardImg2.svg";
 import BackIcon from "../../../assets/images/svg/Back-Icon.svg";
 import { ForgetPassword } from "../../../utils/api/CooperativeAPICalls";
 import { notifySuccess, notifyError } from "../../../utils/functions/func";
-// import { toast } from "react-toastify";
 import {  ToastContainer, toast } from "react-toastify";
-// import { useNavigate } from "react-router-dom";
 
 
 const ForgotPassword = () => {
@@ -36,7 +34,7 @@ const ForgotPassword = () => {
         notifySuccess("Verification mail sent, please check your mail box");
         setTimeout(() => {
           location.reload();
-        }, 5000);
+        }, 3000);
       } else {
         notifyError(response.data.message || "Unknown error occurred");
       }
