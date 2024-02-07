@@ -37,18 +37,16 @@ const Login = () => {
         "http://44.202.51.110:8081/login",
         formData,
       );
-      // const access_token = response.data.token;
+
       const access_token = response.data.access_token;
       sessionStorage.setItem("token", access_token);
       // localStorage.setItem("token", access_token);
 
-      // toast.success("Login Successful");
-      // setTimeout(() => {
-      //   navigate("/dashboard");
-      // }, 5000);
-
       notifySuccess("Login successful");
-      navigate("/dashboard");
+      setTimeout(() => {
+        navigate("/dashboard");
+      }, 5000);
+
     } catch (error) {
       console.error("Login failed", error.response);
       notifyError("Invalid email or password");
