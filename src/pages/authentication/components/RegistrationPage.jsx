@@ -3,7 +3,8 @@ import EyeIcon from "../../../assets/images/svg/EyeIcon.svg";
 import ArrowBack from "../../../assets/images/png/arrow-back.png";
 import CooperaLogo from "../../../assets/images/svg/CooperaLogo.svg";
 import DashboardImage from "../../../assets/images/svg/DashboardImg.svg";
-import { toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
+import { notifySuccess, notifyError } from "../../../utils/functions/func.jsx";
 import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 import { BASE_URL } from "../../../utils/api/API_BASE_URL.jsx";
@@ -66,7 +67,7 @@ const RegistrationPage = () => {
       await validationSchema.validate(formData, { abortEarly: false });
 
       response = await axios.post(`${BASE_URL}/cooperative/register`, formData);
-      toast.success("Registration Successful, Please login!");
+      notifySuccess("Registration Successful, Please login!");
       navigate("/login");
     } catch (error) {
       if (error instanceof Yup.ValidationError) {
@@ -77,7 +78,7 @@ const RegistrationPage = () => {
         setErrors(newErrors);
       } else {
         console.log(response);
-        toast.error("Invalid");
+        notifyError("Invalid");
       }
     }
   };
@@ -211,6 +212,7 @@ const RegistrationPage = () => {
             >
               Register
             </button>
+            <ToastContainer />
           </div>
         </form>
 

@@ -1,7 +1,7 @@
 import axios from "axios";
-import { BASE_URL } from "./APIConstant";
+import { BASE_URL } from "./APIConstant.jsx";
 
-export const generateInviteLink = async (payload) => {
+export const GenerateInviteLink = async (payload) => {
 
   const endpoint = "/api/v1/admin/generateLink";
   const URL = `${BASE_URL}${endpoint}`;

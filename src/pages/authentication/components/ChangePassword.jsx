@@ -4,8 +4,9 @@ import ArrowBack from "../../../assets/images/png/arrow-back.png";
 import CooperaLogo from "../../../assets/images/svg/CooperaLogo.svg";
 import DashboardImage from "../../../assets/images/svg/DashboardImg2.svg";
 import { ResetPassword } from "../../../utils/api/CooperativeAPICalls";
-import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
+import {  ToastContainer, toast } from "react-toastify";
+import { notifySuccess, notifyError } from "../../../utils/functions/func";
 
 const ChangePassword = () => {
 
@@ -25,7 +26,6 @@ const ChangePassword = () => {
     });
   }
 
-
   const resetPassword = async (event) => {
     event.preventDefault();
     try {
@@ -37,14 +37,15 @@ const ChangePassword = () => {
       const res = await ResetPassword({ ...data, token });
 
       if (res.status >= 200 && res.status < 300) {
-        toast.success("Password reset was successful, please login");
+        notifySuccess("Password reset was successful, please login");
         navigate("/login");
       } else {
-        toast.error("Reset password failed. Please check your credentials.");
+        notifyError("Reset password failed. Please check your credentials.");
       }
     } catch (error) {
       toast.error("Reset password failed");
     }
+
   };
 
 
@@ -136,6 +137,7 @@ const ChangePassword = () => {
 
           <div className="w-full h-10 px-4 rounded-md mb-2 bg-[#7C39DE] cursor-pointer border-2 border-[#7C39DE] text-white flex items-center justify-center font-bold">
             <button type="submit">Reset Password</button>
+            <ToastContainer/>
           </div>
         </form>
       </div>
