@@ -3,6 +3,8 @@ import EyeIcon from "../../../assets/images/svg/EyeIcon.svg";
 import ArrowBack from "../../../assets/images/png/arrow-back.png";
 import CooperaLogo from "../../../assets/images/svg/CooperaLogo.svg";
 import DashboardImage from "../../../assets/images/svg/DashboardImg2.svg";
+import { ResetPassword }  from "../../../utils/api/CooperativeAPICalls";
+import {  ToastContainer, toast } from "react-toastify";
 
 const ChangePassword = () => {
 
@@ -18,6 +20,45 @@ const ChangePassword = () => {
       ...data,
       [event.target.name]: event.target.value,
     });
+  }
+
+  const notifySuccess = (arg) => {
+    toast.success(arg, {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: false,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+      
+      })
+  };
+
+
+  const notifyError = (arg) => {
+    toast.error(arg, {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: false,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+   
+      });
+  };
+
+  const resetPassword = async () => {
+    try {
+      const res = ResetPassword(data);
+    notifySuccess("Password reset was successful, please login");
+    navigate("/login")
+    } catch (error) {
+    notifyError("reset.password.failed");
+    }
   }
 
   return (
@@ -55,7 +96,7 @@ const ChangePassword = () => {
       <div className="w-1/2 p-8 mt-40">
         <img src={CooperaLogo} alt="Logo" className="h-8 w-8 -mt-6" />
         <h2 className="text-1xl font-bold foto-mono pt-2 mb-6">Now reset your password!</h2>
-        <form className="">
+        <form className="" onSubmit={resetPassword}>
 
           <div className="mb-12 relative">
             <label className="sub-text-font-style">New Password</label>
@@ -67,6 +108,7 @@ const ChangePassword = () => {
                 placeholder="Enter new password"
                 onChange={handleChange}
                 value={data.newPassword}
+                name="newPassword"
               />
               <div className="absolute right-4 top-1/2 transform -translate-y-1/2">
                 <img
@@ -88,6 +130,7 @@ const ChangePassword = () => {
                 placeholder="Re-enter new Password"
                 onChange={handleChange}
                 value={data.confirmPassword}
+                name="confirmPassword"
               />
               <div className="absolute right-4 top-1/2 transform -translate-y-1/2">
                 <img
@@ -102,6 +145,7 @@ const ChangePassword = () => {
 
           <div className="w-full h-10 px-4 rounded-md mb-2 bg-[#7C39DE] cursor-pointer border-2 border-[#7C39DE] text-white flex items-center justify-center font-bold">
             <button type="submit">Reset Password</button>
+            <ToastContainer/>
           </div>
         </form>
       </div>

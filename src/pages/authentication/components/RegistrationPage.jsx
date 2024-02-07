@@ -3,43 +3,144 @@ import EyeIcon from "../../../assets/images/svg/EyeIcon.svg";
 import ArrowBack from "../../../assets/images/png/arrow-back.png";
 import CooperaLogo from "../../../assets/images/svg/CooperaLogo.svg";
 import DashboardImage from "../../../assets/images/svg/DashboardImg.svg";
-import {  toast } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
-import {BASE_URL} from "../../../utils/api/API_BASE_URL.jsx";
+import { BASE_URL } from "../../../utils/api/API_BASE_URL.jsx";
+import * as Yup from "yup";
+import { useNavigate } from "react-router-dom";
 
 const RegistrationPage = () => {
   const [formData, setFormData] = useState({
-    name: "",
-    logo: "",
-    email:"",
     companyName: "",
     rcNumber: "",
-    address: "",
+    name: "",
+    email: "",
     password: "",
+    confirmPassword: "",
   });
+
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const [errors, setErrors] = useState({});
+  const navigate = useNavigate();
+
+  const notifySuccess = (arg) => {
+    toast.success(arg, {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: false,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+      
+      })
+  };
+
+
+  const notifyError = (arg) => {
+    toast.error(arg, {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: false,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+   
+      });
+  };
+
+  const inputConfig = [
+    { label: "Company Name", placeholder: "Company name", name: "companyName" },
+    {
+      label: "Company CAC No.",
+      placeholder: "Company CAC No.",
+      name: "rcNumber",
+    },
+    {
+      label: "Cooperative Name",
+      placeholder: "Cooperative name",
+      name: "name",
+    },
+    { label: "Email Address", placeholder: "Email Address", name: "email" },
+    { label: "Password", placeholder: "Choose a password", name: "password" },
+    {
+      label: "Confirm Password",
+      placeholder: "Enter password again",
+      name: "confirmPassword",
+    },
+  ];
 
   const handleInputChange = (e) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
     });
+
+    setErrors({
+      ...errors,
+      [e.target.name]: undefined,
+    });
   };
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
+    let response = null;
 
-    var response;
     try {
-      response = await axios.post(  `${BASE_URL}/cooperative/register`, formData);
-      // console.log("Message >>> ", response.data.message);
-      toast.success("Registration Successful, Please login!");
+      await validationSchema.validate(formData, { abortEarly: false });
+
+      response = await axios.post(`${BASE_URL}/cooperative/register`, formData);
+      notifySuccess("Registration Successful, Please login!");
+      navigate("/login");
     } catch (error) {
-      // console.error("Error.response.message >>> ", error.response.data.message);
-      // console.error("Response >>> ", error.response);
-      toast.error("Invalid");
+      if (error instanceof Yup.ValidationError) {
+        const newErrors = {};
+        error.inner.forEach((validationError) => {
+          newErrors[validationError.path] = validationError.message;
+        });
+        setErrors(newErrors);
+      } else {
+        console.log(response);
+        notifyError("Invalid");
+      }
     }
   };
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
+
+  const toggleConfirmPasswordVisibility = () => {
+    setShowConfirmPassword(!showConfirmPassword);
+  };
+
+  // const toggleVisibility = (inputName) => {
+  //   if (inputName === "password") {
+  //     setShowPassword(!showPassword);
+  //   } else if (inputName === "confirmPassword") {
+  //     setShowConfirmPassword(!showConfirmPassword);
+  //   }
+  // };
+
+  const validationSchema = Yup.object().shape({
+    companyName: Yup.string().required("Required"),
+    rcNumber: Yup.string().required("Required"),
+    name: Yup.string()
+      .min(3, "Name must be at least 3 characters")
+      .required("Required"),
+    email: Yup.string().email("Invalid email address").required("Required"),
+    password: Yup.string()
+      .min(8, "Password must be at least 8 characters")
+      .required("Required"),
+    confirmPassword: Yup.string()
+      .oneOf([Yup.ref("password"), null], "Passwords must match")
+      .required("Required"),
+  });
 
   return (
     <div className="flex h-screen pt-0 overflow-hidden">
@@ -71,7 +172,7 @@ const RegistrationPage = () => {
           <img
             className="relative w-96 ml-28"
             src={DashboardImage}
-            style={{height: "705px", width: "489px"}}
+            style={{ height: "705px", width: "489px" }}
           />
           <div className=""></div>
         </div>
@@ -82,112 +183,64 @@ const RegistrationPage = () => {
         <h2 className="mb-8 get-started-big-font-style">Get Started</h2>
 
         <form onSubmit={handleFormSubmit} className="">
-          <div className="mb-5">
-            <label className="sub-text-font-style">Cooperative Name</label>
-            <input
-              type="text"
-              className="w-full h-10 px-4 text-xs"
-              style={{ backgroundColor: "#F3F3F3", borderRadius: "4px" }}
-              placeholder="Cooperative name"
-              onChange={handleInputChange}
-              value={formData.name}
-              name="name"
-            />
-          </div>
-
-          <div className="mb-5">
-            <label className="sub-text-font-style">Company Name</label>
-            <input
-              type="text"
-              className="w-full h-10 px-4 text-xs"
-              style={{ backgroundColor: "#F3F3F3", borderRadius: "4px" }}
-              placeholder="Company name"
-              onChange={handleInputChange}
-              value={formData.companyName}
-              name="companyName"
-            />
-          </div>
-
-          <div className="mb-5">
-            <label className="sub-text-font-style">Email Address</label>
-            <input
-              type="email"
-              className="w-full h-10 px-4 text-xs"
-              style={{ backgroundColor: "#F3F3F3", borderRadius: "4px" }}
-              placeholder="Email Address"
-              onChange={handleInputChange}
-              value={formData.email}
-              name="email"
-            />
-          </div>
-
-          <div className="mb-5">
-            <label className="sub-text-font-style">Company CAC No.</label>{" "}
-            <br />
-            <input
-              type="text"
-              className="w-full h-10 px-4 text-xs"
-              style={{ backgroundColor: "#F3F3F3", borderRadius: "4px" }}
-              placeholder="Company CAC No."
-              onChange={handleInputChange}
-              value={formData.rcNumber}
-              name="rcNumber"
-            />
-          </div>
-
-          <div className="mb-5">
-            <label className="sub-text-font-style">Cooperative Address</label>
-            <br />
-            <input
-              type="text"
-              className="w-full h-10 px-4 text-xs"
-              style={{ backgroundColor: "#F3F3F3", borderRadius: "4px" }}
-              placeholder="Cooperative Address"
-              onChange={handleInputChange}
-              value={formData.address}
-              name="address"
-            ></input>
-          </div>
-
-          <div className="mb-5 relative">
-            <label className="sub-text-font-style">Password</label>
-            <div className="relative">
-              <input
-                type="text"
-                style={{ backgroundColor: "#F3F3F3", borderRadius: "4px" }}
-                className="w-full h-10 px-4 text-xs"
-                placeholder="Choose a password"
-                onChange={handleInputChange}
-                value={formData.password}
-                name="password"
-              />
-              <div className="absolute right-4 top-1/2 transform -translate-y-1/2">
-                <img
-                  src={EyeIcon}
-                  alt="Eye Icon"
-                  className="h-4 w-4 cursor-pointer"
+          {inputConfig.map((input) => (
+            <div className="mb-5" key={input.name}>
+              <label className="sub-text-font-style">{input.label}</label>
+              <div className="relative">
+                <input
+                  type={
+                    input.name.includes("password")
+                      ? input.name === "password"
+                        ? showPassword
+                          ? "text"
+                          : "password"
+                        : showConfirmPassword
+                          ? "text"
+                          : "password"
+                      : "text"
+                  }
+                  className="w-full h-10 px-4 text-xs"
+                  style={{ backgroundColor: "#F3F3F3", borderRadius: "4px" }}
+                  placeholder={input.placeholder}
+                  onChange={handleInputChange}
+                  value={formData[input.name]}
+                  name={input.name}
                 />
-              </div>
-            </div>
-          </div>
 
-          <div className="">
-            <label className="sub-text-font-style">Select Logo</label> <br />
-            <input
-              type="text"
-              style={{ backgroundColor: "#F3F3F3", borderRadius: "4px" }}
-              className="w-full h-9 mt-1 px-4 text-xs"
-              onChange={handleInputChange}
-              accept="image/*"
-              value={formData.logo}
-              name="logo"
-            />
-          </div>
+                {input.name.includes("password") && (
+                  <div
+                    className="absolute right-4 top-1/2 transform -translate-y-1/2 cursor-pointer appearance-none"
+                    onClick={() => togglePasswordVisibility(input.name)}
+                  >
+                    <img src={EyeIcon} alt="Eye Icon" className="h-4 w-4" />
+                  </div>
+                )}
+
+                {input.name.includes("confirmPassword") && (
+                  <div
+                    className="absolute right-4 top-1/2 transform -translate-y-1/2 cursor-pointer appearance-none"
+                    onClick={() => toggleConfirmPasswordVisibility(input.name)}
+                  >
+                    <img src={EyeIcon} alt="Eye Icon" className="h-4 w-4" />
+                  </div>
+                )}
+              </div>
+              {errors[input.name] && (
+                <div className="text-red-500 text-xs mt-1">
+                  {errors[input.name]}
+                </div>
+              )}
+            </div>
+          ))}
 
           <div className="w-full mt-10 h-10 px-4 rounded-md hover:bg-purple-500 hover:border-purple-500 mb-2 bg-[#7C39DE] cursor-pointer border-2 border-[#7C39DE] text-white flex items-center justify-center font-bold">
-            <button type="submit" className="hover:bg-purple-500 cursor-pointer">
+            <button
+              type="submit"
+              className="hover:bg-purple-500 cursor-pointer"
+            >
               Register
             </button>
+            <ToastContainer/>
           </div>
         </form>
 

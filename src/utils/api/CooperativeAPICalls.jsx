@@ -1,6 +1,10 @@
 import axios from "axios";
-import { BASE_URL } from "./APIConstant.jsx";
+
+// import { BASE_URL } from "./APIConstant.jsx";
+import { BASE_URL } from "./API_BASE_URL";
 console.log( "this is base url: ",BASE_URL);
+
+
 export const RegisterCooperative = async (payload) => {
 
   const endpoint = "/api/v1/cooperative/register";
@@ -31,30 +35,32 @@ export const LoginCooperative = async (payload) => {
   }
 };
 
-export const FindByCooperativeId = async (cooperativeId) => {
-  const endpoint = `/findByCooperativeId/${cooperativeId}`;
+
+export const ForgetPassword = async (payload) => {
+
+  const endpoint = "/cooperative/forgotPassword";
   const URL = `${BASE_URL}${endpoint}`;
 
   try {
-    const response = await axios.get(URL);
+    const response = await axios.post(URL, payload);
     return response;
   } catch (error) {
     return error.response;
+
   }
 };
 
 
+export const ResetPassword = async (payload) => {
 
-export const FindByCooperativeIdAndStatus = async (cooperativeId) => {
-  const endpoint = `/savings/findByCooperativeIdAndStatus/SUCCESSFUL?cooperativeId=${cooperativeId}`;
+  const endpoint = "/cooperative/resetPassword";
   const URL = `${BASE_URL}${endpoint}`;
 
   try {
-    const response = await axios.get(URL);
+    const response = await axios.post(URL, payload);
     return response;
   } catch (error) {
     return error.response;
+
   }
 };
-
-

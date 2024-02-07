@@ -3,8 +3,14 @@ import ArrowBack from "../../../assets/images/png/arrow-back.png";
 import CooperaLogo from "../../../assets/images/svg/CooperaLogo.svg";
 import DashboardImage from "../../../assets/images/svg/DashboardImg2.svg";
 import BackIcon from  "../../../assets/images/svg/Back-Icon.svg";
+import { ForgetPassword } from "../../../utils/api/CooperativeAPICalls";
+import {  ToastContainer, toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
+
 
 const ForgotPassword = () => {
+  
+  const navigate = useNavigate();
 
   let initialState = {
     email: "",
@@ -12,11 +18,50 @@ const ForgotPassword = () => {
 
   const [data, setData] = useState(initialState);
 
+  const notifySuccess = (arg) => {
+    toast.success(arg, {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: false,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+      
+      })
+  };
+
+
+  const notifyError = (arg) => {
+    toast.error(arg, {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: false,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+   
+      });
+  };
+
   function handleChange (event) {
     setData({
       ...data,
       [event.target.name]: event.target.value,
     });
+  }
+
+  const forgotPassword = async () => {
+    try {
+      const res = ForgetPassword(initialState.email);
+    notifySuccess("Email sent, please check you mail");
+    navigate("/reset-password")
+    } catch (error) {
+    notifyError("reset.password.failed");
+    }
   }
 
   return (
@@ -55,7 +100,7 @@ const ForgotPassword = () => {
         <img src={CooperaLogo} alt="Logo" className="h-10 w-10 -mt-6" />
         <h2 className="forgotten-password-big-font">Forgotten Password?</h2>
         <p className='forgotten-password-small-font'>No worries! We will send reset instructions to you</p>
-        <form className="">
+        <form className="" onSubmit={forgotPassword}>
 
           <div className="mb-5">
             <label className="sub-text-font-style">Cooperative Email</label>
@@ -67,16 +112,18 @@ const ForgotPassword = () => {
               placeholder="Cooperative Email"
               onChange={handleChange}
               value={data.email}
+              name="email"
             ></input>
           </div>
 
           <div className="w-full h-10 px-4 rounded-md mb-2 bg-[#7C39DE] mt-12 cursor-pointer border-2 border-[#7C39DE] text-white flex items-center justify-center font-bold">
             <button className="font-semibold font-20 font-sans " type="submit">Reset Password</button>
+            <ToastContainer/>
           </div>
         </form>
 
         <div className="flex shrink-0 items-center justify-center">
-          <a className="text-sm text-[#7C39DE] flex font-sans whitespace-break-spaces font-bold" href="#">
+          <a className="text-sm text-[#7C39DE] flex font-sans whitespace-break-spaces font-bold" href="/login">
             <img src={BackIcon}/> Back to Login
           </a>
         </div>

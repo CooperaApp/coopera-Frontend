@@ -42,9 +42,7 @@ function LoanCards() {
         <div className="h-32  p-0 mt-2">
           <div className="p-0 flex justify-between mb-2">
             <div>
-              <p className="text-xl font-semibold ml-40">
-                Loan Repaid
-              </p>
+              <p className="text-xl font-semibold ml-40">Loan Repaid</p>
               <p className="mt-3 w-full card-amount ml-36">#405,607.00</p>
             </div>
           </div>
