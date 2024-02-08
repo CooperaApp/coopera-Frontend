@@ -16,13 +16,6 @@ export const DASHBOARD_SIDE_BAR_LINKS = [
   },
 
   {
-    key: "members",
-    label: "Members",
-    path: "/members",
-    icon: <BsPeople />,
-  },
-
-  {
     key: "loans",
     label: "Loans",
     path: "/loan",
@@ -37,17 +30,24 @@ export const DASHBOARD_SIDE_BAR_LINKS = [
   },
 
   {
-    key: "hire purchase",
-    label: "Hire Purchase",
-    path: "/hired-purchase",
-    icon: <PiShoppingCartSimpleThin />,
-  },
-
-  {
     key: "withdrawals",
     label: "Withdrawals",
     path: "/withdrawal",
     icon: <BsHandbag />,
+  },
+
+  {
+    key: "members",
+    label: "Members",
+    path: "/members",
+    icon: <BsPeople />,
+  },
+
+  {
+    key: "hire purchase",
+    label: "Hire Purchase",
+    path: "/hired-purchase",
+    icon: <PiShoppingCartSimpleThin />,
   },
 
   {
