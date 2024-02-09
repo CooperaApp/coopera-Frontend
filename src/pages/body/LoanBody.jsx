@@ -1,6 +1,6 @@
 import LoanCards from "../molecule/LoanCards";
 import ReLineChart from "../molecule/reLineChart";
-// import sort from "../../assets/images/svg/sort.svg";
+import add from '../../assets/images/svg/AddVector.svg'
 import { LuSearch } from "react-icons/lu";
 import LoanTable from "../molecule/LoanTable";
 import CustomDatePicker from "../molecule/CustomDatePicker";
@@ -15,10 +15,13 @@ function LoanBody() {
         <div className="flex -mr-40">
           <div>
             <button
-              className="mr-4 p-1 rounded w-28 h-7 text-sm "
+              className="mr-4 pl-4 pt-1 rounded w-28 h-7 text-sm flex "
               style={{ background: "#7C39DE", color: "white" }}
             >
               Add Loan
+
+            <img src={add} className="p-1.5" />
+  
             </button>
           </div>
 

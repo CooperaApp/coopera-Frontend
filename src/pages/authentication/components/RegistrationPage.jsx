@@ -3,100 +3,30 @@ import EyeIcon from "../../../assets/images/svg/EyeIcon.svg";
 import ArrowBack from "../../../assets/images/png/arrow-back.png";
 import CooperaLogo from "../../../assets/images/svg/CooperaLogo.svg";
 import DashboardImage from "../../../assets/images/svg/DashboardImg.svg";
-import { toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
+import { notifySuccess, notifyError } from "../../../utils/functions/func.jsx";
 import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 import { BASE_URL } from "../../../utils/api/API_BASE_URL.jsx";
-import * as Yup from "yup";
 import { useNavigate } from "react-router-dom";
+import * as Yup from "yup";
 
 const RegistrationPage = () => {
+  const navigate = useNavigate();
+
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+
   const [formData, setFormData] = useState({
-    companyName: "",
-    rcNumber: "",
     name: "",
     email: "",
+    companyName: "",
+    rcNumber: "",
     password: "",
     confirmPassword: "",
   });
 
-  const [showPassword, setShowPassword] = useState(false);
-  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [errors, setErrors] = useState({});
-  const navigate = useNavigate();
-
-  const inputConfig = [
-    { label: "Company Name", placeholder: "Company name", name: "companyName" },
-    {
-      label: "Company CAC No.",
-      placeholder: "Company CAC No.",
-      name: "rcNumber",
-    },
-    {
-      label: "Cooperative Name",
-      placeholder: "Cooperative name",
-      name: "name",
-    },
-    { label: "Email Address", placeholder: "Email Address", name: "email" },
-    { label: "Password", placeholder: "Choose a password", name: "password" },
-    {
-      label: "Confirm Password",
-      placeholder: "Enter password again",
-      name: "confirmPassword",
-    },
-  ];
-
-  const handleInputChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-
-    setErrors({
-      ...errors,
-      [e.target.name]: undefined,
-    });
-  };
-
-  const handleFormSubmit = async (e) => {
-    e.preventDefault();
-    let response = null;
-
-    try {
-      await validationSchema.validate(formData, { abortEarly: false });
-
-      response = await axios.post(`${BASE_URL}/cooperative/register`, formData);
-      toast.success("Registration Successful, Please login!");
-      navigate("/login");
-    } catch (error) {
-      if (error instanceof Yup.ValidationError) {
-        const newErrors = {};
-        error.inner.forEach((validationError) => {
-          newErrors[validationError.path] = validationError.message;
-        });
-        setErrors(newErrors);
-      } else {
-        console.log(response);
-        toast.error("Invalid");
-      }
-    }
-  };
-
-  const togglePasswordVisibility = () => {
-    setShowPassword(!showPassword);
-  };
-
-  const toggleConfirmPasswordVisibility = () => {
-    setShowConfirmPassword(!showConfirmPassword);
-  };
-
-  // const toggleVisibility = (inputName) => {
-  //   if (inputName === "password") {
-  //     setShowPassword(!showPassword);
-  //   } else if (inputName === "confirmPassword") {
-  //     setShowConfirmPassword(!showConfirmPassword);
-  //   }
-  // };
 
   const validationSchema = Yup.object().shape({
     companyName: Yup.string().required("Required"),
@@ -113,23 +43,84 @@ const RegistrationPage = () => {
       .required("Required"),
   });
 
+  const handleInputChange = (event) => {
+    setFormData({
+      ...formData,
+      [event.target.name]: event.target.value,
+    });
+
+    setErrors({
+      ...errors,
+      [event.target.name]: undefined,
+    });
+  };
+
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+
+    try {
+      await validationSchema.validate(formData, { abortEarly: false });
+
+      // const {  ...dataToSend } = formData;
+      // console.log("data to send => ", dataToSend);
+      // console.log("form data => ", formData);
+
+      await axios.post(`${BASE_URL}/cooperative/register`,
+        formData,
+        // password: formData.password,
+        // ...dataToSend, d
+      );
+
+      notifySuccess("Registration Successful, Redirecting to login...");
+      setTimeout(() => {
+        navigate("/login");
+      }, 3000);
+    } catch (error) {
+      if (error instanceof Yup.ValidationError) {
+        const newErrors = {};
+        error.inner.forEach((validationError) => {
+          newErrors[validationError.path] = validationError.message;
+        });
+        setErrors(newErrors);
+      } else {
+        console.error(error);
+        notifyError("An error occurred");
+      }
+    }
+  };
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
+
+  const toggleConfirmPasswordVisibility = () => {
+    setShowConfirmPassword(!showConfirmPassword);
+  };
+
+  const inputConfig = [
+    { label: "Company Name", placeholder: "Company name", name: "companyName" },
+    { label: "Company CAC No.", placeholder: "Company CAC No.", name: "rcNumber" },
+    { label: "Cooperative Name", placeholder: "Cooperative name", name: "name" },
+    { label: "Email Address", placeholder: "Email Address", name: "email" },
+    { label: "Password", placeholder: "Choose a password", name: "password" },
+    { label: "Confirm Password", placeholder: "Enter password again", name: "confirmPassword" },
+  ];
+
   return (
     <div className="flex h-screen pt-0 overflow-hidden">
       <div className="border border-purple-100 w-1/2 bg-[#7C39DE] overflow-hidden">
-        <div className="relative">
-          <img
-            src={ArrowBack}
-            alt="Arrow Back"
-            style={{
-              maxWidth: "2%",
-              maxHeight: "2%",
-              position: "absolute",
-              top: "3%",
-              left: "2%",
-              filter: "invert(1)",
-            }}
-          />
-        </div>
+        <img
+          src={ArrowBack}
+          alt="Arrow Back"
+          style={{
+            maxWidth: "2%",
+            maxHeight: "2%",
+            position: "absolute",
+            top: "3%",
+            left: "2%",
+            filter: "invert(1)",
+          }}
+        />
         <div className="h-40 w-96 mt-12 ml-28 ">
           <p className="mb-5 authentication-big-font-style">
             Build your Cooperative Society using Coopera
@@ -161,13 +152,9 @@ const RegistrationPage = () => {
                 <input
                   type={
                     input.name.includes("password")
-                      ? input.name === "password"
-                        ? showPassword
-                          ? "text"
-                          : "password"
-                        : showConfirmPassword
-                          ? "text"
-                          : "password"
+                      ? showPassword
+                        ? "text"
+                        : "password"
                       : "text"
                   }
                   className="w-full h-10 px-4 text-xs"
@@ -181,16 +168,11 @@ const RegistrationPage = () => {
                 {input.name.includes("password") && (
                   <div
                     className="absolute right-4 top-1/2 transform -translate-y-1/2 cursor-pointer appearance-none"
-                    onClick={() => togglePasswordVisibility(input.name)}
-                  >
-                    <img src={EyeIcon} alt="Eye Icon" className="h-4 w-4" />
-                  </div>
-                )}
-
-                {input.name.includes("confirmPassword") && (
-                  <div
-                    className="absolute right-4 top-1/2 transform -translate-y-1/2 cursor-pointer appearance-none"
-                    onClick={() => toggleConfirmPasswordVisibility(input.name)}
+                    onClick={() =>
+                      input.name === "password"
+                        ? togglePasswordVisibility()
+                        : toggleConfirmPasswordVisibility()
+                    }
                   >
                     <img src={EyeIcon} alt="Eye Icon" className="h-4 w-4" />
                   </div>
@@ -211,11 +193,14 @@ const RegistrationPage = () => {
             >
               Register
             </button>
+            <ToastContainer />
           </div>
         </form>
 
         <div className="flex items-center justify-center mb-2">
-          <p className="account-exists-font-style">Already have an account? </p>
+          <p className="account-exists-font-style">
+            Already have an account?{" "}
+          </p>
           <a className="account-exists-login-style" href="/login">
             Login
           </a>

@@ -5,8 +5,9 @@ import CooperaLogo from "../../../assets/images/svg/CooperaLogo.svg";
 import DashboardImage from "../../../assets/images/svg/DashboardImg2.svg";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import * as Yup from "yup";
+import { notifySuccess, notifyError } from "../../../utils/functions/func";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -36,19 +37,19 @@ const Login = () => {
         "http://54.234.211.52:8081/login",
         formData,
       );
-      // const access_token = response.data.token;
+
       const access_token = response.data.access_token;
       sessionStorage.setItem("token", access_token);
       // localStorage.setItem("token", access_token);
 
-      toast.success("Login Successful");
+      notifySuccess("Login successful");
       setTimeout(() => {
         navigate("/dashboard");
       }, 5000);
 
     } catch (error) {
       console.error("Login failed", error.response);
-      toast.error("Invalid email or password");
+      notifyError("Invalid email or password");
     }
   };
 
@@ -60,6 +61,7 @@ const Login = () => {
     email: Yup.string().email("Invalid email address").required("Required"),
     password: Yup.string().required("Required"),
   });
+
 
   return (
     <div className="flex h-screen pt-0 overflow-hidden">
@@ -154,6 +156,7 @@ const Login = () => {
 
           <div className="w-full h-10 px-4 rounded-md mb-2 bg-[#7C39DE] hover:bg-purple-500 hover:border-purple-500 cursor-pointer border-2 border-[#7C39DE] text-white flex items-center justify-center font-bold">
             <button type="submit">Login</button>
+            <ToastContainer />
           </div>
         </form>
 

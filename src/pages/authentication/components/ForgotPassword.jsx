@@ -4,7 +4,9 @@ import CooperaLogo from "../../../assets/images/svg/CooperaLogo.svg";
 import DashboardImage from "../../../assets/images/svg/DashboardImg2.svg";
 import BackIcon from "../../../assets/images/svg/Back-Icon.svg";
 import { ForgetPassword } from "../../../utils/api/CooperativeAPICalls";
-import { toast } from "react-toastify";
+import { notifySuccess, notifyError } from "../../../utils/functions/func";
+import {  ToastContainer, toast } from "react-toastify";
+
 
 const ForgotPassword = () => {
 
@@ -14,7 +16,7 @@ const ForgotPassword = () => {
 
   const [data, setData] = useState(initialState);
 
-  function handleChange(event) {
+  function handleChange (event) {
     setData({
       ...data,
       [event.target.name]: event.target.value,
@@ -29,16 +31,18 @@ const ForgotPassword = () => {
       const response = await ForgetPassword(data.email);
       console.log("response => ", response);
       if (response.data.success || response.status === 201) {
-        toast.success("Verification mail sent, please check your mail box");
+        notifySuccess("Verification mail sent, please check your mail box");
         setTimeout(() => {
           location.reload();
-        }, 5000);
+        }, 3000);
       } else {
-        toast.error(response.data.message || "Unknown error occurred");
+        notifyError(response.data.message || "Unknown error occurred");
       }
     } catch (error) {
       toast.error("Reset password failed");
+
     }
+
   };
 
 
@@ -104,6 +108,8 @@ const ForgotPassword = () => {
             <button className="font-semibold font-20 font-sans " type="submit">
               Send Reset Instructions
             </button>
+            <ToastContainer/>
+
           </div>
         </form>
 

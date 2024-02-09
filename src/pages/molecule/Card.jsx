@@ -8,13 +8,18 @@ import ArrowOptions from "../../assets/images/svg/Arrow-Options.svg";
 import axios from "axios";
 import { BASE_URL } from "../../utils/api/API_BASE_URL";
 import { useState, useEffect } from "react";
-import { data } from "autoprefixer";
+import VsPreviousMonth from "./VSPreviousMonth";
+// import { data } from "autoprefixer";
 
 const Card = () => {
   const [totalSavings, setTotalSavings] = useState(0);
   const [loanRepaid, setLoanRepaid] = useState(0);
   const [accountBalance, setAccountBalance] = useState(0);
   const [loanDisbursed, setLoanDisbursed] = useState(0);
+  const [loanDisbursedDropDown, setLoanDisbursedDropDown] = useState(false);
+  const [accountBalanceDropDown, setAccountBalanceDropDown] = useState(false);
+  const [totalSavingsDropDown, setTotalSavingsDropDown] = useState(false);
+  const [loanRepaidDropDown, setLoanRepaidDropDown] = useState(false);
 
   useEffect(() => {
     const getDashboardStatistics = async () => {
@@ -75,8 +80,16 @@ const Card = () => {
                   <img
                     src={ArrowOptions}
                     alt="No Img"
-                    className="w-4 h-4 ml-1 mt-0"
+                    className="w-4 h-4 ml-1 mt-0 cursor-pointer"
+                    onClick={() => setAccountBalanceDropDown(!accountBalanceDropDown)}
                   />
+                  {accountBalanceDropDown && (
+                    <div className="absolute w-25 mt-52 ml-40 border bg-white rounded-md max-h-48 overflow-y-auto">
+                      <ul className="list-none month-labels ml-3 p-3 cursor-pointer">
+                        <VsPreviousMonth />
+                      </ul>
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
@@ -116,8 +129,16 @@ const Card = () => {
                   <img
                     src={ArrowOptions}
                     alt="No Img"
-                    className="w-4 h-4 ml-1 mt-0"
+                    className="w-4 h-4 ml-1 mt-0 cursor-pointer"
+                    onClick={() => setTotalSavingsDropDown(!totalSavingsDropDown)}
                   />
+                  {totalSavingsDropDown && (
+                    <div className="absolute w-25 mt-52 ml-40 border bg-white rounded-md max-h-48 overflow-y-auto">
+                      <ul className="list-none month-labels ml-3 p-3 cursor-pointer">
+                        <VsPreviousMonth />
+                      </ul>
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
@@ -159,8 +180,16 @@ const Card = () => {
                   <img
                     src={ArrowOptions}
                     alt="No Img"
-                    className="w-4 h-4 ml-1 mt-0"
+                    className="w-4 h-4 ml-1 mt-0 cursor-pointer"
+                    onClick={() => setLoanDisbursedDropDown(!loanDisbursedDropDown)}
                   />
+                  {loanDisbursedDropDown && (
+                    <div className="absolute w-25 mt-52 ml-40 border bg-white rounded-md max-h-48 overflow-y-auto">
+                      <ul className="list-none month-labels ml-3 p-3 cursor-pointer">
+                        <VsPreviousMonth />
+                      </ul>
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
@@ -199,8 +228,16 @@ const Card = () => {
                   <img
                     src={ArrowOptions}
                     alt="No Img"
-                    className="w-4 h-4 ml-1 mt-0"
+                    className="w-4 h-4 ml-1 mt-0 cursor-pointer"
+                    onClick={() => setLoanRepaidDropDown(!loanRepaidDropDown)}
                   />
+                  {loanRepaidDropDown && (
+                    <div className="absolute w-25 mt-52 ml-40 border bg-white rounded-md max-h-48 overflow-y-auto">
+                      <ul className="list-none month-labels ml-3 p-3 cursor-pointer">
+                        <VsPreviousMonth />
+                      </ul>
+                    </div>
+                  )}
                 </div>
               </div>
             </div>

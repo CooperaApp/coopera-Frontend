@@ -159,7 +159,8 @@ const dat = [
 
 const Statistics = () => {
 
-  const [dropDown, setDropDown] = useState(false);
+  const [loanChartDropDown, setLoanChartDropDown] = useState(false);
+  const [savingsChartDropDown, setSavingsChartDropDown] = useState(false);
 
   return (
     <div>
@@ -185,9 +186,9 @@ const Statistics = () => {
                 src={ArrowOptions}
                 alt="Dropdown Trigger"
                 className="w-4 h-4 ml-1 mt-1 cursor-pointer"
-                onClick={() => setDropDown(!dropDown)}
+                onClick={() => setLoanChartDropDown(!loanChartDropDown)}
               />
-              {dropDown && (
+              {loanChartDropDown && (
                 <div className="absolute w-20 mt-6 right-0 border bg-white rounded-md max-h-48 overflow-y-auto">
                   <ul className="list-none month-labels ml-3 p-3 cursor-pointer">
                     <Month />
@@ -248,8 +249,16 @@ const Statistics = () => {
               <img
                 src={ArrowOptions}
                 alt="No Img"
-                className="w-4 h-4 ml-1 mt-0"
+                className="w-4 h-4 ml-1 mt-0 cursor-pointer"
+                onClick={() => setSavingsChartDropDown(!savingsChartDropDown)}
               />
+              {savingsChartDropDown && (
+                <div className="absolute w-20 mt-6 right-0 border bg-white rounded-md max-h-48 overflow-y-auto">
+                  <ul className="list-none month-labels ml-3 p-3 cursor-pointer">
+                    <Month />
+                  </ul>
+                </div>
+              )}
             </div>
           </div>
 

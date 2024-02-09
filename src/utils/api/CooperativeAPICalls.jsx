@@ -1,9 +1,13 @@
 import axios from "axios";
+
 import { BASE_URL } from "./API_BASE_URL";
+console.log( "this is base url: ",BASE_URL);
+
 
 export const RegisterCooperative = async (payload) => {
   const endpoint = "/api/v1/cooperative/register";
   const URL = `${BASE_URL}${endpoint}`;
+
 
   try {
     const response = await axios.post(URL, payload);

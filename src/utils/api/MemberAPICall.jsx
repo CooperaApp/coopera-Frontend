@@ -1,5 +1,5 @@
 import axios from "axios";
-import { BASE_URL } from "./APIConstant";
+import { BASE_URL } from "./APIConstant.jsx";
 
 export const RegisterMember = async (payload) => {
 
@@ -23,6 +23,19 @@ export const LoginMember = async (payload) => {
 
   try {
     const response = await axios.post(URL, payload);
+    return response;
+  } catch (error) {
+    return error.response;
+  }
+};
+
+
+export const requestLoan = async (loanRequestData) => {
+  const endpoint = "/loans/requestLoan";
+  const URL = `${BASE_URL}${endpoint}`;
+
+  try {
+    const response = await axios.post(URL, loanRequestData);
     return response;
   } catch (error) {
     return error.response;

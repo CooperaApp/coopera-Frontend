@@ -4,12 +4,15 @@ import ArrowBack from "../../../assets/images/png/arrow-back.png";
 import CooperaLogo from "../../../assets/images/svg/CooperaLogo.svg";
 import DashboardImage from "../../../assets/images/svg/DashboardImg2.svg";
 import { ResetPassword } from "../../../utils/api/CooperativeAPICalls";
-import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
+import {  ToastContainer, toast } from "react-toastify";
+import { notifySuccess, notifyError } from "../../../utils/functions/func";
 import BackIcon from "../../../assets/images/svg/Back-Icon.svg";
 import "../../../styles/Modal.css";
 import ResetStar from "../../../assets/images/svg/reset-star.svg";
 import CloseIcon from "../../../assets/images/svg/CloseIcon.svg";
+
+
 // eslint-disable-next-line react/prop-types
 const Modal = ({ onClose }) => {
   return (
@@ -32,6 +35,7 @@ const Modal = ({ onClose }) => {
     </div>
   );
 };
+
 const ChangePassword = () => {
   const navigate = useNavigate();
   const [data, setData] = useState({
@@ -58,13 +62,16 @@ const ChangePassword = () => {
       const res = await ResetPassword({ ...data, token });
 
       if (res.status >= 200 && res.status < 300) {
+        notifySuccess("Password reset was successful, please login");
         setShowModal(true);
+        // navigate("/login");
       } else {
-        toast.error("Reset password failed. Please check your credentials.");
+        notifyError("Reset password failed. Please check your credentials.");
       }
     } catch (error) {
       toast.error("Reset password failed");
     }
+
   };
 
   const closeModal = () => {
@@ -160,6 +167,7 @@ const ChangePassword = () => {
 
           <div className="w-full h-10 px-4 rounded-md mb-2 bg-[#7C39DE] cursor-pointer border-2 border-[#7C39DE] text-white flex items-center justify-center font-bold">
             <button type="submit">Reset Password</button>
+            <ToastContainer/>
           </div>
         </form>
 
