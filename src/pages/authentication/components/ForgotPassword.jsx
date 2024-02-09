@@ -105,8 +105,11 @@ const ForgotPassword = () => {
           </div>
 
           <div className="w-full h-10 px-4 rounded-md mb-2 bg-[#7C39DE] mt-12 cursor-pointer border-2 border-[#7C39DE] text-white flex items-center justify-center font-bold">
-            <button className="font-semibold font-20 font-sans " type="submit">Reset Password</button>
+            <button className="font-semibold font-20 font-sans " type="submit">
+              Send Reset Instructions
+            </button>
             <ToastContainer/>
+
           </div>
         </form>
 

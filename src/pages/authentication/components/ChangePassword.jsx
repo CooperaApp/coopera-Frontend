@@ -7,24 +7,49 @@ import { ResetPassword } from "../../../utils/api/CooperativeAPICalls";
 import { useNavigate } from "react-router-dom";
 import {  ToastContainer, toast } from "react-toastify";
 import { notifySuccess, notifyError } from "../../../utils/functions/func";
+import BackIcon from "../../../assets/images/svg/Back-Icon.svg";
+import "../../../styles/Modal.css";
+import ResetStar from "../../../assets/images/svg/reset-star.svg";
+import CloseIcon from "../../../assets/images/svg/CloseIcon.svg";
+
+
+// eslint-disable-next-line react/prop-types
+const Modal = ({ onClose }) => {
+  return (
+    <div className="modal">
+      <div className="reset-star">
+        <img src={ResetStar}/>
+      </div>
+      <div className="modal-content">
+        <div>
+          <h1 className="changed-password">Password changed!</h1>
+          <p className="proceed-after-password-change">Proceed to login with new password.</p>
+        </div>
+        <div>
+          <button className="close" onClick={onClose}><img src={CloseIcon} alt={CloseIcon}/></button>
+          <a>
+            <button className="proceed-to-login-on-close" onClick={onClose}>Proceed to Login</button>
+          </a>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 const ChangePassword = () => {
-
   const navigate = useNavigate();
-
-  let initialState = {
+  const [data, setData] = useState({
     newPassword: "",
     confirmPassword: "",
-  };
+  });
+  const [showModal, setShowModal] = useState(false);
 
-  const [data, setData] = useState(initialState);
-
-  function handleChange(event) {
+  const handleChange = (event) => {
     setData({
       ...data,
       [event.target.name]: event.target.value,
     });
-  }
+  };
 
   const resetPassword = async (event) => {
     event.preventDefault();
@@ -38,7 +63,8 @@ const ChangePassword = () => {
 
       if (res.status >= 200 && res.status < 300) {
         notifySuccess("Password reset was successful, please login");
-        navigate("/login");
+        setShowModal(true);
+        // navigate("/login");
       } else {
         notifyError("Reset password failed. Please check your credentials.");
       }
@@ -48,6 +74,10 @@ const ChangePassword = () => {
 
   };
 
+  const closeModal = () => {
+    setShowModal(false);
+    navigate("/login");
+  };
 
   return (
     <div className="flex h-screen overflow-y-hidden pt-0">
@@ -140,6 +170,17 @@ const ChangePassword = () => {
             <ToastContainer/>
           </div>
         </form>
+
+        {showModal && <Modal onClose={closeModal} />}
+
+        <div className="flex shrink-0 items-center justify-center">
+          <a
+            className="text-sm text-[#7C39DE] flex font-sans whitespace-break-spaces font-bold"
+            href="/login"
+          >
+            <img src={BackIcon} /> Back to Login
+          </a>
+        </div>
       </div>
     </div>
   );
