@@ -34,7 +34,7 @@ const Login = () => {
       await validationSchema.validate(formData, { abortEarly: false });
 
       const response = await axios.post(
-        "http://44.202.51.110:8081/login",
+        "http://54.234.211.52:8081/login",
         formData,
       );
 
@@ -61,6 +61,7 @@ const Login = () => {
     email: Yup.string().email("Invalid email address").required("Required"),
     password: Yup.string().required("Required"),
   });
+
 
   return (
     <div className="flex h-screen pt-0 overflow-hidden">
