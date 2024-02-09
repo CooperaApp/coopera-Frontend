@@ -1,0 +1,59 @@
+.modal{
+    width: 743px;
+    height: 88px;
+    top: 1970px;
+    left: 4336px;
+    padding: 4px;
+    border-radius: 4px;
+    gap: 10px;
+    background: #FFFFFF;
+    box-shadow: 2px 2px 0px 0.5px #0E0A2D;
+    display: flex;
+}
+
+.reset-star{
+    width: 80px;
+    height: 80px;
+    padding: 15px;
+    border: 1px;
+    background: linear-gradient(0deg, #AFB0B1, #AFB0B1),
+    linear-gradient(0deg, #FFFFFF, #FFFFFF);
+    border-right: 1px solid #AFB0B1;
+}
+
+.modal-content{
+    width: 637px;
+    height: 54px;
+    gap: 10px;
+    display: flex;
+}
+
+.changed-password{
+    width: 149px;
+    height: 24px;
+    font-family: 'EuclidCircularA', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+    letter-spacing: 0px;
+    text-align: left;
+}
+
+.proceed-after-password-change{
+    width: 239px;
+    height: 20px;
+    font-family: 'EuclidCircularA', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 0em;
+    text-align: left;
+    background: #747474;
+}
+
+.proceed-to-login-on-close{
+    width: 128px;
+    height: 24px;
+    border-radius: 4px;
+    gap: 8px;
+}
