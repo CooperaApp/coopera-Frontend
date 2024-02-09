@@ -18,11 +18,11 @@ const Modal = ({ onClose }) => {
         <img src={ResetStar}/>
       </div>
       <div className="modal-content">
-        <div>
+        <div className="password-frame">
           <h1 className="changed-password">Password changed!</h1>
           <p className="proceed-after-password-change">Proceed to login with new password.</p>
         </div>
-        <div>
+        <div className="on-close-frame">
           <button className="close" onClick={onClose}><img src={CloseIcon} alt={CloseIcon}/></button>
           <a>
             <button className="proceed-to-login-on-close" onClick={onClose}>Proceed to Login</button>
