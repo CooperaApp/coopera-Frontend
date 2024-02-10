@@ -25,8 +25,8 @@ const Modal = ({ onClose }) => {
           <h1 className="changed-password">Password changed!</h1>
           <p className="proceed-after-password-change">Proceed to login with new password.</p>
         </div>
-        <div>
-          <button className="close" onClick={onClose}><img src={CloseIcon} alt={CloseIcon}/></button>
+        <div className="close-frame">
+          <button className="close-icon-action" onClick={onClose}><img src={CloseIcon} alt={CloseIcon}/></button>
           <a>
             <button className="proceed-to-login-on-close" onClick={onClose}>Proceed to Login</button>
           </a>
