@@ -20,29 +20,37 @@ export function validateEmail(value) {
   return emailRegex.test(value);
 }
 
+
 export const notifySuccess = (arg) => {
   toast.success(arg, {
-    position: "top-right",
+    position: "top-center",
     autoClose: 3000,
-    hideProgressBar: true,
+    // hideProgressBar: false,
     closeOnClick: true,
     pauseOnHover: false,
     draggable: true,
     progress: undefined,
     theme: "light",
+    style: {
+      backgroundColor: "#B18CE7",
+      width: "400px",
+    },
   });
 };
 
 
 export const notifyError = (arg) => {
   toast.error(arg, {
-    position: "top-right",
+    position: "top-center",
     autoClose: 3000,
-    hideProgressBar: true,
+    // hideProgressBar: false,
     closeOnClick: true,
     pauseOnHover: false,
     draggable: true,
     progress: undefined,
     theme: "colored",
+    style: {
+      width: "500px",
+    },
   });
 };
