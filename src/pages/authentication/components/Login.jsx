@@ -148,7 +148,10 @@ const Login = () => {
             {errors.password && (
               <div className="text-red-500 text-xs mt-1">{errors.password}</div>
             )}
-            <a href="/forgot-password" className="forgotten-password-link">Forgotten Password?</a>
+            <a
+              className="forgotten-password-link"
+              href="/forgot-password"> Forgotten Password?
+            </a>
           </div>
 
           <div className="w-full h-10 px-4 rounded-md mb-2 bg-[#7C39DE] hover:bg-purple-500 hover:border-purple-500 cursor-pointer border-2 border-[#7C39DE] text-white flex items-center justify-center font-bold">
