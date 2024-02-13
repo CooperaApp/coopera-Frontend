@@ -34,7 +34,7 @@ const Login = () => {
       await validationSchema.validate(formData, { abortEarly: false });
 
       const response = await axios.post(
-        "http://54.234.211.52:8081/login",
+        "http://54.224.231.83:8081/login",
         formData,
       );
 
