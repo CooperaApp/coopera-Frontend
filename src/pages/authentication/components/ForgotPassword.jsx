@@ -9,7 +9,6 @@ import {  ToastContainer, toast } from "react-toastify";
 
 
 const ForgotPassword = () => {
-
   let initialState = {
     email: "",
   };
@@ -22,7 +21,6 @@ const ForgotPassword = () => {
       [event.target.name]: event.target.value,
     });
   }
-
 
   const forgotPassword = async (event) => {
     event.preventDefault();
@@ -44,7 +42,6 @@ const ForgotPassword = () => {
     }
 
   };
-
 
   return (
     <div className="flex h-screen overflow-y-hidden pt-0">
