@@ -1,5 +1,8 @@
+import React from "react";
 import { LOAN_DUMMY_DATA } from "../../utils/constant/LoanTableData";
 import { getStatusColor, getTextColor } from "../../utils/functions/Colors";
+import check from '../../assets/images/svg/check.svg'
+import cancel from '../../assets/images/svg/cancel.svg'
 
 const LoanTable = () => {
   return (
@@ -20,6 +23,7 @@ const LoanTable = () => {
             </th>
             <th className="activities-heading px-4 py-2 text-left">Date</th>
             <th className="activities-heading px-4 py-2 text-left">Status</th>
+            <th className="activities-heading px-4 py-2 text-left">Action</th>
           </tr>
         </thead>
         <tbody>
@@ -29,56 +33,56 @@ const LoanTable = () => {
                 style={{ color: "#484949" }}
                 className="recent-activities-data  px-4 py-2"
               >
-                {item.LoanType}
+                {item.loanDate}
               </td>
               <td
                 style={{ color: "#484949" }}
                 className="recent-activities-data  px-4 py-2"
               >
-                {item.AmountPaid}
+                {item.memberId}
               </td>
               <td
                 style={{ color: "#484949" }}
                 className="recent-activities-data  px-4 py-2"
               >
-                {item.princAmount}
+                {item.fullName}
               </td>
               <td
                 style={{ color: "#484949" }}
                 className="recent-activities-data  px-4 py-2"
               >
-                {item.remBalance}
+                {item.loanTotal}
               </td>
-
               <td
                 style={{ color: "#484949" }}
                 className="recent-activities-data  px-4 py-2"
               >
-                {item.date}
+                {item.principal}
               </td>
-
               <td
                 style={{ color: "#484949" }}
                 className="recent-activities-data  px-4 py-2"
               >
-                {item.status}
+                {item.interest}
               </td>
-              <td className="px-4 py-2">
-                {item.status && (
-                  <div
-                    className=" rounded-full items-align h-6 inline-block"
-                    style={{
-                      backgroundColor: getStatusColor(item.status),
-                      color: getTextColor(item.status),
-                    }}
-                  >
-                    {item.status && (
-                      <span className="recent-activities-data p-2">
-                        {item.status}
-                      </span>
-                    )}
-                  </div>
-                )}
+              <td
+                style={{ color: "#484949" }}
+                className="recent-activities-data  px-4 py-2"
+              >
+                {item.period}
+              </td>
+              <td className="px-4 py-2 flex justify-around">
+                <img
+                  type="checkbox"
+                  checked={item.action.checked}
+                  src={check}
+                />
+              
+                <img
+                  type="checkbox"
+                  checked={item.action.cancelled}
+                  src={cancel}
+                />
               </td>
             </tr>
           ))}
