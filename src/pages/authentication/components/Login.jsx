@@ -34,8 +34,8 @@ const Login = () => {
       await validationSchema.validate(formData, { abortEarly: false });
 
       const response = await axios.post(
-        "http://54.234.211.52:8081/login",
-        formData,
+        "http://44.202.51.110:8081/login",
+        formData
       );
 
       const access_token = response.data.access_token;
@@ -46,7 +46,6 @@ const Login = () => {
       setTimeout(() => {
         navigate("/dashboard");
       }, 5000);
-
     } catch (error) {
       console.error("Login failed", error.response);
       notifyError("Invalid email or password");
