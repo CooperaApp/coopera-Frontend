@@ -6,7 +6,7 @@ import calendarIcon from "../../assets/images/svg/DatePicker.svg";
 
 function CustomInput({ value, onClick }) {
   return (
-    <div className="flex items-center">
+    <div className="flex items-center ">
       <div>
         <img className="cursor-pointer ml-1 h-4 w-4 bg-white" src={calendarIcon} alt="Calendar" />
       </div>

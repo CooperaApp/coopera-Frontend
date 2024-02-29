@@ -8,7 +8,7 @@ import {
   //   Cell,
   XAxis,
   YAxis,
-  //   CartesianGrid,
+  CartesianGrid,
   Tooltip,
   //   Legend,
   ResponsiveContainer,
@@ -158,13 +158,13 @@ const dat = [
 const ReLineChart = () => {
   return (
     <div
-      className="  overview-x-hidden ml-3   mt-4 rounded-xl"
-              style={{ backgroundColor: "#7838D6",height: "22rem", width: "70rem"  }}
+      className="  overview-x-hidden ml-8   mt-4 rounded-xl"
+              style={{ backgroundColor: "#7838D6",height: "22rem", width: "68.2rem"  }}
               
     >
       <div className="border p-4 bg-white h-full rounded-md w-1/2.2 overview-x-hidden ">
         <div className="justify-between flex">
-          <p className="heading">Loan Statistics</p>
+          <p className="heading ml-10 ">Loan Statistics</p>
           <div className="ml-12 flex">
             <div
               className="w-2 h-2 rounded-full mt-2 mr-1"
@@ -201,7 +201,7 @@ const ReLineChart = () => {
                 bottom: 5,
               }}
             >
-              {/* <CartesianGrid strokeDasharray="3 3" /> */}
+             <CartesianGrid strokeDasharray="3 3" vertical={false} />
               <XAxis
                 dataKey="name"
                 tick={{
@@ -209,22 +209,45 @@ const ReLineChart = () => {
                   fill: "#A9A9AA",
                   fontWeight: "700",
                 }}
+                axisLine={false}
               />
               <YAxis
+              
                 tick={{
                   fontSize: 12,
                   fill: "#A9A9AA",
                   fontWeight: "700",
                 }}
+                axisLine={false}
               />
-              <Tooltip />
+              <Tooltip
+               wrapperStyle={{
+                backgroundColor: '#7838D6',
+                borderRadius: '20px',
+              }}
+              contentStyle={{
+                fontSize: '14px',
+                color: '#fff',
+                background:'none',
+                border: 'none'
+              }}
+              labelStyle={{
+                fontWeight: 'bold',
+                color: '#fff'
+              }}
+              itemStyle={{
+                color: '#fff'
+              }}
+              />
               <Line
                 type="monotone"
                 dataKey="repaid"
                 stroke="#8884d8"
                 activeDot={{ r: 8 }}
+                dot={false}
+                strokeWidth={3}
               />
-              <Line type="monotone" dataKey="disbursed" stroke="#82ca9d" />
+              <Line type="monotone" dataKey="disbursed" stroke="#82ca9d"   dot={false} strokeWidth={3} />
             </LineChart>
           </ResponsiveContainer>
         </div>
