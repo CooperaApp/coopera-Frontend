@@ -26,7 +26,7 @@ const HiredPurchaseBody = () => {
 
       </div>
 
-      <div className="hp-report-frame ml-4 mr-7">
+      <div className="hp-report-frame ml-5 mr-7">
         <div className="t-active-hp-card">
           <div className="h-32  p-0 ">
             <div className="p-0 flex justify-between mb-2">

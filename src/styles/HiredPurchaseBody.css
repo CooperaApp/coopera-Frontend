@@ -31,7 +31,7 @@
     width: 106px;
     height: 25px;
     display: flex;
-    margin-left: 600px;
+    margin-left: 750px;
 }
 
 #hp-repay-purchase-button{
@@ -61,7 +61,7 @@
 .hp-report-frame{
     justify-content: space-between;
     display: flex;
-    width: 80%;
+    width: 95%;
     margin-top: 18px;
 }
 
