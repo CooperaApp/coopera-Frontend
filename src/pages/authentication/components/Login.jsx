@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import * as Yup from "yup";
 import { notifySuccess, notifyError } from "../../../utils/functions/func";
+import { LOGIN_URL } from "../../../utils/api/API_BASE_URL";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -34,7 +35,7 @@ const Login = () => {
       await validationSchema.validate(formData, { abortEarly: false });
 
       const response = await axios.post(
-        "http://54.234.211.52:8081/login",
+        LOGIN_URL,
         formData,
       );
 
@@ -46,7 +47,6 @@ const Login = () => {
       setTimeout(() => {
         navigate("/dashboard");
       }, 5000);
-
     } catch (error) {
       console.error("Login failed", error.response);
       notifyError("Invalid email or password");
@@ -148,7 +148,10 @@ const Login = () => {
             {errors.password && (
               <div className="text-red-500 text-xs mt-1">{errors.password}</div>
             )}
-            <a href="/forgot-password" className="forgotten-password-link">Forgotten Password?</a>
+            <a
+              className="forgotten-password-link"
+              href="/forgot-password"> Forgotten Password?
+            </a>
           </div>
 
           <div className="w-full h-10 px-4 rounded-md mb-2 bg-[#7C39DE] hover:bg-purple-500 hover:border-purple-500 cursor-pointer border-2 border-[#7C39DE] text-white flex items-center justify-center font-bold">

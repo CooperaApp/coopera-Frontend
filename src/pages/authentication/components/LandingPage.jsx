@@ -1,4 +1,5 @@
 import CooperaLogo from "../../../assets/images/svg/CooperaLogo.svg";
+
 import Ipad from "../../../assets/images/svg/Ipad.svg";
 import Access from "../../../assets/images/svg/Access.svg";
 import Aws from "../../../assets/images/svg/Aws.svg";
@@ -20,7 +21,6 @@ import "react-multi-carousel/lib/styles.css";
 import { useNavigate } from "react-router-dom";
 
 const LandingPage = () => {
-
   const navigate = useNavigate();
 
   // const history = useHistory();
@@ -59,9 +59,13 @@ const LandingPage = () => {
       <div className="bg-[#7C39DE]">
         <nav className="mb-20">
           <div className="flex justify-evenly ">
-            <div className="flex items-center ml-20 mt-9">
-              <img src={CooperaLogo} alt="Coopera-logo" />
-              <p className="mt={2} text-[#FFFFFF]">Coopera</p>
+            <div className="flex items-center ml-20 ">
+              <img
+                src={CooperaLogo}
+                alt="Coopera-logo"
+                className="border bg-white mr-2 mt-10 rounded-lg p-2 h-12 "
+              />
+              <p className="mt={2} text-[#FFFFFF] mt-10">Coopera</p>
             </div>
             <div className=" flex ml-20 mt-10">
               <ul className="flex items-center ">
@@ -74,10 +78,18 @@ const LandingPage = () => {
             </div>
 
             <div className=" flex ml-20 mt-10 gap-3 mr-3">
-              <button className="bg-[#59D2B0] mt-2 px-5 h-10 rounded-lg" onClick={() => navigate("/registration")}>
+              <button
+                className="bg-[#59D2B0] mt-2 px-5 h-10 rounded-lg"
+                onClick={() => navigate("/registration")}
+              >
                 Get Started
               </button>
-              <button className="text-[#C4A7EE]" onClick={() => navigate("/login")}>Login</button>
+              <button
+                className="text-[#C4A7EE]"
+                onClick={() => navigate("/login")}
+              >
+                Login
+              </button>
             </div>
           </div>
         </nav>
@@ -380,7 +392,11 @@ const LandingPage = () => {
         <div>
           <div>
             <div className="flex items-center mt-10 mb-6">
-              <img src={CooperaLogo} alt="Coopera-logo" />
+              <img
+                src={CooperaLogo}
+                alt="Coopera-logo"
+                className="border bg-white mr-2 rounded-lg p-2 h-12 border-green-600"
+              />
               <p className="mt={2} text-[#111212 text-2xl">Coopera</p>
             </div>
             <p className="mb-[50px]">

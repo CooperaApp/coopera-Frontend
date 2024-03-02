@@ -33,7 +33,7 @@ const Table = () => {
               <td
                 style={{ color: "#484949" }}
                 className="recent-activities-data  px-4 py-2"
-              >    
+              >
                 {item.memberId}
               </td>
               <td

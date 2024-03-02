@@ -6,7 +6,7 @@ import DashboardImage from "../../../assets/images/svg/DashboardImg2.svg";
 import { ResetPassword } from "../../../utils/api/CooperativeAPICalls";
 import { useNavigate } from "react-router-dom";
 import {  ToastContainer, toast } from "react-toastify";
-import { notifySuccess, notifyError } from "../../../utils/functions/func";
+import {  notifyError } from "../../../utils/functions/func";
 import BackIcon from "../../../assets/images/svg/Back-Icon.svg";
 import "../../../styles/Modal.css";
 import ResetStar from "../../../assets/images/svg/reset-star.svg";
@@ -21,12 +21,12 @@ const Modal = ({ onClose }) => {
         <img src={ResetStar}/>
       </div>
       <div className="modal-content">
-        <div>
+        <div className="password-frame">
           <h1 className="changed-password">Password changed!</h1>
           <p className="proceed-after-password-change">Proceed to login with new password.</p>
         </div>
-        <div>
-          <button className="close" onClick={onClose}><img src={CloseIcon} alt={CloseIcon}/></button>
+        <div className="close-frame">
+          <button className="close-icon-action" onClick={onClose}><img src={CloseIcon} alt={CloseIcon}/></button>
           <a>
             <button className="proceed-to-login-on-close" onClick={onClose}>Proceed to Login</button>
           </a>
@@ -62,9 +62,7 @@ const ChangePassword = () => {
       const res = await ResetPassword({ ...data, token });
 
       if (res.status >= 200 && res.status < 300) {
-        notifySuccess("Password reset was successful, please login");
         setShowModal(true);
-        // navigate("/login");
       } else {
         notifyError("Reset password failed. Please check your credentials.");
       }
