@@ -1,35 +1,25 @@
 import TopNav from "../../utils/reusable-components/TopNav";
 import SideBar from "../../utils/reusable-components/SideBar";
-// import { GenerateInviteLink } from "../../utils/api/AdminAPICall";
-import { BASE_URL } from "../../utils/api/API_BASE_URL";
-import axios from "axios";
+import { GenerateInviteLink } from "../../utils/api/AdminAPICall";
 import { useState } from "react";
+import { notifyError, notifySuccess } from "../../utils/functions/func";
 
 const Settings = () => {
-
-
-  const [recipientEmails, setRecipientEmails] = useState([]);
+  const [recipientEmail, setRecipientEmail] = useState([]);
 
   async function handleSubmit(event) {
     event.preventDefault();
-
-    console.log("recipient emails <<<<<<>>>>>> ", recipientEmails);
-    const endpoint = "/admin/generateLink";
-    const URL = `${BASE_URL}${endpoint}`;
-
-    const token =
-      "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MDkzNzczMjgsImV4cCI6MTcwOTQ2MzMyOCwiaWQiOiJBbC0vMjAyNC8wMDMxIn0.pDNOYHjoArD655UU1Ig6MWJVxD3zJMWAPMfr8klShi2LEoYOy77rlfFOUvtzINpGDgJwDgl-ypd-notNbLQDwQ";
-    const headers = {Authorization: "Bearer " + token};
-
-    console.log("URL => " + URL);
-    console.log("I dey here");
-
+    console.log("Recipient Email => ", recipientEmail);
     try {
-      const response = await axios.post(URL, recipientEmails, { headers });
-      console.log("My response ------>>>> ", response);
-      return response;
+      const response = await GenerateInviteLink(recipientEmail);
+      if (response.status === 201) {
+        notifySuccess("Invite Link successfully sent to all recipients");
+      }
+      console.log("response.status == ", response.status);
+      console.log("Generate Invite Response => ", response);
+      console.log("Response.data => ", response.data);
     } catch (error) {
-      return error.response;
+      notifyError(error.response);
     }
   }
 
@@ -125,10 +115,10 @@ const Settings = () => {
               placeholder="Invite member"
               className="border w-full bg-[#F3F3F3]"
               style={{ height: "100px" }}
-              name="recipientEmails"
-              value={recipientEmails.join(",")}
+              name="recipientEmail"
+              value={recipientEmail.join(",")}
               onChange={(event) =>
-                setRecipientEmails(event.target.value.split(","))
+                setRecipientEmail(event.target.value.split(","))
               }
             />
 
