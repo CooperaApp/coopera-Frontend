@@ -46,15 +46,26 @@ function LoanBody() {
                 style={{ backgroundColor: "#FFFFFF" }}
               />
             </div>
-            <div className="border items-center justify-center flex ml-3 h-7 w-20 mt-0.5 rounded-sm">
-              <p className="font-normal text-sm ">Filter</p>
-              <img src={Filter} alt="No Img" className="w-4 h-4 ml-2 mt-0" />
+            <div className="relative ml-2">
+              <select className="border items-center justify-center pl-1 pr-4 h-7 w-20 mt-0.5 rounded-sm p-0.5 appearance-none">
+                <option className="font-normal text-sm" disabled selected hidden> Filter</option>
+                <option className="font-normal text-sm">Date</option>
+                <option className="font-normal text-sm">Status</option>
+              </select>
+              <img
+                src={Filter}
+                alt="No Img"
+                className="absolute top-0 right-0 w-4 h-4 mt-2 mr-2 pointer-events-none"
+              />
             </div>
           </div>
         </div>
 
         <LoanTable />
-        <div className="flex items-center justify-between px-4 py-2" style={{color: '#808080'}}>
+        <div
+          className="flex items-center justify-between px-4 py-2"
+          style={{ color: "#808080" }}
+        >
           <div>10 Entries per page</div>
           <div>Page 1 of 1</div>
           <div className="flex items-center">
@@ -86,15 +97,26 @@ function LoanBody() {
                 style={{ backgroundColor: "#FFFFFF" }}
               />
             </div>
-            <div className="border items-center justify-center flex ml-3 h-7 w-20 mt-0.5 rounded-sm">
-              <p className="font-normal text-sm ">Filter</p>
-              <img src={Filter} alt="No Img" className="w-4 h-4 ml-2 mt-0" />
+            <div className="relative ml-2">
+              <select className="border items-center justify-center pl-1 pr-4 h-7 w-20 mt-0.5 rounded-sm p-0.5 appearance-none">
+                <option className="font-normal text-sm" disabled selected hidden> Filter</option>
+                <option className="font-normal text-sm">Date</option>
+                <option className="font-normal text-sm">Status</option>
+              </select>
+              <img
+                src={Filter}
+                alt="No Img"
+                className="absolute top-0 right-0 w-4 h-4 mt-2 mr-2 pointer-events-none"
+              />
             </div>
           </div>
         </div>
 
         <LoanActivityTable />
-        <div className="flex items-center justify-between px-4 py-2" style={{color: '#808080'}}>
+        <div
+          className="flex items-center justify-between px-4 py-2"
+          style={{ color: "#808080" }}
+        >
           <div>10 Entries per page</div>
           <div>Page 1 of 1</div>
           <div className="flex items-center">
