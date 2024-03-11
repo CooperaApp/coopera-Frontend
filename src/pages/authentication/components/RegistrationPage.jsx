@@ -57,24 +57,23 @@ const RegistrationPage = () => {
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
+    let response;
 
     try {
       await validationSchema.validate(formData, { abortEarly: false });
-
-      // const {  ...dataToSend } = formData;
-      // console.log("data to send => ", dataToSend);
-      // console.log("form data => ", formData);
-
-      await axios.post(`${BASE_URL}/cooperative/register`,
+      response = await axios.post(`${BASE_URL}/cooperative/register`,
         formData,
-        // password: formData.password,
-        // ...dataToSend, d
       );
+      console.log("response => ", response);
+      console.log("response.data => ", response.data);
 
-      notifySuccess("Registration Successful, Redirecting to login...");
-      setTimeout(() => {
-        navigate("/login");
-      }, 3000);
+      if(response.status >= 200) {
+        notifySuccess("Registration Successful, Redirecting to login...");
+        setTimeout(() => {
+          navigate("/login");
+        }, 3000);
+      }
+
     } catch (error) {
       if (error instanceof Yup.ValidationError) {
         const newErrors = {};
@@ -83,8 +82,8 @@ const RegistrationPage = () => {
         });
         setErrors(newErrors);
       } else {
-        console.error(error);
-        notifyError("An error occurred");
+        notifyError(error.response.data.message);
+        // notifyError("An error occurred");
       }
     }
   };
