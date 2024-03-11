@@ -40,6 +40,7 @@ const Login = () => {
       );
 
       const access_token = response.data.access_token;
+      console.log("access token === ", access_token);
       sessionStorage.setItem("token", access_token);
       // localStorage.setItem("token", access_token);
 

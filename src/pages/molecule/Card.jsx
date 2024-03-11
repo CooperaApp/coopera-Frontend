@@ -24,6 +24,7 @@ const Card = () => {
   const getDashboardStatistics = async () => {
     const url = `${BASE_URL}/cooperative/getDashboardStatistics`;
     try {
+      console.log("Get Dashboard Statistics == here" );
       const response = await axios.get(url, {
         headers: {
           Authorization: "Bearer " + sessionStorage.getItem("token"),
@@ -39,6 +40,7 @@ const Card = () => {
   };
 
   useEffect(() => {
+    console.log("Inside Use Effect");
     getDashboardStatistics();
   }, []);
 
