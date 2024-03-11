@@ -29,15 +29,17 @@ const Login = () => {
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
-    let response;
-
     try {
       await validationSchema.validate(formData, { abortEarly: false });
+
+      const response = await axios.post(
+        LOGIN_URL,
+        formData,
+      );
 
       const access_token = response.data.access_token;
       console.log("access token === ", access_token);
       sessionStorage.setItem("token", access_token);
-      // localStorage.setItem("token", access_token);
 
       notifySuccess("Login successful");
       setTimeout(() => {
