@@ -1,7 +1,7 @@
 import axios from "axios";
 
 import { BASE_URL } from "./API_BASE_URL";
-console.log( "this is base url: ",BASE_URL);
+// console.log( "this is base url: ",BASE_URL);
 
 
 export const RegisterCooperative = async (payload) => {
@@ -17,17 +17,19 @@ export const RegisterCooperative = async (payload) => {
   }
 };
 
-export const LoginCooperative = async (payload) => {
-  const endpoint = "/login";
-  const URL = `${BASE_URL}${endpoint}`;
+// export const LoginCooperative = async (payload) => {
+//   const endpoint = "/login";
+//   const URL = `${BASE_URL}${endpoint}`;
 
-  try {
-    const response = await axios.post(URL, payload);
-    return response;
-  } catch (error) {
-    return error.response;
-  }
-};
+//   try {
+//     console.log('payload: ', payload);
+//     const response = await axios.post(URL, payload);
+   
+//     return response;
+//   } catch (error) {
+//     return error.response;
+//   }
+// };
 
 export const ForgetPassword = (payload) => {
   const endpoint = "/cooperative/forgotPassword";

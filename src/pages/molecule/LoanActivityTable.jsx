@@ -80,7 +80,7 @@ const LoanActivityTable = () => {
                       color: getTextColor(item.action),
                     }}
                   >
-                    <span className="recent-activities-data p-2">
+                    <span className="recent-activities-data p-3">
                       {item.action}
                     </span>
                   </div>
