@@ -32,8 +32,9 @@ const Login = () => {
     e.preventDefault();
     try {
       await validationSchema.validate(formData, { abortEarly: false });
-      response = await axios.post(`${LOGIN_BASE_URL}/login`, formData,
+      const response = await axios.post(`${LOGIN_BASE_URL}/login`, formData,
       );
+
 
       const access_token = response.data.access_token;
       console.log("access token === ", access_token);
