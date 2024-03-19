@@ -8,7 +8,9 @@ import { useNavigate } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import * as Yup from "yup";
 import { notifySuccess, notifyError } from "../../../utils/functions/func";
-import { LOGIN_URL } from "../../../utils/api/API_BASE_URL";
+import { LOGIN_URL } from "../../../utils/api/API_BASE_URL"; 
+import '../../../styles/reponsiveness/login.css'
+
 
 const Login = () => {
   const navigate = useNavigate();
@@ -66,15 +68,16 @@ const Login = () => {
 
 
   return (
-    <div className="flex h-screen pt-0 overflow-hidden">
-      <div className="border border-purple-100 w-1/2 bg-[#7C39DE] overflow-hidden">
-        <div className="relative">
+    <div className="flex h-screen pt-0 overflow-hidden" id="log-main-container">
+      <div className="border border-purple-100 w-1/2 bg-[#7C39DE] overflow-hidden" id="log-left-side-container">
+        <div className="relative" id="arrow-relative">
           <img
             src={ArrowBack}
             alt="Arrow Back"
+            id="log-arrow-back"
             style={{
-              maxWidth: "2%",
-              maxHeight: "2%",
+              maxWidth: "3%",
+              maxHeight: "20%",
               position: "absolute",
               top: "3%",
               left: "2%",
@@ -82,17 +85,18 @@ const Login = () => {
             }}
           />
         </div>
-        <div className="h-40 w-96 mt-12 ml-28 ">
-          <p className="mb-5 authentication-big-font-style">
+        <div className="h-40 w-96 mt-12 ml-28 " id="log-text-box">
+          <p className="mb-5 authentication-big-font-style" id="log-heading-text">
             Build your Cooperative Society using Coopera
           </p>
-          <p className="authentication-small-font-style">
+          <p className="authentication-small-font-style" id="log-subtext">
             With Coopera, managing your cooperative society is seamless. Elevate
             efficiency and foster financial growth
           </p>
         </div>
         <div className="mr-3">
           <img
+           id="log-dashboard-image"
             className="w-96 ml-28 -m-32"
             src={DashboardImage}
             alt="Your Image"
@@ -101,9 +105,9 @@ const Login = () => {
         </div>
       </div>
 
-      <div className="w-1/2 p-10 pt-1 mt-32">
+      <div className="w-1/2 p-10 pt-1 mt-32" id="log-form">
         <img src={CooperaLogo} alt="Logo" className="h-9 w-9 mb-2 -mt-5" />
-        <h2 className="welcome-back-big-font-style mb-7">Welcome back!</h2>
+        <h2 className="welcome-back-big-font-style mb-7" id="log-welcome-text">Welcome back!</h2>
         <form onSubmit={handleFormSubmit}>
           <div className="mb-5">
             <label className="sub-text-font-style">Email Address</label>
@@ -152,7 +156,7 @@ const Login = () => {
             )}
             <a
               className="forgotten-password-link"
-              href="/forgot-password"> Forgotten Password?
+              href="/forgot-password" id="log-forgot-password"> Forgotten Password?
             </a>
           </div>
 

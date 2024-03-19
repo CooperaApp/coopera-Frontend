@@ -6,11 +6,12 @@ import DashboardImage from "../../../assets/images/svg/DashboardImg.svg";
 import { ToastContainer } from "react-toastify";
 import { notifySuccess, notifyError } from "../../../utils/functions/func.jsx";
 import "react-toastify/dist/ReactToastify.css";
+import '../../../styles/reponsiveness/registeration.css'
 import axios from "axios";
 import { BASE_URL } from "../../../utils/api/API_BASE_URL.jsx";
 import { useNavigate } from "react-router-dom";
 import * as Yup from "yup";
-
+  
 const RegistrationPage = () => {
   const navigate = useNavigate();
 
@@ -107,11 +108,13 @@ const RegistrationPage = () => {
   ];
 
   return (
-    <div className="flex h-screen pt-0 overflow-hidden">
-      <div className="border border-purple-100 w-1/2 bg-[#7C39DE] overflow-hidden">
+    <div className="flex h-screen pt-0 overflow-hidden" id="reg-main-container">
+      <div className="border border-purple-100 w-1/2 bg-[#7C39DE] overflow-hidden" id="reg-left-side-container">
         <img
           src={ArrowBack}
           alt="Arrow Back"
+          id="arrow-back"
+          className="arrow"
           style={{
             maxWidth: "2%",
             maxHeight: "2%",
@@ -121,30 +124,29 @@ const RegistrationPage = () => {
             filter: "invert(1)",
           }}
         />
-        <div className="h-40 w-96 mt-12 ml-28 ">
-          <p className="mb-5 authentication-big-font-style">
+        <div className="h-40 w-96 mt-12 ml-28 "  id="text-box">
+          <p className="mb-5 authentication-big-font-style" id="heading-text">
             Build your Cooperative Society using Coopera
           </p>
-          <p className="authentication-small-font-style">
+          <p className="authentication-small-font-style" id="subtext">
             With Coopera, managing your cooperative society is seamless. Elevate
             efficiency and foster financial growth
           </p>
         </div>
-        <div className="mt-3 mr-3 ">
+        <div className="mt-3 mr-3 " id="dashboard-image">
           <img
             className="relative w-96 ml-28"
             src={DashboardImage}
             style={{ height: "705px", width: "489px" }}
           />
-          <div className=""></div>
         </div>
       </div>
 
-      <div className="h-full w-1/2 p-10 pt-20 overflow-y-auto">
+      <div className="h-full w-1/2 p-10 pt-20 overflow-y-auto" id="form">
         <img src={CooperaLogo} alt="Logo" className="h-9 w-9 mb-2 -mt-5" />
         <h2 className="mb-8 get-started-big-font-style">Get Started</h2>
 
-        <form onSubmit={handleFormSubmit} className="">
+        <form onSubmit={handleFormSubmit} className="" id="input-fields">
           {inputConfig.map((input) => (
             <div className="mb-5" key={input.name}>
               <label className="sub-text-font-style">{input.label}</label>
