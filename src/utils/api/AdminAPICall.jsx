@@ -19,3 +19,24 @@ export const GenerateInviteLink = async (recipientEmail) => {
     return error.response;
   }
 };
+
+export const GetActivityLog = () => {
+  const endpoint = "/logs/findAllLogsByCooperativeId";
+  const URL = `${BASE_URL}${endpoint}`;
+
+  const token = sessionStorage.getItem("token");
+
+  const headers = {
+    Authorization: `Bearer ${token}`,
+  };
+
+  return axios
+    .get(URL, { headers })
+    .then((response) => {
+      return response;
+    })
+    .catch((error) => {
+      throw error;
+    });
+};
+
