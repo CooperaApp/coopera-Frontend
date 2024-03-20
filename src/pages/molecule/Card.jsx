@@ -21,24 +21,26 @@ const Card = () => {
   const [totalSavingsDropDown, setTotalSavingsDropDown] = useState(false);
   const [loanRepaidDropDown, setLoanRepaidDropDown] = useState(false);
 
+  const getDashboardStatistics = async () => {
+    const url = `${BASE_URL}/cooperative/getDashboardStatistics`;
+    try {
+      console.log("Get Dashboard Statistics == here" );
+      const response = await axios.get(url, {
+        headers: {
+          Authorization: "Bearer " + sessionStorage.getItem("token"),
+        },
+      });
+      setTotalSavings(response.data.data.totalSavings);
+      setAccountBalance(response.data.data.accountBalance);
+      setLoanDisbursed(response.data.data.loanDisbursed);
+      setLoanRepaid(response.data.data.loanRepaid);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   useEffect(() => {
-    const getDashboardStatistics = async () => {
-      const url = `${BASE_URL}/cooperative/getDashboardStatistics`;
-      try {
-        const response = await axios.get(url, {
-          headers: {
-            Authorization: "Bearer " + sessionStorage.getItem("token"),
-          },
-        });
-        console.log(response);
-        setTotalSavings(response.data.data.totalSavings);
-        setAccountBalance(response.data.data.accountBalance);
-        setLoanDisbursed(response.data.data.loanDisbursed);
-        setLoanRepaid(response.data.data.loanRepaid);
-      } catch (error) {
-        console.log(error);
-      }
-    };
+    console.log("Inside Use Effect");
     getDashboardStatistics();
   }, []);
 
@@ -51,7 +53,7 @@ const Card = () => {
               <div className="p-0 flex justify-between mb-2">
                 <div>
                   <p className="card-title">Account Balance</p>
-                  <p className="mt-3 w-full card-amount">#{accountBalance}</p>
+                  <p className="mt-3 w-full card-amount">₦{accountBalance}</p>
                 </div>
                 <div
                   className="ml-4 h-7 rounded-md items-center"
@@ -100,7 +102,7 @@ const Card = () => {
               <div className="p-0 flex justify-between mb-2">
                 <div>
                   <p className="card-title">Total Savings</p>
-                  <p className="mt-3 w-full card-amount">#{totalSavings}</p>
+                  <p className="mt-3 w-full card-amount">₦{totalSavings}</p>
                 </div>
                 <div
                   className="ml-4 h-7 rounded-md items-center"
@@ -151,7 +153,7 @@ const Card = () => {
               <div className="p-0 flex justify-between mb-2">
                 <div>
                   <p className="card-title">Loan Disbursed</p>
-                  <p className="mt-3 w-full card-amount">#{loanDisbursed}</p>
+                  <p className="mt-3 w-full card-amount">₦{loanDisbursed}</p>
                 </div>
                 <div
                   className="ml-4 h-7 rounded-md items-center"
@@ -199,7 +201,7 @@ const Card = () => {
               <div className="p-0 flex justify-between mb-2">
                 <div>
                   <p className="card-title">Loan Repaid</p>
-                  <p className="mt-3 w-full card-amount">#{loanRepaid}</p>
+                  <p className="mt-3 w-full card-amount">₦{loanRepaid}</p>
                 </div>
                 <div
                   className="ml-4 h-7 rounded-md items-center"

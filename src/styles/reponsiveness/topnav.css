@@ -1,0 +1,14 @@
+/* Tailwind CSS classes have been converted to regular CSS */
+
+/* Default styles for search bar */
+.search-bar {
+    width: 20rem; /* Initial width for larger screens */
+  }
+  
+  /* Media query for screens smaller than lg breakpoint (tailwind default: 1024px) */
+  @media (max-width: 1023px) {
+    .search-bar {
+      width: calc(100% - 0.5rem); /* Calculate width to fit other elements on mobile */
+    }
+  }
+  

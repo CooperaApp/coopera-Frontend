@@ -1,0 +1,11 @@
+#sidebar {
+    width: 12rem; /* Initial width for larger screens */
+    z-index: 1000; /* Set z-index high to ensure it appears above other content */
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background-color: #FFFFFF;
+    transition: transform 0.3s ease;
+    border: solid 2pt red;
+  }

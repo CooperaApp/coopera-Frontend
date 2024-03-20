@@ -8,8 +8,9 @@ import { useNavigate } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import * as Yup from "yup";
 import { notifySuccess, notifyError } from "../../../utils/functions/func";
-import { LOGIN_URL } from "../../../utils/api/API_BASE_URL"; 
+// import { LOGIN_URL } from "../../../utils/api/API_BASE_URL"; 
 import '../../../styles/reponsiveness/login.css'
+import { LOGIN_BASE_URL } from "../../../utils/api/API_BASE_URL";
 
 
 const Login = () => {
@@ -32,20 +33,15 @@ const Login = () => {
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
-
     try {
       await validationSchema.validate(formData, { abortEarly: false });
-      console.log("this is form data: ",formData);  
-      const response = await axios.post(
-        LOGIN_URL,
-        formData,
+      const response = await axios.post(`${LOGIN_BASE_URL}/login`, formData,
       );
 
-     
 
       const access_token = response.data.access_token;
+      console.log("access token === ", access_token);
       sessionStorage.setItem("token", access_token);
-      console.log("token: ", access_token);
 
       notifySuccess("Login successful");
       setTimeout(() => {

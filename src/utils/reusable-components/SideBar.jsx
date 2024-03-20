@@ -1,14 +1,15 @@
+// SideBar.js
 import CooperaFullLogo from "../../assets/images/svg/CooperaFullLogo.svg";
 import LMCLogo from "../../assets/images/svg/LMCLogo.svg";
 import { DASHBOARD_SIDE_BAR_LINKS } from "../constant/Navigations";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
-
 const linkClasses = "flex items-center gap-2 text-gray-500 font-light px-3 py-2 hover:bg-purple-100 hover:no-underline active:bg-neutral-600 rounded-sm text-base";
-const SideBar = () => {
+
+const SideBar = ({ isOpen }) => {
   return (
-    <div className="w-48 pt-0 mt-0 h-full items-center flex flex-col border overflow-hidden">
+    <div className={`w-48 pt-0 mt-0 h-full items-center flex flex-col border overflow-hidden ${isOpen ? 'block' : 'hidden'}`} id='sidebar'>
       <div className="flex flex-col justify-between items-center pt-0 px-1 py-3">
         <img className="w-20 pt-5 pb-6" src={CooperaFullLogo} alt="Coopera Logo"/>
         <img className="w-16 h-16" src={LMCLogo} alt="LMC Logo"/>

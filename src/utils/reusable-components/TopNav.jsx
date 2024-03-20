@@ -3,10 +3,18 @@ import ArrowOptions from "../../assets/images/svg/Arrow-Options.svg";
 import NotificationIcon from "../../assets/images/svg/NotificationIcon.svg";
 import LMCLogo2 from "../../assets/images/svg/LMCLogo2.svg";
 import "../../styles/Tailwind.css";
+import '../../styles/reponsiveness/topnav.css'
 
-const TopNav = () => {
+const TopNav = ({toggleSidebar}) => {
   return (
     <div className="flex flex-row items-center justify-between py-3 space-x-6 px-6 h-12 overflow-hidden border-b" style={{backgroundColor: "#FFFFFF"}}>
+      <button className="block lg:hidden" onClick={toggleSidebar}>
+        <div className="w-6 h-6">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h8m-8 6h16" />
+          </svg>
+        </div>
+      </button>
       <div className="">
         <form action="w-full max-w-md">
           <div className="relative flex items-center text-gray-400 focus-within:text-gray-600">

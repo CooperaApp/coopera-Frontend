@@ -1,12 +1,27 @@
 import TopNav from "../../utils/reusable-components/TopNav";
 import SideBar from "../../utils/reusable-components/SideBar";
-// import { GenerateInviteLink } from "../../utils/api/AdminAPICall";
+import { GenerateInviteLink } from "../../utils/api/AdminAPICall";
+import { useState } from "react";
+import { notifyError, notifySuccess } from "../../utils/functions/func";
 
 const Settings = () => {
+  const [recipientEmail, setRecipientEmail] = useState([]);
 
-  // const generateInviteLink = ()=>{
-  //   response = GenerateInviteLink();
-  // }
+  async function handleSubmit(event) {
+    event.preventDefault();
+    console.log("Recipient Email => ", recipientEmail);
+    try {
+      const response = await GenerateInviteLink(recipientEmail);
+      if (response.status === 201) {
+        notifySuccess("Invite Link successfully sent to all recipients");
+      }
+      console.log("response.status == ", response.status);
+      console.log("Generate Invite Response => ", response);
+      console.log("Response.data => ", response.data);
+    } catch (error) {
+      notifyError(error.response);
+    }
+  }
 
   return (
     <div
@@ -88,7 +103,32 @@ const Settings = () => {
               ></textarea>
             </div>
           </div>
-          <div></div>
+          <br />
+          <br />
+
+          <div className="border ml-5">
+            {" "}
+            <p>Quick Generate Invite Link Design for Test (To be Deleted)</p>
+          </div>
+          <form onSubmit={handleSubmit} className="m-5 flex flex-col">
+            <textarea
+              placeholder="Invite member"
+              className="border w-full bg-[#F3F3F3]"
+              style={{ height: "100px" }}
+              name="recipientEmail"
+              value={recipientEmail.join(",")}
+              onChange={(event) =>
+                setRecipientEmail(event.target.value.split(","))
+              }
+            />
+            <button className="mt-5 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+              Invite Member
+            </button>
+          </form>
+          <br />
+          <br />
+          <br />
+          <br />
         </div>
       </div>
     </div>

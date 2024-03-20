@@ -1,0 +1,130 @@
+{
+    "places": [
+        {
+            "types": [
+                "point_of_interest",
+                "establishment"
+            ],
+            "formattedAddress": "Matori Industrial Estate, 6 Badejo Kalesanwo St, Papa Ajao, Lagos 102215, Lagos, Nigeria",
+            "websiteUri": "http://www.woermann-nigeria.com/",
+            "displayName": {
+                "text": "C.Woermann Nigeria Limited",
+                "languageCode": "en"
+            }
+        },
+        {
+            "types": [
+                "hospital",
+                "health",
+                "point_of_interest",
+                "establishment"
+            ],
+            "formattedAddress": "G8XX+9HQ, Nitel Complex, Papa Ajao, Lagos 102215, Lagos, Nigeria",
+            "displayName": {
+                "text": "Federal NeuroPsychiatric Hospital Annex Office",
+                "languageCode": "en"
+            }
+        },
+        {
+            "types": [
+                "point_of_interest",
+                "establishment"
+            ],
+            "formattedAddress": "F.I.I.R.O Rd, Papa Ajao, Lagos 102215, Lagos, Nigeria",
+            "displayName": {
+                "text": "Federal Institute of Industrial Research Oshodi",
+                "languageCode": "en"
+            }
+        },
+        {
+            "types": [
+                "telecommunications_service_provider",
+                "point_of_interest",
+                "establishment"
+            ],
+            "formattedAddress": "16 Fatai Atere Way, Matori, Lagos 100211, Lagos, Nigeria",
+            "websiteUri": "https://mtnonline.com/",
+            "displayName": {
+                "text": "MTN Service Center Matori",
+                "languageCode": "en"
+            }
+        },
+        {
+            "types": [
+                "point_of_interest",
+                "establishment"
+            ],
+            "formattedAddress": "Afribank House, 11/12 Fatai Atere Way, Matori, Lagos 100001, Lagos, Nigeria",
+            "displayName": {
+                "text": "StarTimes Lagos",
+                "languageCode": "en"
+            }
+        },
+        {
+            "types": [
+                "car_dealer",
+                "car_repair",
+                "point_of_interest",
+                "store",
+                "establishment"
+            ],
+            "formattedAddress": "18 Fatai Atere Way, Matori, Lagos 102215, Lagos, Nigeria",
+            "websiteUri": "http://www.rtbriscoe.com/",
+            "displayName": {
+                "text": "R.T. Briscoe Nigeria PLC",
+                "languageCode": "en"
+            }
+        },
+        {
+            "types": [
+                "point_of_interest",
+                "establishment"
+            ],
+            "formattedAddress": "G8QW+WFF, 27b Fatai Atere Way, Matori, Lagos 100253, Lagos, Nigeria",
+            "websiteUri": "http://www.thenationonlineng.net/",
+            "displayName": {
+                "text": "The Nation Newspaper",
+                "languageCode": "en"
+            }
+        },
+        {
+            "types": [
+                "hotel",
+                "lodging",
+                "point_of_interest",
+                "establishment"
+            ],
+            "formattedAddress": "F.I.I.R.O Rd, Papa Ajao, Lagos 102215, Lagos, Nigeria",
+            "displayName": {
+                "text": "NAFRC Guest House",
+                "languageCode": "en"
+            }
+        },
+        {
+            "types": [
+                "wholesaler",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "formattedAddress": "12/14 Fatai Atere Way, Mushin, Lagos 102215, Lagos, Nigeria",
+            "displayName": {
+                "text": "Olam OK Foods",
+                "languageCode": "en"
+            }
+        },
+        {
+            "types": [
+                "taxi_stand",
+                "point_of_interest",
+                "establishment"
+            ],
+            "formattedAddress": "10b Fatai Atere Way, Papa Ajao, Lagos 102215, Lagos, Nigeria",
+            "websiteUri": "https://matori-taxi-park.business.site/?utm_source=gmb&utm_medium=referral",
+            "displayName": {
+                "text": "Matori Taxi Park",
+                "languageCode": "en"
+            }
+        }
+    ]
+}
