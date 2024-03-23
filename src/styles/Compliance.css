@@ -1,0 +1,28 @@
+.update-profile {
+    background-color: white;
+    border-radius: 8px;
+    width: 100%;
+    height: 60px;
+}
+
+.update-bank-details {
+    background-color:white;
+    border-radius: 8px;
+    width: 100%;
+    height: 60px;
+}
+
+.update-loan-settings {
+    background-color: white;
+    border-radius: 8px;
+    width: 100%;
+    height: 60px;
+}
+
+.update-profile-expanded {
+    background-color: white;
+    border-radius: 8px;
+    width: 100%;
+    height: 100px;
+
+}

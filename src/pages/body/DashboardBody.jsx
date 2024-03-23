@@ -2,6 +2,7 @@ import Card from "../molecule/Card";
 import PieChart from "../molecule/PieChart";
 import Filter from "../../assets/images/svg/Filter.svg";
 import { LuSearch } from "react-icons/lu";
+import Compliance from "../molecule/Compliance";
 import {
   Chart as ChartJS,
   ArcElement,
@@ -42,7 +43,11 @@ const DashboardBody = () => {
         <CustomDatePicker onSelectDate={handleSelectDate} />
       </div>
 
-      <div className="w-full h-80 flex flex-row flex-shrink-0">
+      <div className="mt-3">
+        <Compliance />
+      </div>
+
+      <div className="w-full h-80 flex flex-row flex-shrink-0 mt-5">
         <Card />
         <PieChart />
       </div>
