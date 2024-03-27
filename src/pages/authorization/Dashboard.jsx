@@ -5,7 +5,7 @@ import SideBar from "../../utils/reusable-components/SideBar";
 import DashboardBody from "../body/DashboardBody";
 
 const Dashboard = () => {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
 
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
@@ -17,7 +17,7 @@ const Dashboard = () => {
       style={{ backgroundColor: "#F8F8F9" }}
     >
       <div>
-        <SideBar isOpen={isSidebarOpen} />
+        <SideBar isOpen={isSidebarOpen} toggleSidebar={toggleSidebar}/>
       </div>
 
       <div className="w-full h-full">

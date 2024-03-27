@@ -164,24 +164,26 @@ const Statistics = () => {
 
   return (
     <div>
-      <div className="h-96 flex flex-shrink-0 mt-7 overview-x-hidden">
-        <div className="border p-4 bg-white h-full rounded-md w-1/2 mr-3">
-          <div className="justify-between flex">
-            <p className="heading">Loan Statistics</p>
-            <div className="ml-12 flex">
+      <div className="h-96 flex flex-shrink-0 mt-7 overview-x-hidden" id="dash-stats-box">
+        <div className="border p-4 bg-white h-full rounded-md w-1/2 mr-3" id="dash-first-stat">
+          <div className="justify-between flex" id="loan-stat-top-sect">
+            <p className="heading" id="loan-stats-header">Loan Statistics</p>
+            <div className="ml-12 flex" id="loan-text-container">
               <div
                 className="w-2 h-2 rounded-full mt-2 mr-1"
+                id="loan-circle1"
                 style={{ backgroundColor: "#7838D6" }}
               ></div>
-              <span className="pie-chart-labels">Loans Disbursed</span>
+              <span className="pie-chart-labels"id="loan-stats-text">Loans Disbursed</span>
               <div
                 className="ml-7 w-2 h-2 rounded-full mt-2 mr-1"
+                id="loan-circle2"
                 style={{ backgroundColor: "#0EBE8D" }}
               ></div>
-              <span className="pie-chart-labels">Loans Repaid</span>
+              <span className="pie-chart-labels"id="loan-stats-text">Loans Repaid</span>
             </div>
             <div className="border flex relative">
-              <p className="previous-month-styling ml-2">Monthly</p>
+              <p className="previous-month-styling ml-2"id="loan-stats-text">Monthly</p>
               <img
                 src={ArrowOptions}
                 alt="Dropdown Trigger"
@@ -198,7 +200,7 @@ const Statistics = () => {
             </div>
           </div>
 
-          <div className="h-full pt-4 pb-4 ">
+          <div className="h-full pt-4 pb-4 " id="loan-stat-diagram">
             <ResponsiveContainer width="100%" height="100%">
               <LineChart
                 width={500}
@@ -241,7 +243,7 @@ const Statistics = () => {
           </div>
         </div>
 
-        <div className="border h-full bg-white rounded-md w-1/2 ml-1 mr-4 p-4">
+        <div className="border h-full bg-white rounded-md w-1/2 ml-1 mr-4 p-4" id="dash-second-stat">
           <div className="flex justify-between">
             <p className="heading">Savings</p>
             <div className="items-center justify-center h-full flex border h-4 w-30 ml-3">

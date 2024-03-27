@@ -8,7 +8,7 @@ const PieChart = () => {
   const [dropDown, setDropDown] = useState(false);
 
   return (
-    <div className="border bg-white rounded-md w-6/12 h-full mr-4">
+    <div className="border bg-white rounded-md w-6/12 h-full mr-4" id="dash-pie-chart">
       <div className="p-3 -mt-2">
         <div className="justify-between pt-2 flex flex-row">
           <p className="cooperative-overview">Cooperative Overview</p>

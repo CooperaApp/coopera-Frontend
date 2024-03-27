@@ -1,11 +1,24 @@
+
+
+@media screen and (max-width: 767px) {
 #sidebar {
-    width: 12rem; /* Initial width for larger screens */
-    z-index: 1000; /* Set z-index high to ensure it appears above other content */
+    width: 12rem; 
+    z-index: 1000; 
     position: fixed;
     top: 0;
     left: 0;
     height: 100%;
     background-color: #FFFFFF;
     transition: transform 0.3s ease;
-    border: solid 2pt red;
+    box-shadow: 10px 10px 10px  rgba(0, 0, 0, 0.096);
   }
+
+  .sidebar-button{
+    width: 40%;
+    border-radius: 5px;
+    margin: 2rem;
+    height: 30px;
+    background-color: black;
+    color: #FFFFFF ;
+  }
+}

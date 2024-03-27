@@ -2,6 +2,7 @@ import Card from "../molecule/Card";
 import PieChart from "../molecule/PieChart";
 import Filter from "../../assets/images/svg/Filter.svg";
 import { LuSearch } from "react-icons/lu";
+import '../../styles/reponsiveness/dashboardBody.css';
 import {
   Chart as ChartJS,
   ArcElement,
@@ -36,20 +37,20 @@ const handleSelectDate = (date) => {
 const DashboardBody = () => {
   return (
     <div className="h-full ml-4 overflow-y-hidden">
-      <div className="w-full flex mt-2 mb-2 flex-shrink-0 justify-between w-5/6">
+      <div className="w-full flex mt-2 mb-2 flex-shrink-0 justify-between w-5/6" id="dash-top-bar">
         <div className="dashboard-header">Dashboard Overview</div>
 
         <CustomDatePicker onSelectDate={handleSelectDate} />
       </div>
 
-      <div className="w-full h-80 flex flex-row flex-shrink-0">
+      <div className="w-full h-80 flex flex-row flex-shrink-0" id="dash-top-section">
         <Card />
         <PieChart />
       </div>
 
       <Statistics />
 
-      <div className="border p-5 bg-white mt-7 rounded-md mr-4 w-12/12 ">
+      <div className="border p-5 bg-white mt-7 rounded-md mr-4 w-12/12 " id="recent-act-box">
         <div className="mb-5 flex w-full justify-between h-8">
           <div>
             <p className="heading">Recent Activities</p>

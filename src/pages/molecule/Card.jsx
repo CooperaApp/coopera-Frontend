@@ -45,10 +45,10 @@ const Card = () => {
   }, []);
 
   return (
-    <div className="mr-3 h-80 flex flex-row flex-shrink-0">
-      <div className="">
-        <div className="flex">
-          <div className="bg-white p-3 w-64 h-36 rounded-xl ">
+    <div className="mr-3 h-80 flex flex-row flex-shrink-0" id="dash-card-box">
+      <div className="dash-card-flexbox">
+        <div className="flex" id="dash-cardflex-1">
+          <div className="bg-white p-3 w-64 h-36 rounded-xl " id="dash-card1">
             <div className="h-32  p-0 ">
               <div className="p-0 flex justify-between mb-2">
                 <div>
@@ -97,7 +97,7 @@ const Card = () => {
             </div>
           </div>
 
-          <div className="bg-white p-3 w-64 h-36 rounded-xl ml-3">
+          <div className="bg-white p-3 w-64 h-36 rounded-xl ml-3" id="dash-card2">
             <div className="h-32  p-0 ">
               <div className="p-0 flex justify-between mb-2">
                 <div>
@@ -147,8 +147,8 @@ const Card = () => {
           </div>
         </div>
 
-        <div className="flex mt-7">
-          <div className="bg-white p-3 w-64 h-36 rounded-xl ">
+        <div className="flex mt-7" id="dash-cardflex-2">
+          <div className="bg-white p-3 w-64 h-36 rounded-xl " id="dash-card3">
             <div className="h-32  p-0 ">
               <div className="p-0 flex justify-between mb-2">
                 <div>
@@ -196,7 +196,7 @@ const Card = () => {
               </div>
             </div>
           </div>
-          <div className="bg-white p-3 w-64 h-36 rounded-xl ml-3">
+          <div className="bg-white p-3 w-64 h-36 rounded-xl ml-3" id="dash-card4">
             <div className="h-32  p-0 ">
               <div className="p-0 flex justify-between mb-2">
                 <div>

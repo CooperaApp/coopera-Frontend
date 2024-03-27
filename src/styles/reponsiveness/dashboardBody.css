@@ -1,0 +1,126 @@
+
+@media screen and (max-width: 767px) {
+
+.dash-card-flexbox{
+        display: flex;
+        overflow-x: scroll;
+      
+}
+
+#dash-card-box{ 
+flex-direction: row;
+height: fit-content;
+width: 105%;
+
+margin-left: 3%;
+}
+
+#dash-top-section{
+
+    flex-direction: column;
+    height:  fit-content;
+    padding: 0.5rem;
+    width: 95%;
+    align-items: center;
+
+    
+
+}
+
+#dash-cardflex-1, #dash-cardflex-2{
+   
+    width: auto;
+    padding: 0.5rem;
+    align-items: center;
+    height: 100%;
+    margin-top: auto;
+   
+}
+
+
+#dash-card1{
+    margin-left: 0%;
+}
+
+
+#dash-pie-chart{
+    width: 100%;
+    height: auto;
+    margin-top: 1rem;
+    margin-left: auto;
+    
+}
+
+#dash-stats-box{
+   flex-direction: column;
+   height: 20%;
+   width: 95%;
+}
+
+#dash-first-stat,#dash-second-stat{
+    width: 100%;
+    padding-left: 0%;
+    margin-left: 0%;
+    height: 18rem;    
+    
+}
+
+#dash-second-stat{
+    margin-top: 1rem;
+}
+
+#loan-stat-top-sect{
+    width: 105%;
+    padding: 3%;
+}
+
+#loan-stats-header{
+    font-size: x-small;
+    width: 19%;
+    display: none;
+   
+    
+}
+
+#loan-stats-text{
+    font-size: x-small;
+}
+
+#loan-circle1,#loan-circle2{
+    width: 0.5rem;
+    margin-left: 1%;
+    
+}
+
+#loan-text-container{
+    align-content: space-between;
+    margin-left: 0%;
+}
+
+#loan-stat-diagram{
+    width: 105%;
+    height: 12rem;
+    
+}
+
+#recent-act-box{
+ margin-bottom: 2rem; 
+ overflow-x: scroll;
+}
+
+#rec-header-box{
+    width: auto;
+    padding: 0%;
+}
+
+#rec-memberId-header,#rec-date-header, #rec-amount-header{
+display: none;
+}
+
+
+
+#dash-rec-memberId, #dash-rec-date, #dash-rec-amount{
+  display: none;  
+}
+
+}
